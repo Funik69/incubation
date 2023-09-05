@@ -1,0 +1,81 @@
+.RegForm{
+    background-color: rgb(248, 241, 241);
+    margin: 0;
+    padding: 0;
+}
+#cover{
+   background-color: rgb(247, 245, 235);
+    margin: 0;
+    padding: 0;
+}
+h2{
+    margin-top: 20px;
+    padding-top: 200px;
+    text-align:center;
+    font-size: 45px;
+}
+h3{
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: larger;
+}
+h4{
+    font-size: 20px;
+}
+.c1,.c2,.c3,.c4,.ProgramPref{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding-left: 1cm;
+    padding-right: 2cm;
+    margin: 10px;
+}
+#businessIdea,#whyJoinUs,#registered,#development,#successful{
+    font-size: 19px;
+    color: black;
+    padding: 5px;
+    height: 4cm;
+    width: 12cm;
+    margin: 10px;
+    border-radius: 25px 50px 25px 50px;
+    border-color: black;
+}
+#startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile{
+    font-size: 19px;
+    color: black;
+    padding: 5px;
+    height: 1cm;
+    width: 13cm;
+    margin: 10px;
+    border-radius: 25px 50px 25px 50px;
+    border-color: black;
+}
+#filee{
+    display: inline-block;
+    float: right;
+    padding-left: 3cm;
+}
+.doc{
+    display: flex;
+    padding-left: 1cm;
+    padding-right: 2cm;
+    margin: 10px;
+}
+label{
+    font-size: 20px;
+    font-weight:390px;
+}
+::placeholder{
+    font-size: 15px;
+    opacity: 0.8;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+}
+#btnstyle{
+    position: absolute;
+    height: 40px;
+    width: 170px;
+    border-radius: 25px 25px;
+}
