@@ -403,6 +403,7 @@ function StartupForm() {
         <div>
           <label htmlFor="linkedinProfile">Linkedin Profile</label><br></br>
           <input
+          placeholder='https://www.linkedin.com/in/'
             type="text"
             id="linkedinProfile"
             name="linkedinProfile"
