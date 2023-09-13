@@ -191,12 +191,13 @@ function StartupForm() {
     }
   };
 
-  return (
-    <div className='RegForm'>
+  return (<> 
     <div id='cover'> 
          <h2>Innovation and Incubation - A helping Hand for Startups</h2>
          <h3>Apply for Incubation</h3><br></br><br></br>
     </div>
+    <div className='RegForm'>
+   
       <form onSubmit={handleSubmit}>
       <div className='Userinfo'>
       <h4>Applicant's Information</h4>
@@ -448,6 +449,6 @@ function StartupForm() {
         </div>
       </form>
     </div>
-  );
+  </>);
 }
   export default StartupForm;
