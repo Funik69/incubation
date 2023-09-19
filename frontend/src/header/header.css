@@ -82,6 +82,11 @@ ul {
  .links li:not(:last-child):hover {
   color: #6c63ff;
 }
-.logo1, .logo2{
+.logo1{
   mix-blend-mode: multiply;
+}
+.logo2{
+  mix-blend-mode: multiply;
+  height: 100px;
+  width: 100px;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './home.css';
-import startimg from '../img/FrontImage.logo.png';
+import startimg from '../img/coverpic.png';
 import About from '../aboutUs/aboutUs';
 import Programs from '../programs/programs';
 import Event from '../event/event';

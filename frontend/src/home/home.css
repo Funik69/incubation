@@ -82,5 +82,9 @@
   .landing-page .content .image img {
     margin-left: 40px;
   }
+  .image{
+    mix-blend-mode: multiply;
+    justify-content: right;
+  }
   /* End Landing Page */
   

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import clglogo from '../img/ietdavv.logo.jpg';
-import incubationlogo from '../img/incubation.logo.png';
+import incubationlogo from '../img/inculogo.png';
 import './header.css';
 function Portfolio() {
 return (
@@ -45,7 +45,11 @@ return (
                   <b>Contact</b>
                 </a>
               </li>
-              <li><b>Apply Now</b></li>
+              <li>
+                <a href='./StartupForm'>
+                <b style={{color:'white'}}>Apply Now</b>
+                </a>
+              </li>
             </ul>
           </div>
       </div>
