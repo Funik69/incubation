@@ -2,7 +2,7 @@
 .main {
   position: sticky;
   top: 0;
-  background-color: rgb(206, 204, 248);
+  background-color: rgb(244, 238, 254);
 }
 ul {
   list-style: none;
@@ -81,4 +81,7 @@ ul {
 }
  .links li:not(:last-child):hover {
   color: #6c63ff;
+}
+.logo1, .logo2{
+  mix-blend-mode: multiply;
 }
