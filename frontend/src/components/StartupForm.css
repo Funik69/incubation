@@ -1,13 +1,13 @@
 .RegForm{
     background-color: #FFF;
-    padding: 50px
+    padding: 50px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #cover{
    background-color: #FFF;
    color: #0d0254;
     margin: 0;
     padding: 0;
-    font-family:'Open Sans', sans-serif
 }
 h2{
     margin-top: 20px;
@@ -67,12 +67,17 @@ label{
     font-weight:390px;
 }
 ::placeholder{
-    font-size: 15px;
+    font-size: 19px;
     opacity: 0.8;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .btn{
+    margin: 6%;
     display: flex;
     justify-content: center;
+}
+.btn :hover{
+    transform: scale(1.1);
 }
 #btnstyle{
     position: absolute;

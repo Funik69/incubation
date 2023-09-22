@@ -45,7 +45,11 @@ return (
                   <b>Contact</b>
                 </a>
               </li>
-              <li><b>Apply Now</b></li>
+              <li>
+              <a href='./StartupForm'>
+                  <b style={{color:'white'}}>Apply now</b>
+                </a>
+              </li>
             </ul>
           </div>
       </div>
