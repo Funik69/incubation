@@ -192,13 +192,13 @@ function StartupForm() {
       receiverEmail: formData.email, // Receiver's email from the form
       subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
       message: `
-      Dear ${formData.founderName}, 
+Dear ${formData.founderName}, 
 
-      Thank you for registering with IET-DAVV Incubation. We are excited to have you as part of our entrepreneurial community and look forward to supporting your journey towards success.
+Thank you for registering with IET-DAVV Incubation. We are excited to have you as part of our entrepreneurial community and look forward to supporting your journey towards success.
 
-      Please be informed that our team is currently processing your registration details. You can expect to receive a confirmation email with further instructions and next steps in a week. 
+Please be informed that our team is currently processing your registration details. You can expect to receive a confirmation email with further instructions and next steps in a week. 
       
-      We are committed to providing you with the best possible support and resources to help you succeed.`,
+We are committed to providing you with the best possible support and resources to help you succeed.`,
     };
     
     try {

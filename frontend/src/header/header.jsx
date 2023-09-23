@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import clglogo from '../img/ietdavv.logo.jpg';
-import incubationlogo from '../img/incubation.logo.png';
+import incubationlogo from '../img/inculogo.png';
 import './header.css';
 function Portfolio() {
 return (

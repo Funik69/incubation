@@ -9,17 +9,17 @@ return (
     <>
     <div className="contact-form">
       <div className="card">
-      <img src={location}></img>
+      <img className='imgg' src={location}></img>
         <h3>Location</h3>
         <p>Incubation Center - IET DAVV, Khandwa road, Indore 452020</p>
       </div>
       <div className="card">
-      <img src={mob}></img>
+      <img className='imgg' src={mob}></img>
         <h3>Mobile Number</h3>
         <p>(123) 456-7890</p>
       </div>
       <div className="card">
-      <img src={mail}></img>
+      <img className='imgg' src={mail}></img>
         <h3>Email Address</h3>
         <p>Write to us at example@example.com</p>
       </div>
