@@ -1,15 +1,75 @@
 import React, { useState } from 'react';
 import './portfolio.css';
+import image from '../img/incubation.logo.png';
 function Portfolio() {
 return (
-    <div class="here3"> 
-        <h1>THIS IS PORTFOLIO PAGE.</h1>
-        <p> 
-            <b>yha jo mann ho daal dena</b>
-            <br/>
-            Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services.With this intent in mind, we are inclined towards offering a effective solution for all the startups in the best possible manner.
-        </p>
+    <>
+    <div className='portCover'>
+    <h1>The Successful Startup</h1>
     </div>
+
+        <div className='con1'>
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+
+        <div className='card1'>
+            <img src={image} alt='Image' className='startuplogo'></img>
+            <h2>StartUp Name</h2>
+            <p>The startup summary in few lines</p>
+        </div>
+        </div>
+    </>
     );
 }
 export default Portfolio;

@@ -191,14 +191,7 @@ function StartupForm() {
     const formDataToSend = {
       receiverEmail: formData.email, // Receiver's email from the form
       subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
-      message: `
-Dear ${formData.founderName}, 
-
-Thank you for registering with IET-DAVV Incubation. We are excited to have you as part of our entrepreneurial community and look forward to supporting your journey towards success.
-
-Please be informed that our team is currently processing your registration details. You can expect to receive a confirmation email with further instructions and next steps in a week. 
-      
-We are committed to providing you with the best possible support and resources to help you succeed.`,
+      message:formData.founderName,
     };
     
     try {
@@ -244,17 +237,17 @@ We are committed to providing you with the best possible support and resources t
 
   return (<> 
     <div id='cover'> 
-         <h2>Innovation and Incubation - A helping Hand for Startups</h2>
-         <h3>Apply for Incubation</h3><br></br><br></br>
+         <h2 className='h12'>Innovation and Incubation - A helping Hand for Startups</h2>
+         <h3 className='h13'>Apply for Incubation</h3><br></br><br></br>
     </div>
     <div className='RegForm'>
    
       <form onSubmit={handleSubmit}>
       <div className='Userinfo'>
-      <h4>Applicant's Information</h4>
+      <h4 className='h14'>Applicant's Information</h4>
       <div className='c1'>
         <div>
-          <label htmlFor="startupName">Startup Name*</label><br></br>
+          <label className='lbl' htmlFor="startupName">Startup Name*</label><br></br>
           <input
             type="text"
             placeholder='Enter startup name'
@@ -268,7 +261,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
   
         <div>
-          <label htmlFor="founderName">Founder Name*</label><br></br>
+          <label className='lbl' htmlFor="founderName">Founder Name*</label><br></br>
           <input
             type="text"
             placeholder='Enter full name'
@@ -284,7 +277,7 @@ We are committed to providing you with the best possible support and resources t
          
         <div className='c2'>
         <div>
-          <label htmlFor="mobileNumber">Contact Number*</label><br></br>
+          <label className='lbl' htmlFor="mobileNumber">Contact Number*</label><br></br>
           <input
             type="tel"
             placeholder='Enter mobile number'
@@ -298,7 +291,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
 
         <div>
-          <label htmlFor="alternateNumber">Alternate Number</label><br></br>
+          <label className='lbl' htmlFor="alternateNumber">Alternate Number</label><br></br>
           <input
             type="tel"
             placeholder='Enter mobile number'
@@ -314,7 +307,7 @@ We are committed to providing you with the best possible support and resources t
   
         <div className='c3'>
         <div>
-          <label htmlFor="email">Email*</label> <br></br>
+          <label className='lbl' htmlFor="email">Email*</label> <br></br>
           <input
             type="email"
             placeholder='Enter mail address '
@@ -328,7 +321,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
   
         <div>
-          <label htmlFor="location">Location*</label><br></br>
+          <label className='lbl' htmlFor="location">Location*</label><br></br>
           <input
             type="text"
             placeholder='Enter current location'
@@ -344,7 +337,7 @@ We are committed to providing you with the best possible support and resources t
 
         <div className='c4'>
         <div>
-          <label htmlFor="state">State*</label><br></br>
+          <label className='lbl' htmlFor="state">State*</label><br></br>
           <input
             type="text"
             placeholder='Enter state details'
@@ -358,7 +351,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
   
         <div>
-          <label htmlFor="pinCode">PIN Code*</label><br></br>
+          <label className='lbl' htmlFor="pinCode">PIN Code*</label><br></br>
           <input
             type="text"
             placeholder='Enter pin code'
@@ -373,10 +366,10 @@ We are committed to providing you with the best possible support and resources t
         </div> 
         </div>
 
-      <h4>Startup Proposal</h4>
+      <h4 className='h14'>Startup Proposal</h4>
       <div className='doc'>
         <div >
-          <label htmlFor="businessIdea">Startup idea summary in 200 words </label><br></br>
+          <label className='lbl' htmlFor="businessIdea">Startup idea summary in 200 words </label><br></br>
           <textarea rows={8} cols={100}
             id="businessIdea"
             name="businessIdea"
@@ -388,7 +381,7 @@ We are committed to providing you with the best possible support and resources t
         </div> 
   
         <div id="filee">
-          <label htmlFor="businessModelFile">Business Model (PDF)*</label><br></br>
+          <label className='lbl' htmlFor="businessModelFile">Business Model (PDF)*</label><br></br>
           <input
             type="file"
             id="businessModelFile"
@@ -401,10 +394,10 @@ We are committed to providing you with the best possible support and resources t
         </div>
         </div> 
 
-        <h4>Program preferences</h4>
+        <h4 className='h14'>Program preferences</h4>
         <div className='ProgramPref'>
         <div>
-          <label htmlFor="whyJoinUs">Why you want to join us?</label> <br></br>
+          <label className='lbl' htmlFor="whyJoinUs">Why you want to join us?</label> <br></br>
           <textarea rows={4} cols={60}
             id="whyJoinUs"
             name="whyJoinUs"
@@ -416,7 +409,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
   
         <div>
-          <label htmlFor="registered">Are you registered with any other incubation?</label><br></br>
+          <label className='lbl' htmlFor="registered">Are you registered with any other incubation?</label><br></br>
           <textarea rows={4} cols={60}
             id="registered"
             name="registered"
@@ -428,7 +421,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
 
         <div>
-          <label htmlFor="development">Stage of development?</label> <br></br>
+          <label className='lbl' htmlFor="development">Stage of development?</label> <br></br>
           <textarea rows={4} cols={60}
             id="development"
             name="development"
@@ -440,7 +433,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
 
         <div>
-          <label htmlFor="successful">Specify how your startup became successful?</label> <br></br>
+          <label className='lbl' htmlFor="successful">Specify how your startup became successful?</label> <br></br>
           <textarea rows={4} cols={60}
             id="successful"
             name="successful"
@@ -453,7 +446,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
 
         <div>
-          <label htmlFor="linkedinProfile">Linkedin Profile</label><br></br>
+          <label className='lbl' htmlFor="linkedinProfile">Linkedin Profile</label><br></br>
           <input
           placeholder='https://www.linkedin.com/in/'
             type="text"
@@ -465,10 +458,10 @@ We are committed to providing you with the best possible support and resources t
           />
           <div className="error">{formErrors.linkedinProfile}</div>
         </div>
-
-   <label>I confirm/agree to </label><br></br>
+<br></br>
+   <label className='lbl'>I confirm/agree to </label><br></br>
         <div>
-          <label>
+          <label className='lbl'>
             <input
               type="checkbox"
               name="ietDavvRights"
@@ -482,7 +475,7 @@ We are committed to providing you with the best possible support and resources t
         </div>
 
         <div>
-          <label>
+          <label className='lbl'>
             <input
               type="checkbox"
               name="sharewithmentor"

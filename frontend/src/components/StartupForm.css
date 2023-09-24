@@ -9,19 +9,19 @@
     margin: 0;
     padding: 0;
 }
-h2{
+.h12{
     margin-top: 20px;
     padding-top: 200px;
     text-align:center;
     font-size: 45px;
 }
-h3{
+.h13{
     margin-top: 30px;
     padding-top: 20px;
     text-align: center;
     font-size: larger;
 }
-h4{
+.h14{
     font-size: 20px;
 }
 .c1,.c2,.c3,.c4,.ProgramPref{
@@ -62,7 +62,7 @@ h4{
     padding-right: 2cm;
     margin: 10px;
 }
-label{
+.lbl{
     font-size: 20px;
     font-weight:390px;
 }
