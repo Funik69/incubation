@@ -4,6 +4,7 @@ import clglogo from '../img/ietdavv.logo.jpg';
 import incubationlogo from '../img/inculogo.png';
 import './header.css';
 function Portfolio() {
+  const [menuOpen,setMenuOpen] = useState(false);
 return (
     <div class="main"> 
         <div class="container">
@@ -13,8 +14,16 @@ return (
           <a href="/">
             <img src={incubationlogo} className="logo2" height={100} width={100}/>
           </a>
-          <div class="connect">
-            <ul class="links">
+            <nav>
+              <div className='menu' onClick={() => {
+                setMenuOpen(!menuOpen);
+              }}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div className='links'>
+            <ul className={menuOpen ? "open" : ""}>
               <li> 
                 <a href='/'>
                   <b>Home</b>
@@ -51,7 +60,8 @@ return (
                 </a>
               </li>
             </ul>
-          </div>
+            </div>
+            </nav>
       </div>
     </div>
     );

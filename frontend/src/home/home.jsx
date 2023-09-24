@@ -11,10 +11,10 @@ function Home() {
   const navigate = useNavigate();
 return (
     <div> 
-      <div class="landing-page">
-        <div class="content">
-          <div class="container">
-            <div class="info">
+      <div className="landing-page">
+        <div className="content">
+          <div className="container">
+            <div className="info">
               <h1>WE <br/>INCUBATE/INNOVATE/SUPPORT</h1>
               <p>Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services.</p>
               <p>With this intent in mind, we are inclined towards offering a effective solution for all the startups in the best possible manner.</p>

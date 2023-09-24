@@ -1,3 +1,38 @@
-.here1 {
-    margin-bottom: 500px;
-}
+/* ContactForm.css */
+
+.contact-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    height: 80vh;
+  }
+  
+  .card {
+    height: 300px;
+    width: 100px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 300px;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  p {
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #333;
+  }
+
+  .imgg {
+    height: 100px;
+    width: 100px;
+  }
