@@ -5,16 +5,16 @@ import incubationlogo from '../img/inculogo.png';
 import './header.css';
 function Portfolio() {
 return (
-    <div class="main"> 
-        <div class="container">
+    <div className="main"> 
+        <div className="container">
           <a href="/">
             <img src={clglogo} className="logo1" height={100} width={100}/>
           </a>
           <a href="/">
             <img src={incubationlogo} className="logo2" height={100} width={100}/>
           </a>
-          <div class="connect">
-            <ul class="links">
+          <div className="connect">
+            <ul className="links">
               <li> 
                 <a href='/'>
                   <b>Home</b>
@@ -45,9 +45,19 @@ return (
                   <b>Contact</b>
                 </a>
               </li>
+              {/* <li>
+                <a href='./login'>
+                  <b>Login</b>
+                </a>
+              </li>
               <li>
-                <a href='./StartupForm'>
-                <b style={{color:'white'}}>Apply Now</b>
+                <a href='./register'>
+                  <b>Register</b>
+                </a>
+              </li> */}
+              <li>
+                <a href='./login'>
+                <b style={{color:'white'}}>Login</b>
                 </a>
               </li>
             </ul>

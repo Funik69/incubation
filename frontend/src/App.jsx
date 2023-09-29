@@ -7,6 +7,9 @@ import Event from './event/event'
 import Portfolio from './portfolio/portfolio'
 import Contact from './contact/contact'
 import Header from './header/header'
+import Login from './auth/login'
+import Register from './auth/register'
+import Otp from './auth/otp'
 function App() {
   
   return (
@@ -21,6 +24,11 @@ function App() {
           <Route path='/portfolio' element = {<Portfolio />} />
           <Route path='/contact' element = {<Contact />} />
           <Route path='/StartupForm' element = {<StartupForm />} />
+          <Route path='/login' element = {<Login />} />
+          <Route path='/register' element = {<Register />} />
+          <Route path='/otp' element = {<Otp />} />
+
+
         </Routes>
       </BrowserRouter>
     </div>
