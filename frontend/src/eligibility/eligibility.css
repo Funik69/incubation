@@ -34,10 +34,14 @@
   .dparent {
     display: flex;
     color: #0d0254;
+    margin-top: 50px;
   }
   .apply {
     font-size: large;
   }
   .epara {
     font-size: 20px;
+  }
+  .here3 {
+    margin-bottom: 50px;
   }

@@ -128,3 +128,8 @@
     text-align:center
   }
 }
+@media (max-width: 480px) {
+  .total {
+    display: none;
+  }
+}

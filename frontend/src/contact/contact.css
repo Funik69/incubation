@@ -11,7 +11,7 @@
   .card {
     height: 300px;
     width: 100px;
-    background-color: #f0f0f0;
+    background-color: rgb(249, 240, 228);
     border: 1px solid #ccc;
     padding: 20px;
     text-align: center;
@@ -20,19 +20,19 @@
     width: 300px;
   }
   
-  h3 {
+  .h3f {
     font-size: 24px;
     margin-bottom: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
   
-  p {
+  .p1 {
     font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #333;
   }
 
-  .imgg {
+  .imgg{
     height: 100px;
     width: 100px;
   }

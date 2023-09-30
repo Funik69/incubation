@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 import clglogo from '../img/ietdavv.logo.jpg';
 import incubationlogo from '../img/inculogo.png';
 import './header.css';
-function Portfolio() {
+function Header() {
   const [menuOpen,setMenuOpen] = useState(false);
 return (
-    <div class="main"> 
-        <div class="container">
+    <div className="main"> 
+        <div className="container">
           <a href="/">
             <img src={clglogo} className="logo1" height={100} width={100}/>
           </a>
@@ -55,8 +55,8 @@ return (
                 </a>
               </li>
               <li>
-                <a href='./StartupForm'>
-                <b style={{color:'white'}}>Apply Now</b>
+              <a href='./StartupForm'>
+                  <b style={{color:'white'}}>Apply now</b>
                 </a>
               </li>
             </ul>
@@ -66,4 +66,4 @@ return (
     </div>
     );
 }
-export default Portfolio;
+export default Header;

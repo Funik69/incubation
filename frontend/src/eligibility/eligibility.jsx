@@ -5,9 +5,11 @@ function Eligibility() {
     const navigate = useNavigate();
 return (
     <div className="here3"> 
-        <div className='headd'>
-            <h2 className='main-head'>APPLY</h2>
-        </div>
+        <div id="cover">
+        <h2 className="h12">
+          APPLY
+        </h2>
+      </div>
             <div className='dparent'>
                 <div className='div1'>
                     <h3 className='heading'> Who can Apply ? </h3>
