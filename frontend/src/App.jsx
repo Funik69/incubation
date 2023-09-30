@@ -11,6 +11,9 @@ import Login from './auth/login'
 import Register from './auth/register'
 import Otp from './auth/otp'
 import Forgot from './auth/forgot_password'
+import Footer from './footer/footer'
+import Eligibility from './eligibility/eligibility'
+import Thanks from './thankYou/thanks'
 function App() {
   
   return (
@@ -24,6 +27,8 @@ function App() {
           <Route path='/event' element = {<Event />} />
           <Route path='/portfolio' element = {<Portfolio />} />
           <Route path='/contact' element = {<Contact />} />
+          <Route path='/eligibility' element = {<Eligibility />} />
+          <Route path='/thanks' element = {<Thanks />} />
           <Route path='/StartupForm' element = {<StartupForm />} />
           <Route path='/login' element = {<Login />} />
           <Route path='/register' element = {<Register />} />
@@ -33,6 +38,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

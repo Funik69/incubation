@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './programs.css';
 function Programs() {
 return (
-    <div class="here4"> 
+    <div className="here4"> 
         <h1>THIS IS PROGRAMS PAGE.</h1>
         <p> 
             <b>yha jo mann ho daal dena</b>
