@@ -1,0 +1,43 @@
+.here3 button {
+    border: 0;
+    border-radius: 20px;
+    padding: 12px 30px;
+    margin-top: 30px;
+    margin-left: 25px;
+    cursor: pointer;
+    color: #FFF;
+    background-color: #0d0254;
+    margin-left: 250px;
+  }
+  .here3 .headd {
+    align-items: center;
+    justify-content: center;
+  }
+  .here3 .heading {
+    text-align: left;
+    font-size:xx-large;
+  }
+  .here3 .main-head {
+    color: #0d0254;
+    text-align:center;
+    margin-top: 0;
+    margin-bottom: 50px;
+    background-color: rgb(244, 238, 254);
+  }
+  .here3 .div1 {
+    margin-left: 250px;
+  }
+  .here3 .div2 {
+    margin-left: 75px;
+    width: 500px;
+  }
+  .dparent {
+    display: flex;
+    color: #0d0254;
+  }
+  .apply {
+    font-size: large;
+  }
+  .epara {
+    font-size: 20px;
+  }

@@ -21,7 +21,7 @@ return (
       <div className="card">
       <img className='imgg' src={mail}></img>
         <h3>Email Address</h3>
-        <p>Write to us at example@example.com</p>
+        <p>Write to us at :- example@example.com</p>
       </div>
     </div>
     </>

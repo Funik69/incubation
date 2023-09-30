@@ -7,6 +7,9 @@ import Event from './event/event'
 import Portfolio from './portfolio/portfolio'
 import Contact from './contact/contact'
 import Header from './header/header'
+import Footer from './footer/footer'
+import Eligibility from './eligibility/eligibility'
+import Thanks from './thankYou/thanks'
 function App() {
   
   return (
@@ -20,9 +23,12 @@ function App() {
           <Route path='/event' element = {<Event />} />
           <Route path='/portfolio' element = {<Portfolio />} />
           <Route path='/contact' element = {<Contact />} />
+          <Route path='/eligibility' element = {<Eligibility />} />
+          <Route path='/thanks' element = {<Thanks />} />
           <Route path='/StartupForm' element = {<StartupForm />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

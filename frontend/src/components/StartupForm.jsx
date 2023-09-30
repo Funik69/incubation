@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './StartupForm.css'
 function StartupForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     startupName: '',
     founderName: '',
@@ -188,6 +190,7 @@ function StartupForm() {
 
     if (isValid) {
     console.log(formData);
+    navigate('/Thanks');
     const formDataToSend = {
       receiverEmail: formData.email, // Receiver's email from the form
       subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
