@@ -2,7 +2,10 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const dotenv = require("dotenv");
+const connectDB = require('./formDb.js');
 dotenv.config();
+//for getting formdata server on
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT;

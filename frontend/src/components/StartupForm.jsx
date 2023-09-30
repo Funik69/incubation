@@ -263,7 +263,7 @@ function StartupForm() {
     <>
       <div id="cover">
         <h2 className="h12">
-          Innovation and Incubation - A helping Hand for Startups
+          Innovation and Incubation Hub - A helping Hand for Startups
         </h2>
         <h3 className="h13">Apply for Incubation</h3>
         <br></br>
@@ -339,7 +339,6 @@ function StartupForm() {
                   name="alternateNumber"
                   value={formData.alternateNumber}
                   onChange={handleChange}
-                  required
                 />
                 <div className="error">{formErrors.alternateNumber}</div>
               </div>
