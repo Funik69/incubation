@@ -10,6 +10,7 @@ import Header from './header/header'
 import Login from './auth/login'
 import Register from './auth/register'
 import Otp from './auth/otp'
+import Forgot from './auth/forgot_password'
 function App() {
   
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path='/login' element = {<Login />} />
           <Route path='/register' element = {<Register />} />
           <Route path='/otp' element = {<Otp />} />
+          <Route path='/forgot-password' element = {<Forgot />} />
 
 
         </Routes>

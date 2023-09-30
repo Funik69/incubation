@@ -120,6 +120,8 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
         message: "Email is not registered",
       });
     }
+    
+    
     const match = await bcrypt.compareSync(password, user.password);
     if (!match) {
       return res.status(200).send({
@@ -252,6 +254,9 @@ catch (error) {
 }
 
 }
+
+
+
 
   module.exports = {
     registerController: registerController,

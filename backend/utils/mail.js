@@ -9,5 +9,3 @@ exports.generateOTP = () => {
   }
   return otp;
 };
-
-

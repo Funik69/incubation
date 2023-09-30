@@ -18,11 +18,11 @@ const login = () => {
   
       });
       if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
+        console.log(res.data && res.data.message);
         localStorage.setItem('auth',JSON.stringify(res.data));
         navigate(location.state || "/");
       } else {
-        toast.error(res.data.message);
+        console.log(res.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -76,4 +76,3 @@ const login = () => {
 }
 
 export default login
-
