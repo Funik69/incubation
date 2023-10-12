@@ -41,7 +41,7 @@
     border-radius: 25px 50px 25px 50px;
     border-color: #0d0254;
 }
-#startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile{
+#startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile{
     font-size: 19px;
     color: #0d0254;
     padding: 5px;

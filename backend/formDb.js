@@ -1,8 +1,11 @@
 const  mongoose=require("mongoose");
 
-const connectDB= async ()=>{
+const connDB= async ()=>{
     try {
-        const conn = await mongoose.connect(process.env.MON_URL);
+        const conn = await mongoose.connect(process.env.MON_URL,{
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+        });
         console.log(
           `Connected To Mongodb Database ${conn.connection.host}`
         );
@@ -10,4 +13,4 @@ const connectDB= async ()=>{
         console.log(`Error in Mongodb ${error}`);
       }
     };
-module.exports = connectDB;
+module.exports = connDB;
