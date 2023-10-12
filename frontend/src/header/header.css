@@ -4,6 +4,50 @@
   top: 0;
   background-color: rgb(244, 238, 254);
 }
+.main .container nav .menu {
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content:space-evenly;
+  width: 2.25rem;
+  height: 2rem;
+}
+.main .container nav .menu span {
+  height: 0.4rem;
+  width: 100%;
+  border-radius: 0.2 rem;
+  background-color: #0d0254;
+}
+@media (max-width: 480px) {
+  .main .container nav .menu {
+      display: flex;
+    }
+  .main .container nav {
+      flex-direction: column;
+      align-items: start;
+    }
+  .main .container nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 0.25rem;
+    }
+  .main .container nav ul li {
+      width: 100%;
+      text-align: center;
+    }
+  .main .container nav ul li a {
+      margin: 0.2rem 0.5rem;
+    }
+  .main .container nav ul.open {
+      display: flex;
+    }
+  .logo2 {
+    display: none;
+  }
+  }
 ul {
   list-style: none;
   padding: 0;
@@ -49,37 +93,37 @@ ul {
     justify-content:space-around;
   }
 }
-.links {
+.links ul{
   display: flex;
   align-items: center;
   background-position: 100%;
   margin-left: 50px;
 }
 @media (max-width: 767px) {
-.links {
+.links ul{
     display: flex;
     text-align: center;
     gap: 10px;
   }
 }
-.links li {
+.links ul li {
   margin-left: 50px;
   color: #0d0254;
   cursor: pointer;
   transition: .3s;
 }
 @media (max-width: 767px) {
-.links li {
+.links ul li {
     margin-left: auto;
   }
 }
-.links li:last-child {
+.links ul li:last-child {
   border-radius: 20px;
   padding: 10px 20px;
   color: #FFF;
   background-color: #0d0254;
 }
- .links li:not(:last-child):hover {
+ .links ul li:not(:last-child):hover {
   color: #6c63ff;
 }
 .logo1{

@@ -2,13 +2,20 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const dotenv = require("dotenv");
+const connectDB  = require('./db.js');
+const authRoutes =require( './routes/authRoute.js');
 dotenv.config();
+  
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cors());
+
+//auth routes
+app.use('/api/v1/auth',authRoutes);
 // Nodemailer configuration
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,

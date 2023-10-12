@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './aboutUs.css';
 function About() {
 return (
-    <div class="here"> 
+    <div className="here"> 
         <h1>THIS IS ABOUT US PAGE.</h1>
         <p> 
             <b>yha jo mann ho daal dena</b>

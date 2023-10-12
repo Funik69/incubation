@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 import "./StartupForm.css";
 
 const formData_initialState = {
@@ -22,6 +23,7 @@ const formData_initialState = {
 };
 
 function StartupForm() {
+  const navigate = useNavigate();
   // const [formData, setFormData] = useState({
   //   startupName: "",
   //   founderName: "",
@@ -88,13 +90,6 @@ function StartupForm() {
       isValid = false;
     } else {
       newErrors.mobileNumber = "";
-    }
-
-    if (!mobileNumberRegex.test(formData.alternateNumber)) {
-      newErrors.alternateNumber = "Invalid Mobile Number";
-      isValid = false;
-    } else {
-      newErrors.alternateNumber = "";
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -210,12 +205,12 @@ function StartupForm() {
     const isValid = validateForm();
 
     if (isValid) {
-      console.log(formData);
-      const formDataToSend = {
-        receiverEmail: formData.email, // Receiver's email from the form
-        subject: "Incubation and Innovation Hub - A helping hand for StartUp",
-        message: formData.founderName,
-      };
+    console.log(formData);
+    navigate('/Thanks');
+    const formDataToSend = {
+      receiverEmail: formData.email, // Receiver's email from the form
+      subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
+      message: formData.founderName,};
 
       try {
         const response = await fetch("http://localhost:8000/send-email", {
@@ -263,7 +258,7 @@ function StartupForm() {
     <>
       <div id="cover">
         <h2 className="h12">
-          Innovation and Incubation - A helping Hand for Startups
+          Innovation and Incubation Hub - A helping Hand for Startups
         </h2>
         <h3 className="h13">Apply for Incubation</h3>
         <br></br>
@@ -339,7 +334,6 @@ function StartupForm() {
                   name="alternateNumber"
                   value={formData.alternateNumber}
                   onChange={handleChange}
-                  required
                 />
                 <div className="error">{formErrors.alternateNumber}</div>
               </div>
