@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 import "./StartupForm.css";
 
 const formData_initialState = {
@@ -12,7 +13,7 @@ const formData_initialState = {
   state: "",
   pinCode: "",
   businessIdea: "",
-  businessModelFile: null,
+  businessModelFile: "",
   whyJoinUs: "",
   registered: "",
   development: "",
@@ -129,7 +130,7 @@ function StartupForm() {
       newErrors.businessIdea = "";
     }
 
-    if (!formData.businessModelFile) {
+    if (formData.businessModelFile.trim()==="") {
       newErrors.businessModelFile = "Business Model file is required";
       isValid = false;
     } else {
@@ -205,6 +206,24 @@ function StartupForm() {
     const isValid = validateForm();
 
     if (isValid) {
+      try {
+        const response = await fetch('http://localhost:8000/api/v1/data/savedata', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.ok) {
+          console.log('Form data sent successfully');
+        } else {
+          console.error('Form data failed to send');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    
     console.log(formData);
     navigate('/Thanks');
     const formDataToSend = {
@@ -433,14 +452,14 @@ function StartupForm() {
 
             <div id="filee">
               <label className="lbl" htmlFor="businessModelFile">
-                Business Model (PDF)*
+                Business Model Link*
               </label>
               <br></br>
               <input
-                type="file"
+                type="text"
+                placeholder="Enter drive link"
                 id="businessModelFile"
                 name="businessModelFile"
-                accept=".pdf"
                 onChange={handleChange}
                 required
               />
