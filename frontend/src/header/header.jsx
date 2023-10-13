@@ -54,9 +54,19 @@ return (
                   <b>Contact</b>
                 </a>
               </li>
+              {/* <li>
+                <a href='./login'>
+                  <b>Login</b>
+                </a>
+              </li>
               <li>
-              <a href='./StartupForm'>
-                  <b style={{color:'white'}}>Apply now</b>
+                <a href='./register'>
+                  <b>Register</b>
+                </a>
+              </li> */}
+              <li>
+                <a href='./login'>
+                <b style={{color:'white'}}>Login</b>
                 </a>
               </li>
             </ul>
