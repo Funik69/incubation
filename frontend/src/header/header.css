@@ -20,7 +20,7 @@
   border-radius: 0.2 rem;
   background-color: #0d0254;
 }
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   .main .container nav .menu {
       display: flex;
     }
