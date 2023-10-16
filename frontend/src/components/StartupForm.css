@@ -24,7 +24,7 @@
 .h14{
     font-size: 20px;
 }
-.c1,.c2,.c3,.c4,.ProgramPref{
+.c1,.c2,.c3,.c4,.ProgramPref,.doc{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     padding-left: 1cm;
@@ -54,13 +54,6 @@
 #filee{
     display: inline-block;
     float: right;
-    padding-left: 3cm;
-}
-.doc{
-    display: flex;
-    padding-left: 1cm;
-    padding-right: 2cm;
-    margin: 10px;
 }
 .lbl{
     font-size: 20px;
@@ -83,4 +76,9 @@
     height: 40px;
     width: 170px;
     border-radius: 25px 25px;
+}
+@media (max-width: 768px) {
+    .c1, .c2, .c3, .c4, .ProgramPref,.doc {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

@@ -72,8 +72,20 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
     const mailOptions = {
       from: process.env.SMTP_MAIL,
       to: user.email,
-      subject:"Verify your email account",
-      html:`<h1>${OTP} and user id ${user._id}</h1>`,
+      subject:"Welcome to IET DAVV Incubation - Account Verification",
+      html:`
+      <p><b>Dear ${fname+" "+lname}</b><p>
+      <p>Welcome to IET DAVV Incubation! To get started and ensure the security of your account, we require you to complete the verification process.</p>
+      <p><b>Your verification credentials for <a href="mailto:${user.email}">${user.email}</a> are: <b></p>
+      <p><b>Unique id : ${user._id}</b></p>
+      <p><b>OTP : ${OTP}</b></p>
+      <p>Thank you for choosing IET DAVV Incubation. We look forward to supporting your innovative journey. 
+      If you have any questions or require assistance, please do not hesitate to contact us.</p>
+      <p><b>Best Regards<b></p>
+      <p><b>IET DAVV Incubation<b></p>
+      <p><b>Contact No 123456789<b></p>
+      <p><b><a href="#">Visit us on link</a><b><p>
+`,
     };
   
     // Send email

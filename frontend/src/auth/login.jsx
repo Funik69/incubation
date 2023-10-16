@@ -33,6 +33,7 @@ const login = () => {
     <div>
       <div className="form-container" style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
+        <div className="myform">
           <h4 className="title">LOGIN FORM</h4>
           
           <div className="mb-3">
@@ -42,7 +43,7 @@ const login = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="Enter Your Email "
+              placeholder="Email "
               required
             />
           </div>
@@ -53,7 +54,7 @@ const login = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               id="exampleInputPassword1"
-              placeholder="Enter Your Password"
+              placeholder="Password"
               required
             />
           </div>
@@ -62,13 +63,15 @@ const login = () => {
             LOGIN
           </button>
           <div className="mb-3">
-          <p onClick={() => {
+          <p className="txtlink" onClick={() => {
                 navigate("/forgot-password");
               }}>Forgot Password</p>
           </div>
-          <p onClick={() => {
+          <p className="txtlink" onClick={() => {
                 navigate("/register");
               }}>Create Account</p>
+
+</div>      
         </form>
       </div>
     </div>

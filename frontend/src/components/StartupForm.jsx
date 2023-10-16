@@ -274,7 +274,7 @@ function StartupForm() {
   };
 
   return (
-    <>
+    <div className="mainCont">
       <div id="cover">
         <h2 className="h12">
           Innovation and Incubation Hub - A helping Hand for Startups
@@ -466,7 +466,6 @@ function StartupForm() {
               <div className="error">{formErrors.businessModelFile}</div>
             </div>
           </div>
-
           <h4 className="h14">Program preferences</h4>
           <div className="ProgramPref">
             <div>
@@ -593,7 +592,7 @@ function StartupForm() {
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 export default StartupForm;
