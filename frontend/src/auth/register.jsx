@@ -20,7 +20,7 @@ const register = () => {
         lname,
         email,
         password,
-        
+
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -41,7 +41,7 @@ const register = () => {
         // Something happened in setting up the request that triggered an error.
         console.error('Request setup error:', error.message);
       }
-    
+
     }
   };
   return (
@@ -93,7 +93,7 @@ const register = () => {
               required
             />
           </div>
-          
+
           <button type="submit" className="auth-btn">
             REGISTER
           </button>

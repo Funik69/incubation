@@ -9,97 +9,97 @@ const {isValidObjectId}=require("mongoose");
 const { generateOTP, mailTransport } = require("../utils/mail.js");
 
 //register controller
- const registerController = async (req, res) => {
-    try {
-      const { fname,lname, email, password} = req.body;
-      const hashedPassword= await bcrypt.hashSync(password, 10);
-      //validations
-      if (!fname) {
-        return res.send({ message: "Name is Required" });
-      }
-      if (!lname) {
-        return res.send({ message: "Name is Required" });
-      }
-      if (!email) {
-        return res.send({ message: "Email is Required" });
-      }
-      if (!password) {
-        return res.send({ message: "Password is Required" });
-      }
-      
-      //check user
-      const existingUser = await userModel.findOne({ email });
-      //exisiting user
-      if (existingUser) {
-        return res.status(200).send({
-          success: false,
-          message: "Already Register please login"
-        });
-      }
-      //save
-      const user =  new userModel({
-        fname,
-        lname,
-        email,
-        password:hashedPassword,
-      });
+const registerController = async (req, res) => {
+  try {
+    const { fname,lname, email, password} = req.body;
+    const hashedPassword= await bcrypt.hashSync(password, 10);
+    //validations
+    if (!fname) {
+      return res.send({ message: "Name is Required" });
+    }
+    if (!lname) {
+      return res.send({ message: "Name is Required" });
+    }
+    if (!email) {
+      return res.send({ message: "Email is Required" });
+    }
+    if (!password) {
+      return res.send({ message: "Password is Required" });
+    }
 
-      const OTP=generateOTP();
-      const hashedToken= await bcrypt.hashSync(OTP, 10);
-      const verificationToken=new VerificationToken({
-        owner:user._id,
-        token:hashedToken
-      })
-      await verificationToken.save();
-      await user.save();
-      
-      // mailTransport().sendMail({
-      //   from:"priyashivhare2003@gmail.com",
-      //   to:user.email,
-      //   subject:"Verify your email account",
-      //   html:`<h1>${OTP}</h1>`
-      // })
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: process.env.SMTP_PORT,
-        secure: false, 
-        service:'Gmail',
-      auth: {
-        user: process.env.SMTP_MAIL, 
-        pass: process.env.SMTP_PASSWORD,
-      },
-    });
-    const mailOptions = {
-      from: process.env.SMTP_MAIL,
-      to: user.email,
-      subject:"Verify your email account",
-      html:`<h1>${OTP} and user id ${user._id}</h1>`,
-    };
-  
-    // Send email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error('Error sending email: ', error);
-        res.status(500).send('Error sending email');
-      } else {
-        console.log('Email sent: ', info.response);
-        res.status(200).send('Email sent successfully');
-      }
-    });
-      res.status(201).send({
-        success: true,
-        message: "Mail Sent Successfully",
-        user,
-      });
-    } catch (error) {
-      console.log(error);
-      res.status(500).send({
+    //check user
+    const existingUser = await userModel.findOne({ email });
+    //exisiting user
+    if (existingUser) {
+      return res.status(200).send({
         success: false,
-        message: "Error in Registration",
-        error,
+        message: "Already Register please login"
       });
     }
+    //save
+    const user =  new userModel({
+      fname,
+      lname,
+      email,
+      password:hashedPassword,
+    });
+
+    const OTP=generateOTP();
+    const hashedToken= await bcrypt.hashSync(OTP, 10);
+    const verificationToken=new VerificationToken({
+      owner:user._id,
+      token:hashedToken
+    })
+    await verificationToken.save();
+    await user.save();
+
+    // mailTransport().sendMail({
+    //   from:"priyashivhare2003@gmail.com",
+    //   to:user.email,
+    //   subject:"Verify your email account",
+    //   html:`<h1>${OTP}</h1>`
+    // })
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: false, 
+      service:'Gmail',
+    auth: {
+      user: process.env.SMTP_MAIL, 
+      pass: process.env.SMTP_PASSWORD,
+    },
+  });
+  const mailOptions = {
+    from: process.env.SMTP_MAIL,
+    to: user.email,
+    subject:"Verify your email account",
+    html:`<h1>${OTP} and user id ${user._id}</h1>`,
   };
+
+  // Send email
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('Error sending email: ', error);
+      res.status(500).send('Error sending email');
+    } else {
+      console.log('Email sent: ', info.response);
+      res.status(200).send('Email sent successfully');
+    }
+  });
+    res.status(201).send({
+      success: true,
+      message: "Mail Sent Successfully",
+      user,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in Registration",
+      error,
+    });
+  }
+};
 
   //POST LOGIN
  const loginController = async (req, res) => {
