@@ -5,7 +5,7 @@ function Portfolio() {
 return (
     <>
     <div className='portCover'>
-    <h1>The Successful Startup</h1>
+    <h1>The Successful Startups</h1>
     </div>
 
         <div className='con1'>
