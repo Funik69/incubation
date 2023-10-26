@@ -6,8 +6,8 @@
 #cover{
    background-color: #FFF;
    color: #0d0254;
-    margin: 0;
-    padding: 0;
+   margin: 0;
+   padding: 0;
 }
 .h12{
     margin-top: 20px;
@@ -81,4 +81,8 @@
     .c1, .c2, .c3, .c4, .ProgramPref,.doc {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+
+.error{
+    color: red;
 }

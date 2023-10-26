@@ -98,6 +98,10 @@ const register = () => {
           <button type="submit" className="auth-btn">
             REGISTER
           </button>
+
+          <p className="txtlink" onClick={() => {
+                navigate("/login");
+              }}>Sign In</p>
           </div>  
         </form>
       </div>

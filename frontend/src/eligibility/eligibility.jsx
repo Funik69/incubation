@@ -6,9 +6,7 @@ function Eligibility() {
 return (
     <div className="here3"> 
         <div id="cover">
-        <h2 className="h12">
-          APPLY
-        </h2>
+        <h2 className="h121">APPLY</h2>
       </div>
             <div className='dparent'>
                 <div className='div1'>

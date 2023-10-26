@@ -11,6 +11,13 @@ function Home() {
   const navigate = useNavigate();
 return (
     <div> 
+
+    <div className='scrltext'>
+      <marquee direction="left" height="100px" scrollmount="100">
+      Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services. These encompass initial seed funding, invaluable networking prospects, well-equipped laboratory facilities, and expert advisory services.
+      </marquee>
+    </div>
+
       <div className="landing-page">
         <div className="content">
           <div className="container">

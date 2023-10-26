@@ -14,6 +14,7 @@ import Forgot from './auth/forgot_password'
 import Footer from './footer/footer'
 import Eligibility from './eligibility/eligibility'
 import Thanks from './thankYou/thanks'
+import Getdata from './components/admin/getdata'
 import './App.css';
 import scrolltop from './scrolltop'
 function App() {
@@ -36,8 +37,7 @@ function App() {
           <Route path='/register' element = {<Register />} />
           <Route path='/otp' element = {<Otp />} />
           <Route path='/forgot-password' element = {<Forgot />} />
-
-
+          <Route path='/fetch' element= {<Getdata/>}/>
         </Routes>
       </BrowserRouter>
       <Footer />

@@ -2,6 +2,8 @@ const { response } = require("express");
 const mongoose=require("mongoose");
 require("../models/formDataModel.js");
 const DataModel=mongoose.model("DataModel");
+const express = require('express');
+const app = express();
 
 //Data controller
  const DataSaveController = async (req, res) => {
@@ -60,6 +62,19 @@ const DataModel=mongoose.model("DataModel");
       }
     };
 
+    const getData = async(req,res)=>{
+      try{
+        const data = await DataModel.find({});
+        res.status(200).send(data);
+        // res.send.json(data);
+      }
+      catch(error){
+        console.error(error);
+        res.status(500).send('Server Error');
+      }
+    };
+
   module.exports = {
-    DataSaveController: DataSaveController,
+    DataSaveController: DataSaveController,getData
   };
+

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './event.css';
 function Event() {
 return (
-    <div class="here2"> 
+    <div className="here2"> 
         <h1>THIS IS EVENT PAGE.</h1>
         <p> 
             <b>yha jo mann ho daal dena</b>

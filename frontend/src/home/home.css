@@ -82,4 +82,16 @@ ul {
 .landing-page .content .image img {
   margin-left: 40px;
 }
+
+.scrltext{
+  margin: 2px;
+  border: #FFF;
+  display: grid;
+  place-items: center;
+  height: 35px;
+  font-size: 20px;
+  text-align: center;
+  background-color:bisque;
+}
+
 /* End Landing Page */
