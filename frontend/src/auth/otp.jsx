@@ -40,7 +40,7 @@ const otp = () => {
       };
   
   return (
-    <div>
+    <div className="myform" style={{minHeight:"50vh"}}>
       <form onSubmit={handleSubmit}>
       <div className="mb-3">
             <input

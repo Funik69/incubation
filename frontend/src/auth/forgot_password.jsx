@@ -2,7 +2,7 @@ import React from 'react'
 
 const forgot_password = () => {
   return (
-    <div>
+    <div style={{minHeight:"50vh"}} className="fgtstyle">
       <form >
       <div className="mb-3">
             <input

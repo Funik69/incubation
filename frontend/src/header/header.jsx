@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useAuth } from "../context/auth"
 import { NavLink } from 'react-router-dom';
 import clglogo from '../img/ietdavv.logo.jpg';
 import incubationlogo from '../img/inculogo.png';
 import './header.css';
 function Header() {
   const [menuOpen,setMenuOpen] = useState(false);
+
 return (
     <div className="main"> 
         <div className="container">

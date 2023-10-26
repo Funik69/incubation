@@ -9,17 +9,25 @@ const register = () => {
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userType,setUserType]=useState("");
+  const [secretKey,setSecretKey]=useState("");
   const navigate = useNavigate();
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    if(userType=="Admin" && secretKey!="Priya"){
+      e.preventDefault();
+      alert("Invalid Admin")
+    }
+    else{
+      e.preventDefault();
     try {
       const res = await axios.post(" http://localhost:8000/api/v1/auth/register", {
         fname,
         lname,
         email,
         password,
+        userType
 
       });
       if (res && res.data.success) {
@@ -43,19 +51,53 @@ const register = () => {
       }
 
     }
+  }
   };
   return (
     <div>
       <div className="form-container" style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
+   
+        <div className='myform'>
           <h4 className="title">REGISTER FORM</h4>
+          <div>
+            Register as
+            <input 
+            type="radio"
+            name ="UserType"
+            value="User"
+            onChange={(e)=>setUserType(e.target.value)}
+            />
+            User
+            <input 
+            type="radio"
+            name ="UserType"
+            value="Admin"
+            onChange={(e)=>setUserType(e.target.value)}
+            />
+            Admin
+
+          </div>
+          {userType=="Admin"?
           <div className="mb-3">
+          <input
+            type="text"
+            onChange={(e) => setSecretKey(e.target.value)}
+            className="form-control"
+            id="exampleInputName"
+            placeholder="Secret Key"
+            required
+            autoFocus
+          />
+        </div> :null}
+         
+        <div className="mb-3">
             <input
               type="text"
               onChange={(e) => setFname(e.target.value)}
               className="form-control"
               id="exampleInputName"
-              placeholder="Enter Your Name"
+              placeholder="First Name"
               required
               autoFocus
             />
@@ -66,7 +108,7 @@ const register = () => {
               onChange={(e) => setLname(e.target.value)}
               className="form-control"
               id="exampleInputName"
-              placeholder="Enter Your Name"
+              placeholder="Last Name"
               required
               autoFocus
             />
@@ -78,7 +120,7 @@ const register = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="Enter Your Email "
+              placeholder="Email "
               required
             />
           </div>
@@ -89,7 +131,7 @@ const register = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               id="exampleInputPassword1"
-              placeholder="Enter Your Password"
+              placeholder="Password"
               required
             />
           </div>
@@ -97,6 +139,7 @@ const register = () => {
           <button type="submit" className="auth-btn">
             REGISTER
           </button>
+          </div>  
         </form>
       </div>
     </div>

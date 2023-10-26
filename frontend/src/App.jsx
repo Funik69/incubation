@@ -1,5 +1,5 @@
 import StartupForm from './components/StartupForm'
-import { Route , Routes , BrowserRouter } from 'react-router-dom'
+import { Route , Routes , BrowserRouter} from 'react-router-dom'
 import Home from './home/home'
 import About from './aboutUs/aboutUs'
 import Programs from './programs/programs'
@@ -14,11 +14,13 @@ import Forgot from './auth/forgot_password'
 import Footer from './footer/footer'
 import Eligibility from './eligibility/eligibility'
 import Thanks from './thankYou/thanks'
+import './App.css';
+import scrolltop from './scrolltop'
 function App() {
-  
-  return (
-    <div>
+    return (
+    <div className='app-main'>
       <BrowserRouter>
+      <scrolltop />
       <Header />
         <Routes>
           <Route path="/" element = {<Home />} />

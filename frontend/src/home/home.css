@@ -57,7 +57,7 @@ ul {
 @media (max-width: 767px) {
   .landing-page .content .info {
     text-align: center;
-    margin-bottom: 15px 
+    margin-bottom: 15px ;
   }
 }
 .landing-page .content .info h1 {

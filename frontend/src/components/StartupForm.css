@@ -24,7 +24,7 @@
 .h14{
     font-size: 20px;
 }
-.c1,.c2,.c3,.c4,.ProgramPref{
+.c1,.c2,.c3,.c4,.ProgramPref,.doc{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     padding-left: 1cm;
@@ -41,7 +41,7 @@
     border-radius: 25px 50px 25px 50px;
     border-color: #0d0254;
 }
-#startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile{
+#startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile{
     font-size: 19px;
     color: #0d0254;
     padding: 5px;
@@ -54,13 +54,6 @@
 #filee{
     display: inline-block;
     float: right;
-    padding-left: 3cm;
-}
-.doc{
-    display: flex;
-    padding-left: 1cm;
-    padding-right: 2cm;
-    margin: 10px;
 }
 .lbl{
     font-size: 20px;
@@ -68,7 +61,6 @@
 }
 ::placeholder{
     font-size: 19px;
-    opacity: 0.8;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .btn{
@@ -84,4 +76,9 @@
     height: 40px;
     width: 170px;
     border-radius: 25px 25px;
+}
+@media (max-width: 768px) {
+    .c1, .c2, .c3, .c4, .ProgramPref,.doc {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
