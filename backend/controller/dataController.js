@@ -1,8 +1,12 @@
-const { response } = require("express");
+const express = require('express');
+//const app = express();
+//const cors = require('cors');
+
 const mongoose=require("mongoose");
 require("../models/formDataModel.js");
 const DataModel=mongoose.model("DataModel");
-
+//app.use(express.json());
+//app.use(cors({origin : 'http://localhost:5173'}));
 //Data controller
  const DataSaveController = async (req, res) => {
     try {
@@ -59,7 +63,28 @@ const DataModel=mongoose.model("DataModel");
         });
       }
     };
-
+    const getData = async(req,res) => {
+      try {
+        const data = await DataModel.find({});
+        res.status(200).send(data);
+      }
+      catch(error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+      }
+    };
+    const getSingleData = async (req, res) => {
+      try {
+        const data = await DataModel.findById(req.params._id);
+        res.status(200).send(data);
+      }
+      catch(error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+      }
+    };
+    
+    
   module.exports = {
-    DataSaveController: DataSaveController,
+    DataSaveController: DataSaveController , getData , getSingleData
   };

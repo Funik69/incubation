@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './home.css';
 import startimg from '../img/coverpic.png';
@@ -7,8 +7,10 @@ import Programs from '../programs/programs';
 import Event from '../event/event';
 import Portfolio from '../portfolio/portfolio';
 import Contact from '../contact/contact';
+import axios from 'axios';
 function Home() {
   const navigate = useNavigate();
+  
 return (
     <div> 
       <div className="landing-page">

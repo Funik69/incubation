@@ -14,13 +14,12 @@ import Forgot from './auth/forgot_password'
 import Footer from './footer/footer'
 import Eligibility from './eligibility/eligibility'
 import Thanks from './thankYou/thanks'
+import Userdash from './userDashboard/userdash'
 import './App.css';
-import scrolltop from './scrolltop'
 function App() {
     return (
     <div className='app-main'>
       <BrowserRouter>
-      <scrolltop />
       <Header />
         <Routes>
           <Route path="/" element = {<Home />} />
@@ -36,8 +35,7 @@ function App() {
           <Route path='/register' element = {<Register />} />
           <Route path='/otp' element = {<Otp />} />
           <Route path='/forgot-password' element = {<Forgot />} />
-
-
+          <Route path='/userdash' element = {<Userdash />} />
         </Routes>
       </BrowserRouter>
       <Footer />

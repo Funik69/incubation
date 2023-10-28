@@ -1,0 +1,21 @@
+.userdashp {
+    padding-left: 50px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    font-weight: 600;
+    color: #0d0254;
+    font-size: 20px;
+}
+.headuserdash {
+    color: rgb(244, 238, 254);
+    margin-left: 400px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #0d0254;
+    border-radius: 50%;
+    width: 600px;
+    height: 70px;
+}
+.outeruser {
+    margin-top: 60px;
+}

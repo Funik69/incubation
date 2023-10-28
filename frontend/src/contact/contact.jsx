@@ -7,6 +7,9 @@ import location from '../img/locationlogo.png';
 function Contact() {
 return ( 
     <>
+    <div className='contmain'>
+      <h2 className='conthead'>Contact Details</h2>
+    </div>
     <div className="contact-form">
       <div className="card">
       <img className='imgg' src={location}></img>
