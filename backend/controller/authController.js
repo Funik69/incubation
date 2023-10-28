@@ -266,8 +266,77 @@ catch (error) {
 
 }
 
+
+
+//forgot password
+const forgotPassword = async (req, res) => {
+    const {email}=req.body;
+    const user = await userModel.findOne({ email });
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        message: "Email is not registered",
+      });
+    }
+      const token = await JWT.sign({ id: user._id }, process.env.JWT_SECRET, {
+        expiresIn: "1d",
+      });
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        secure: false, 
+        service:'Gmail',
+      auth: {
+        user: process.env.SMTP_MAIL, 
+        pass: process.env.SMTP_PASSWORD,
+      },
+    });
+    const mailOptions = {
+      from: process.env.SMTP_MAIL,
+      to: user.email,
+      subject:"Reset Your Password",
+      text:`http://localhost:5173/reset-password/${user._id}/${token}`,
+    };
+  
+    // Send email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email: ', error);
+        res.status(500).send('Error sending email');
+      } else {
+        return res.status(200).send({
+          success: true,
+          message: "Email Sent Successfully",
+        });
+      }
+    });
+
+    }
+
+
+    //reset password
+    const resetPassword = async (req, res) => {
+    const{id,token}=req.params;
+    const {password}=req.body;
+    JWT.verify(token,process.env.JWT_SECRET,(err,decoded)=>{
+      if(err){
+        return res.json({Status:"Error with token"})
+      }
+      else{
+        bcrypt.hash(password,10)
+        .then(hash=>{
+           userModel.findByIdAndUpdate({_id:id},{password:hash})
+          .then(u=>res.send({Status:"Success"}))
+          .catch(err=>res.send({Status:err}))
+        })
+        .catch(err=>res.send({Status:err}))
+      }
+    })
+    }
 module.exports = {
     registerController: registerController,
     loginController:loginController,
-    verifyEmail:verifyEmail
+    verifyEmail:verifyEmail,
+    forgotPassword:forgotPassword,
+    resetPassword:resetPassword
   };

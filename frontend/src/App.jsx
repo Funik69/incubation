@@ -14,6 +14,7 @@ import Forgot from './auth/forgot_password'
 import Footer from './footer/footer'
 import Eligibility from './eligibility/eligibility'
 import Thanks from './thankYou/thanks'
+import Reset from './auth/reset'
 import './App.css';
 import scrolltop from './scrolltop'
 function App() {
@@ -36,9 +37,8 @@ function App() {
           <Route path='/register' element = {<Register />} />
           <Route path='/otp' element = {<Otp />} />
           <Route path='/forgot-password' element = {<Forgot />} />
-
-
-        </Routes>
+          <Route path='/reset-password/:id/:token' element = {<Reset />} />
+          </Routes>
       </BrowserRouter>
       <Footer />
     </div>

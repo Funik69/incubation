@@ -15,7 +15,7 @@ const register = () => {
 
 
   const handleSubmit = async (e) => {
-    if(userType=="Admin" && secretKey!="Priya"){
+    if(userType=="Admin" && secretKey!="12345678"){
       e.preventDefault();
       alert("Invalid Admin")
     }
@@ -59,7 +59,7 @@ const register = () => {
         <form onSubmit={handleSubmit}>
    
         <div className='myform'>
-          <h4 className="title">REGISTER FORM</h4>
+          <h4 className="title">REGISTER</h4>
           <div>
             Register as
             <input 
@@ -67,6 +67,7 @@ const register = () => {
             name ="UserType"
             value="User"
             onChange={(e)=>setUserType(e.target.value)}
+            required
             />
             User
             <input 
@@ -74,6 +75,7 @@ const register = () => {
             name ="UserType"
             value="Admin"
             onChange={(e)=>setUserType(e.target.value)}
+            required
             />
             Admin
 
@@ -86,6 +88,7 @@ const register = () => {
             className="form-control"
             id="exampleInputName"
             placeholder="Secret Key"
+            autoComplete='off'
             required
             autoFocus
           />
@@ -96,8 +99,9 @@ const register = () => {
               type="text"
               onChange={(e) => setFname(e.target.value)}
               className="form-control"
-              id="exampleInputName"
+              id="fname"
               placeholder="First Name"
+              autoComplete='off'
               required
               autoFocus
             />
@@ -107,8 +111,9 @@ const register = () => {
               type="text"
               onChange={(e) => setLname(e.target.value)}
               className="form-control"
-              id="exampleInputName"
+              id="lname"
               placeholder="Last Name"
+              autoComplete='off'
               required
               autoFocus
             />
@@ -121,6 +126,7 @@ const register = () => {
               className="form-control"
               id="exampleInputEmail1"
               placeholder="Email "
+              autoComplete='off'
               required
             />
           </div>
@@ -132,6 +138,7 @@ const register = () => {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
+              autoComplete='off'
               required
             />
           </div>

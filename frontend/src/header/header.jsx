@@ -6,6 +6,10 @@ import incubationlogo from '../img/inculogo.png';
 import './header.css';
 function Header() {
   const [menuOpen,setMenuOpen] = useState(false);
+  const name = localStorage.getItem('auth');
+  const logout = () => {
+    localStorage.removeItem("auth");
+};
 
 return (
     <div className="main"> 
@@ -66,11 +70,17 @@ return (
                   <b>Register</b>
                 </a>
               </li> */}
+              {name ? <li>
+                <a href='./' onClick={logout}>
+                <b style={{color:'white'}}>Logout</b>
+                </a>
+              </li> : 
               <li>
-                <a href='./login'>
+                <a href='./login' >
                 <b style={{color:'white'}}>Login</b>
                 </a>
               </li>
+              }
             </ul>
             </div>
             </nav>
