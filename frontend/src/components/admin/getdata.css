@@ -1,0 +1,40 @@
+.showdata {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5%;
+    margin: 10px;
+  }
+  
+  .cardData {
+    font-size: 20px;
+    text-align: left;
+    background-color: #d7fbfe;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 30px;
+    width: auto; 
+    height: auto;
+  }
+  
+  .card-item {
+    margin-bottom: 5px;
+  }
+  .decisionButton{
+    display: flex;
+    justify-content: space-between;
+  }
+  .Rbtn,.Abtn{
+    margin: 5px;
+    padding: 10px;
+    size: 40px;
+    height: 20px;
+    width: 100px;
+    border-radius: 25px 25px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+  }
+  
