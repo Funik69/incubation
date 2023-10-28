@@ -15,13 +15,12 @@ import Footer from './footer/footer'
 import Eligibility from './eligibility/eligibility'
 import Thanks from './thankYou/thanks'
 import Getdata from './components/admin/getdata'
+import Userdash from './userDashboard/userdash'
 import './App.css';
-import scrolltop from './scrolltop'
 function App() {
     return (
     <div className='app-main'>
       <BrowserRouter>
-      <scrolltop />
       <Header />
         <Routes>
           <Route path="/" element = {<Home />} />
@@ -38,6 +37,7 @@ function App() {
           <Route path='/otp' element = {<Otp />} />
           <Route path='/forgot-password' element = {<Forgot />} />
           <Route path='/fetch' element= {<Getdata/>}/>
+          <Route path='/userdash' element = {<Userdash />} />
         </Routes>
       </BrowserRouter>
       <Footer />

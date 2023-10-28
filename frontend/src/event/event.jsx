@@ -1,15 +1,38 @@
 import React, { useState } from 'react';
+import sides from '../img/sideimg.jpg';
+import audiimg from '../img/audiimg.jpg';
 import './event.css';
 function Event() {
-return (
-    <div className="here2"> 
-        <h1>THIS IS EVENT PAGE.</h1>
-        <p> 
-            <b>yha jo mann ho daal dena</b>
-            <br/>
-            Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services.With this intent in mind, we are inclined towards offering a effective solution for all the startups in the best possible manner.
-        </p>
+    return (
+        <div>
+            <h2 className='eventh'>Events</h2>
+        <div className='eventmain'>
+            <div className='eventinfo'>
+                <h3>Indian Innovation Programme</h3>
+                <h4>Bootcamp  | Offline</h4>
+                <p className='eventp'>Being hosted as part of the INDIAN INNOVATION SUMMIT by FITT - Foundation for Innovation and Technology. It would be a great event which will be full of amazing knowledge and hand full of experience by diving deep into the world of technology.  
+                </p><br></br>
+                <button className='eventb'>"Register here"</button>
+            </div>
+            <div className='eventimg'>
+                <img src={audiimg} style={{width: 300, height: 250}}></img>
+                <h2>13 March | 11:00 AM</h2>
+            </div>
+        </div>
+        <div className='eventmain'>
+        <div className='eventinfo'>
+                <h3>Indian Innovation Programme</h3>
+                <h4>Bootcamp  | Offline</h4>
+                <p className='eventp'>Being hosted as part of the INDIAN INNOVATION SUMMIT by FITT - Foundation for Innovation and Technology. It would be a great event which will be full of amazing knowledge and hand full of experience by diving deep into the world of technology.  
+                </p><br></br>
+                <button className='eventb'>"Register here"</button>
+            </div>
+            <div className='eventimg'>
+                <img src={audiimg} style={{width: 300, height: 250 }}></img>
+                <h2>20 December | 02:00 PM</h2>
+            </div>
+        </div>
     </div>
-    );
-}
-export default Event;
+        );
+    }
+    export default Event;

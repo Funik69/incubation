@@ -33,8 +33,18 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #333;
   }
-
+ .contmain {
+  text-align: justify;
+ }
   .imgg{
     height: 100px;
     width: 100px;
+  }
+  
+  .conthead {
+    margin-top: 50px;
+    text-align:center;
+    font-size: 60px;
+    font-style: italic;
+    color: #0d0254;
   }
