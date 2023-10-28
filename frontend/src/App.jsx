@@ -16,6 +16,7 @@ import Eligibility from './eligibility/eligibility'
 import Thanks from './thankYou/thanks'
 import Getdata from './components/admin/getdata'
 import Userdash from './userDashboard/userdash'
+import Reset from './auth/reset'
 import './App.css';
 function App() {
     return (
@@ -38,7 +39,9 @@ function App() {
           <Route path='/forgot-password' element = {<Forgot />} />
           <Route path='/fetch' element= {<Getdata/>}/>
           <Route path='/userdash' element = {<Userdash />} />
-        </Routes>
+
+          <Route path='/reset-password/:id/:token' element = {<Reset />} />
+          </Routes>
       </BrowserRouter>
       <Footer />
     </div>
