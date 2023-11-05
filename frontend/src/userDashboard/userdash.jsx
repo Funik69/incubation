@@ -1,38 +1,38 @@
 import React ,{useEffect,useState} from 'react';
 import axios from 'axios';
 import './userdash.css';
+import { useDataContext } from '../context/DataContext';
  function Userdash(){
-    const [data,setData] = useState([]);
-    const id =  "653a66aa983b2ac8198457e5 ";
-    useEffect(()=>{ 
-        axios.get(`http://localhost:8000/api/v1/data/getsingledata/${id}`)
-        .then(response =>{
-            setData(response.data);
-        })
-        .catch(error=>{
-            console.error(error);
-        });
-    },[]); 
+    const tokenData = localStorage.getItem("auth");
+    const val = JSON.parse(tokenData);
+    // const id = val.user.email;
+    const id = val && val.user ? val.user.email : '';
+    const { data } = useDataContext();
+  const filteredData = data.filter((item) => item.email == id);
   return (
     <div className='outeruser'>
-      <h1 className='headuserdash'>Startup Name : {data.startupName}</h1>
-      <div className='inneruser'>
-        <p className='userdashp'><b>Founder Name :</b> {data.founderName} </p>
-        <p className='userdashp'><b>Mobile Number : </b>{data.mobileNumber} </p>
-        <p className='userdashp'><b>Alternate Number :</b> {data.alternateNumber} </p>
-        <p className='userdashp'><b>Location :</b> {data.location} </p>
-        <p className='userdashp'><b>State :</b> {data.state} </p>
-        <p className='userdashp'><b>Pin Code :</b> {data.pinCode} </p>
-        <p className='userdashp'><b>Business Idea :</b> {data.businessIdea} </p>
-        <p className='userdashp'><b>Business Model File :</b> {data.businessModelFile} </p>
-        <p className='userdashp'><b>Why Join Us :</b> {data.whyJoinUs} </p>
-        <p className='userdashp'><b>Registered? :</b> {data.registered} </p>
-        <p className='userdashp'><b>Successful :</b> {data.successful} </p>
-        <p className='userdashp'><b>Linkedin Profile :</b> {data.linkedinProfile} </p>
-        <p className='userdashp'><b>Email :</b> {data.email} </p>
+    <div className='portCover'> <h1>My Startup Application</h1></div>
+    <div className='showdata'>{
+      filteredData.map(i=>(
+        <div className='cardData' key={i._id}>
+        <p className='userdashp'><b>Startup Name :</b> {i.startupName} </p>
+        <p className='userdashp'><b>Founder Name :</b> {i.founderName} </p>
+        <p className='userdashp'><b>Email :</b> {i.email} </p>
+        <p className='userdashp'><b>Mobile Number : </b>{i.mobileNumber} </p>
+        <p className='userdashp'><b>Alternate Number :</b> {i.alternateNumber} </p>
+        <p className='userdashp'><b>Location :</b> {i.location} </p>
+        <p className='userdashp'><b>State :</b> {i.state} </p>
+        <p className='userdashp'><b>Pin Code :</b> {i.pinCode} </p>
+        <p className='userdashp'><b>Business Idea :</b> {i.businessIdea} </p>
+        <p className='userdashp'><b>Business Model File :</b> {i.businessModelFile} </p>
+        <p className='userdashp'><b>Why Join Us :</b> {i.whyJoinUs} </p>
+        <p className='userdashp'><b>Registered? :</b> {i.registered} </p>
+        <p className='userdashp'><b>Successful :</b> {i.successful} </p>
+        <p className='userdashp'><b>Linkedin Profile :</b> {i.linkedinProfile} </p>
+        <hr></hr>
+        </div>
+      ))}
       </div>
-      <br></br>
-      <br></br>
     </div>
   )
 }

@@ -15,13 +15,20 @@ import Footer from './footer/footer'
 import Eligibility from './eligibility/eligibility'
 import Thanks from './thankYou/thanks'
 import Getdata from './components/admin/getdata'
+import Acceptedidea from './components/admin/Acceptedidea'
+import UserList from './components/admin/UserList'
 import Userdash from './userDashboard/userdash'
 import Reset from './auth/reset'
 import './App.css';
+import Admindash from './components/admin/admindash'
+import { DataProvider } from './context/DataContext'
+import { AuthProvider } from './context/AuthContext'
 function App() {
     return (
     <div className='app-main'>
       <BrowserRouter>
+      <DataProvider>
+      <AuthProvider>
       <Header />
         <Routes>
           <Route path="/" element = {<Home />} />
@@ -39,9 +46,13 @@ function App() {
           <Route path='/forgot-password' element = {<Forgot />} />
           <Route path='/fetch' element= {<Getdata/>}/>
           <Route path='/userdash' element = {<Userdash />} />
-
+          <Route path='/admindash' element={<Admindash/>}/>
+          <Route path='/userlist' element={<UserList/>}/>
+          <Route path='/acceptedIdea' element={<Acceptedidea/>}/>
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
           </Routes>
+          </AuthProvider>
+          </DataProvider>
       </BrowserRouter>
       <Footer />
     </div>

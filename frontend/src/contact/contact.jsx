@@ -7,8 +7,8 @@ import location from '../img/locationlogo.png';
 function Contact() {
 return ( 
     <>
-    <div className='contmain'>
-      <h2 className='conthead'>Contact Details</h2>
+    <div className='portCover'>
+      <h1>Contact Details</h1>
     </div>
     <div className="contact-form">
       <div className="card">

@@ -28,7 +28,8 @@ const app = express();
       successful,
       linkedinProfile,
       ietDavvRights,
-      sharewithmentor} = req.body;
+      sharewithmentor,
+      status,} = req.body;
       
 
       const formDetail =  new DataModel({
@@ -48,7 +49,8 @@ const app = express();
       successful,
       linkedinProfile,
       ietDavvRights,
-      sharewithmentor
+      sharewithmentor,
+      status
       }); 
       await formDetail.save();
       res.status(201).send({
@@ -77,7 +79,7 @@ const app = express();
     };
     const getSingleData = async (req, res) => {
       try {
-        const data = await DataModel.findById(req.params._id);
+        const data = await DataModel.find({email:req.params._id});
         res.status(200).send(data);
       }
       catch(error) {

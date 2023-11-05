@@ -1,25 +1,18 @@
 import React ,{useEffect,useState} from 'react';
 import axios from 'axios';
 import './getdata.css';
+import { useDataContext } from '../../context/DataContext';
 
  function Getdata(){
-    const [data,setData] = useState([]);
-    useEffect(()=>{
-        axios.get('http://localhost:8000/api/v1/data/getdata')
-        .then(response =>{
-            setData(response.data);
-        })
-        .catch(error=>{
-            console.error(error);
-        });
-    },[]); 
+  const { data } = useDataContext();
+  const filteredData = data.filter((i) => i.status == "pending");
   return (
     <>
     <div className='portCover'>
     <h1>List of Registered Startups</h1>
     </div>
      <div className='showdata'>
-      {data.map(item => (
+      {filteredData.map(item => (
         <div className='cardData' key={item._id}>
           <div className='card-item'><strong>Startup Name:</strong> {item.startupName}</div>
           <div className='card-item'><strong>Founder Name:</strong> {item.founderName}</div>

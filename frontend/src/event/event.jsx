@@ -5,7 +5,7 @@ import './event.css';
 function Event() {
     return (
         <div>
-            <h2 className='eventh'>Events</h2>
+            <h2 className='portCover'>Events</h2>
         <div className='eventmain'>
             <div className='eventinfo'>
                 <h3>Indian Innovation Programme</h3>

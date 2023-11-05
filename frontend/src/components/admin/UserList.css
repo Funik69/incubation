@@ -1,0 +1,32 @@
+/* UserList.css */
+.portCover {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .showdata {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 80%;
+  }
+  
+  .ulist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .leftside {
+    flex: 1;display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px;
+  }
+  
+  h2 {
+    margin: 0;
+  }
+  
+  /* Add styles as needed for other elements */
+  
