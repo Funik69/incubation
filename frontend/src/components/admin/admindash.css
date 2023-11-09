@@ -8,14 +8,17 @@
   
 .admin_info{
     height: 90vh;
-    flex: 3;
+    width: 30%;
+    flex: 1;
     padding: 2%;
     border: 1px solid #ddd;
 }
 .admin_details {
     display: flex;
+    flex-shrink: initial;
     height: 90vh;
-    flex: 7;
+    flex: 2;
+    width: 70%;
     padding: 2%;
     border: 1px solid #ddd;
 }  
@@ -91,7 +94,7 @@
     width: auto;
   }
   .admin_info{
-    flex:0;
+
     flex-direction:column;
     height: auto;
     border: none;

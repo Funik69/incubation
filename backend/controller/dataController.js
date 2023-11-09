@@ -67,6 +67,7 @@ const app = express();
         });
       }
     };
+    //fetched all startup application
     const getData = async(req,res) => {
       try {
         const data = await DataModel.find({});
@@ -77,6 +78,7 @@ const app = express();
         res.status(500).send('Server Error');
       }
     };
+  //startup fetched for particular user   
     const getSingleData = async (req, res) => {
       try {
         const data = await DataModel.find({email:req.params._id});
@@ -87,9 +89,41 @@ const app = express();
         res.status(500).send('Server Error');
       }
     };
+//admin accept the startup idea
+    const updateData = async (req, res) => {
+      try {
+        const data = await DataModel.findByIdAndUpdate(req.params._id, { status: 'accepted' }, { new: true });
+        res.status(200).send('update data');
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+      }
+    };
+
+//unregisterd the accepted startup
+const UnRegister = async (req, res) => {
+  try {
+    const data = await DataModel.findByIdAndUpdate(req.params._id, { status: 'Inactive' }, { new: true });
+    res.status(200).send('unregister data');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};    
+    
+//admin reject and delete idea     
+    const deleteData = async(req, res) => {
+      try{
+        const data = await DataModel.findByIdAndDelete(req.params._id);
+        res.status(200).send('delete data');
+      } catch(error){
+        console.error(error);
+        res.status(500).send('Server Error');
+      }
+    }
     
     
   module.exports = {
-    DataSaveController: DataSaveController , getData , getSingleData
+    DataSaveController: DataSaveController , getData , getSingleData, updateData, deleteData, UnRegister
   };
 

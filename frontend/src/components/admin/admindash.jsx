@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './admindash.css'
 import Profile_pic from '../../img/ietdavv.logo.jpg'
 import { useAuthContext } from '../../context/AuthContext'
@@ -34,21 +35,25 @@ const Admindash = () => {
         </div>
       ))
     }
-    
     </div>
+
     <div className='logout_btn1'>
     <button className='logout_btn' onClick={logout}><a href='./'>Logout</a></button>
     </div>
     </div>
+    
     <div className='admin_details'>
         <div className='card_block'>
-        <a href='/fetch'>StartUp Data List</a>
+        <Link to={`/fetch`}>StartUps Data List</Link>
         </div>
         <div className='card_block'>
-        <a href='/acceptedIdea'>Accepted Startup List</a>
+        <Link to='/acceptedIdea'>Accepted Startups List</Link>
         </div>
         <div className='card_block'>
-        <a href='/userlist'>User List</a>
+        <Link to='/userlist'>User List</Link>
+        </div>
+        <div className='card_block'>
+        <Link to='/inactive'>Inactive Startups</Link>
         </div>
     </div>
     </div>

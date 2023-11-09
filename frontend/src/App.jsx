@@ -23,6 +23,9 @@ import './App.css';
 import Admindash from './components/admin/admindash'
 import { DataProvider } from './context/DataContext'
 import { AuthProvider } from './context/AuthContext'
+import FullPage from './components/admin/FullPage'
+import Singlepage from './components/admin/Singlepage'
+import InactiveStartup from './components/admin/InactiveStartup'
 function App() {
     return (
     <div className='app-main'>
@@ -47,8 +50,11 @@ function App() {
           <Route path='/fetch' element= {<Getdata/>}/>
           <Route path='/userdash' element = {<Userdash />} />
           <Route path='/admindash' element={<Admindash/>}/>
+          <Route path='/inactive' element={<InactiveStartup/>}/>
           <Route path='/userlist' element={<UserList/>}/>
           <Route path='/acceptedIdea' element={<Acceptedidea/>}/>
+          <Route path='/viewdata/:id' element={<FullPage/>}/>
+          <Route path='/singlepage/:id' element={<Singlepage/>}/>
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
           </Routes>
           </AuthProvider>

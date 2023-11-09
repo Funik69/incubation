@@ -1,46 +1,53 @@
-import React ,{useEffect,useState} from 'react';
-import axios from 'axios';
-import './Acceptedidea.css';
+import React, {useState } from 'react';
 import { useDataContext } from '../../context/DataContext';
+import { Link } from 'react-router-dom';
+
 const Acceptedidea = () => {
-    const { data } = useDataContext();
-    const filteredData = data.filter((i) => i.status == "accepted");
-    return (
-      <>
-      <div className='portCover'>
-      <h1>List of Registered Startups</h1>
+  const { data } = useDataContext();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const containsSearchQuery = (item, query) => {
+    // Define the fields you want to search in
+    const searchFields = [item.startupName, item.founderName, item.email];
+    // Check if any field contains the query
+    return searchFields.some((field) => field.toLowerCase().includes(query.toLowerCase()));
+  };
+
+  const filteredData = data.filter((item) => item.status === 'accepted' && containsSearchQuery(item, searchQuery));
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  return (
+    <>
+      <div className="portCover">
+        <h1>List of Approved Startups</h1>
+        <input
+          type="text"
+          placeholder=" Search startup"
+          value={searchQuery}
+          onChange={handleSearch}
+          className='search_data'
+        />
       </div>
-       <div className='usrData'>
-        {filteredData.map(item => (
-          <div className='cardData' key={item._id}>
-            <div className='card-item'><strong>Startup Name:</strong> {item.startupName}</div>
-            <div className='card-item'><strong>Founder Name:</strong> {item.founderName}</div>
-            <div className='card-item'><strong>Mobile Number:</strong> {item.mobileNumber}</div>
-            <div className='card-item'><strong>Alternate Number:</strong> {item.alternateNumber}</div>
-            <div className='card-item'><strong>Email:</strong> {item.email}</div>
-            <div className='card-item'><strong>Location:</strong> {item.location}</div>
-            <div className='card-item'><strong>State:</strong> {item.state}</div>
-            <div className='card-item'><strong>Pincode:</strong> {item.pinCode}</div>
-            <div className='card-item'><strong>Business Idea:</strong> {item.businessIdea}</div>
-            <div>
-              <a href={item.businessModelFile} target="_blank" rel="noopener noreferrer">
-                Link to Business Model
-              </a>
+      <div className="showdata">
+        {filteredData.map((item) => (
+          <div className="cardData" key={item._id}>
+            <div className="card-item"><strong>Startup Name:</strong> {item.startupName}</div>
+            <div className="card-item"><strong>Founder Name:</strong> {item.founderName}</div>
+            <div className="card-item"><strong>Email:</strong> {item.email}</div>
+            <a href={item.linkedinProfile} target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+            <div className="admin_center">
+              <Link to={`/singlepage/${item._id}`}><u>View Startup</u></Link>
             </div>
-            <div className='card-item'><strong>Why Join Us:</strong> {item.whyJoinUs}</div>
-            <div className='card-item'><strong>Registered:</strong> {item.registered}</div>
-            <div className='card-item'><strong>Development:</strong> {item.development}</div>
-            <div className='card-item'><strong>Successful:</strong> {item.successful}</div>
-              <a href={item.linkedinProfile} target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-              <hr></hr>
           </div>
         ))}
       </div>
-      </>
-     
-    )
-}
+    </>
+  );
+};
 
-export default Acceptedidea
+export default Acceptedidea;
