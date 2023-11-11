@@ -1,21 +1,24 @@
-import React ,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './userdash.css';
+import { useParams } from 'react-router-dom';
 import { useDataContext } from '../context/DataContext';
- function Userdash(){
-    const tokenData = localStorage.getItem("auth");
-    const val = JSON.parse(tokenData);
-    // const id = val.user.email;
-    const id = val && val.user ? val.user.email : '';
-    const { data } = useDataContext();
-  const filteredData = data.filter((item) => item.email == id);
+
+const UserStartupview = () => {
+ const {data} = useDataContext();
+ const { id } = useParams();
+ const filteredData = data.filter((i)=> i.email == id)
+ const len = filteredData.length;
+  // console.log(filteredData);
   return (
     <div className='outeruser'>
-    <div className='portCover'> <h1>My Startup Application</h1></div>
-    <div className='showdata'>{
-      filteredData.map(i=>(
-        <div className='cardData' key={i._id}>
-        <p className='userdashp'><b>Startup Name :</b> {i.startupName} </p>
+      <div className='portCover'>
+        <h1>{len} Register Startup</h1>
+      </div>
+      <div className='showdata'>
+        {filteredData && len >0 ?  (
+          filteredData.map((i) => (
+            <div className='cardData' key={i._id}>
+            <p className='userdashp'><b>Startup Name :</b> {i.startupName} </p>
         <p className='userdashp'><b>Founder Name :</b> {i.founderName} </p>
         <p className='userdashp'><b>Email :</b> {i.email} </p>
         <p className='userdashp'><b>Mobile Number : </b>{i.mobileNumber} </p>
@@ -31,11 +34,14 @@ import { useDataContext } from '../context/DataContext';
         <p className='userdashp'><b>Linkedin Profile :</b> {i.linkedinProfile} </p>
         <p className='userdashp'><b>Application status :</b> {i.status} </p>
         <hr></hr>
-        </div>
-      ))}
+            </div>
+          ))
+        ) : (
+          <p>No startup registered.</p>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Userdash;
+export default UserStartupview;

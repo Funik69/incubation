@@ -1,32 +1,37 @@
-/* UserList.css */
+.pagee{
+  margin: 50px;
+}
 .portCover {
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  .showdata {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0 auto;
-    width: 80%;
-  }
-  
-  .ulist {
-    list-style: none;
-    padding: 0;
+  text-align: center;
+  padding: 20px;
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.userTable th,
+.userTable td {
+  border: 1px solid #000000;
+  padding: 10px;
+  text-align: left;
+}
+
+.userTable th {
+  background-color:rgb(192, 192, 254)
+}
+
+.showdata {
+  margin-bottom: 20px;
+}
+
+.leftside {
+  list-style-type: none;
+}
+@media (max-width: 768px){
+  .pagee{
     margin: 0;
   }
-  
-  .leftside {
-    flex: 1;display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 20px;
-  }
-  
-  h2 {
-    margin: 0;
-  }
-  
-  /* Add styles as needed for other elements */
-  
+}

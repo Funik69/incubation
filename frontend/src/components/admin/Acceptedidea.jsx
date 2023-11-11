@@ -14,7 +14,7 @@ const Acceptedidea = () => {
   };
 
   const filteredData = data.filter((item) => item.status === 'accepted' && containsSearchQuery(item, searchQuery));
-
+  const len = filteredData.length;
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -22,7 +22,7 @@ const Acceptedidea = () => {
   return (
     <>
       <div className="portCover">
-        <h1>List of Approved Startups</h1>
+        <h1>List of Approved Startups({len})</h1>
         <input
           type="text"
           placeholder=" Search startup"

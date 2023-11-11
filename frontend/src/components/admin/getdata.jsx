@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
   };
 
   const filteredData = data.filter((item) => item.status === 'pending' && containsSearchQuery(item, searchQuery));
-
+  const len = filteredData.length;
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
   return (
     <>
     <div className='portCover'>
-    <h1>List of Applied Startups</h1>
+    <h1>List of Applied Startups({len})</h1>
     <input
           type="text"
           placeholder=" Search startup"

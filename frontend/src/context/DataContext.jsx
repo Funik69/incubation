@@ -18,7 +18,8 @@ export const DataProvider = ({ children }) => {
     axios
       .get('http://localhost:8000/api/v1/data/getdata')
       .then((response) => {
-        setData(response.data);
+        const sortedData = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setData(sortedData);
       })
       .catch((error) => {
         console.error(error);

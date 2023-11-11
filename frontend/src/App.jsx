@@ -18,6 +18,7 @@ import Getdata from './components/admin/getdata'
 import Acceptedidea from './components/admin/Acceptedidea'
 import UserList from './components/admin/UserList'
 import Userdash from './userDashboard/userdash'
+import Userprofile from './userDashboard/Userprofile'
 import Reset from './auth/reset'
 import './App.css';
 import Admindash from './components/admin/admindash'
@@ -26,6 +27,7 @@ import { AuthProvider } from './context/AuthContext'
 import FullPage from './components/admin/FullPage'
 import Singlepage from './components/admin/Singlepage'
 import InactiveStartup from './components/admin/InactiveStartup'
+import UserStartupview from './userDashboard/UserStartupview'
 function App() {
     return (
     <div className='app-main'>
@@ -48,13 +50,15 @@ function App() {
           <Route path='/otp' element = {<Otp />} />
           <Route path='/forgot-password' element = {<Forgot />} />
           <Route path='/fetch' element= {<Getdata/>}/>
-          <Route path='/userdash' element = {<Userdash />} />
+          <Route path='/useridea' element = {<Userdash />} />
+          <Route path='/userdash' element = {<Userprofile />} />
           <Route path='/admindash' element={<Admindash/>}/>
           <Route path='/inactive' element={<InactiveStartup/>}/>
           <Route path='/userlist' element={<UserList/>}/>
           <Route path='/acceptedIdea' element={<Acceptedidea/>}/>
           <Route path='/viewdata/:id' element={<FullPage/>}/>
           <Route path='/singlepage/:id' element={<Singlepage/>}/>
+          <Route path='/viewUserStartup/:id' element={<UserStartupview/>}/>
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
           </Routes>
           </AuthProvider>

@@ -1,107 +1,63 @@
-.ad1{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 90vh; /* Adjust the height as needed */
-}
-  
-.admin_info{
-    height: 90vh;
-    width: 30%;
-    flex: 1;
-    padding: 2%;
-    border: 1px solid #ddd;
-}
-.admin_details {
-    display: flex;
-    flex-shrink: initial;
-    height: 90vh;
-    flex: 2;
-    width: 70%;
-    padding: 2%;
-    border: 1px solid #ddd;
-}  
-.admin_center{
-    padding-top: 2%;
-    display: flex;
-    justify-content: center;
-}  
-.ad1 .admin_center ul{
-    text-align: center;
-}
-#admin_pic{
-    height: 90px;
-    border-radius: 50%;
-}
-.card_block{
-    padding: 2%;
-    justify-content: center;
-    text-align: center;
-    margin: 2%;
-    height: 50px;
-    width: 300px;
-    background-color: rgb(114, 201, 255);
-    font-size: 20px;
-    border-radius: 10%;
-    font-weight: bold;
-    overflow: hidden;
-}
-.logout_btn1{
-   display: flex;
-   justify-content: center;
-}
-.logout_btn{
-    font-weight: bold;
-    height: 50px;
-    width: 100px;
-    font-size: 20px;
-}
-@media (max-width: 968px) {
-  .admin_details {
-    flex:0;
-    flex-direction: column;
-    width: auto;
-    height: auto;
-    border: none;
-    
-  }
-  .card_block{
-    width: auto;
-  }
-  .admin_info{
-    flex:0;
-    flex-direction:column;
-    height: auto;
-    border: none;
-  }
-  .ad1{
-    display: flex;
-    flex-direction: column;
-    height: 100px;
-  }
-}
-@media (max-width: 428px) {
-  .admin_details {
-    flex:0;
-    flex-direction: column;
-    width: auto;
-    height: auto;
-    border: none;
-    
-  }
-  .card_block{
-    width: auto;
-  }
-  .admin_info{
+/* admindash.css */
 
-    flex-direction:column;
-    height: auto;
-    border: none;
-  }
-  .ad1{
-    display: flex;
-    flex-direction: column;
-    height: 100px;
+.ad1 {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+}
+
+.admin_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin_center {
+  text-align: center;
+}
+
+#admin_pic {
+  width: 100px; /* Adjust the size as needed */
+  height: 100px; /* Adjust the size as needed */
+  border-radius: 50%;
+}
+
+.logout_btn1 {
+  margin-top: 10px;
+}
+
+.logout_btn {
+  font-size: 18px;
+  background-color: rgb(248, 38, 38);
+  color: white;
+  border: none;
+  height: 20px;
+  width: 100px;
+  padding: 10px 15px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.admin_details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card_block {
+  width: 30%; /* Adjust the width as needed, consider leaving some space for margins/paddings */
+  margin-bottom: 20px;
+  border: 1px solid #ddd; /* Optional: Add border for a card-like appearance */
+  padding: 15px;
+  text-align: center;
+  font-size: 22px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .card_block {
+    width: 100%; /* Display cards in a single column on smaller screens */
   }
 }

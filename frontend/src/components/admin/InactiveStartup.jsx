@@ -13,7 +13,7 @@ const InactiveStartup = () => {
   };
 
   const filteredData = data.filter((item) => item.status === 'Inactive' && containsSearchQuery(item, searchQuery));
-
+  const len = filteredData.length;
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -21,7 +21,7 @@ const InactiveStartup = () => {
   return (
     <>
       <div className='portCover'>
-      <h1>List of InActive Startups</h1>
+      <h1>List of InActive Startups({len})</h1>
       <input
           type="text"
           placeholder=" Search startup"

@@ -50,10 +50,10 @@ const Admindash = () => {
         <Link to='/acceptedIdea'>Accepted Startups List</Link>
         </div>
         <div className='card_block'>
-        <Link to='/userlist'>User List</Link>
+        <Link to='/inactive'>Inactive Startups</Link>
         </div>
         <div className='card_block'>
-        <Link to='/inactive'>Inactive Startups</Link>
+        <Link to='/userlist'>User List</Link>
         </div>
     </div>
     </div>

@@ -20,7 +20,16 @@ export const AuthProvider = ({ children }) => {
     axios
       .get(`http://localhost:8000/api/v1/auth/getuser`)
       .then((response) => {
-        setData(response.data);
+        const sortedData = response.data.sort((a, b) => {
+          // Assuming fname and lname are strings
+          const nameA = `${a.fname} ${a.lname}`.toLowerCase();
+          const nameB = `${b.fname} ${b.lname}`.toLowerCase();
+
+          if (nameA < nameB) return -1;
+          if (nameA > nameB) return 1;
+          return 0;
+        });
+        setData(sortedData);
       })
       .catch((error) => {
         console.error(error);
