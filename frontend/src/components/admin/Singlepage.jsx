@@ -45,8 +45,8 @@ const Singlepage = () => {
       <div className='card-item'><strong>Pincode:</strong> {item.pinCode}</div>
       <div className='card-item'><strong>Business Idea:</strong> {item.businessIdea}</div>
       <div>
-        <a href={item.businessModelFile} target="_blank" rel="noopener noreferrer">
-          Link to Business Model
+      <strong>Business Model: </strong><a href={item.businessModelFile} target="_blank" rel="noopener noreferrer">
+          Link 
         </a>
       </div>
       <div className='card-item'><strong>Why Join Us:</strong> {item.whyJoinUs}</div>

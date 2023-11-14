@@ -8,15 +8,19 @@ const FullPage = () => {
   const { data, setData } = useDataContext();
   const filteredData = data.filter((i) => i._id == id);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [agree,setAgree] = useState(false);
+  const [disagree, setDisagree] = useState(false);
 
   const handleAccept = async () => {
     // Display the confirmation dialog
     setShowConfirmation(true);
+    setAgree(true);
   };
 
   const handleReject = async () => {
     // Display the confirmation dialog
     setShowConfirmation(true);
+    setDisagree(true);
   };
 
   const confirmAccept = async () => {
@@ -32,6 +36,7 @@ const FullPage = () => {
 
     // Close the confirmation dialog
     setShowConfirmation(false);
+    setAgree(false);
   };
 
   const confirmReject = async () => {
@@ -45,6 +50,7 @@ const FullPage = () => {
 
     // Close the confirmation dialog
     setShowConfirmation(false);
+    setDisagree(false);
   };
 
   return (
@@ -61,8 +67,8 @@ const FullPage = () => {
           <div className='card-item'><strong>Pincode:</strong> {item.pinCode}</div>
           <div className='card-item'><strong>Business Idea:</strong> {item.businessIdea}</div>
           <div>
-            <a href={item.businessModelFile} target="_blank" rel="noopener noreferrer">
-              Link to Business Model
+          <strong>Business Model : </strong><a href={item.businessModelFile} target="_blank" rel="noopener noreferrer">
+              Link
             </a>
           </div>
           <div className='card-item'><strong>Why Join Us:</strong> {item.whyJoinUs}</div>
@@ -87,9 +93,10 @@ const FullPage = () => {
 
           {showConfirmation && (
             <div className="confirmation-dialog">
-              <p><b>Are you sure you want to proceed?</b></p>
-              <button className="Abtn" onClick={confirmAccept}><Link to='/fetch'>Accept</Link></button>
-              <button className="Rbtn" onClick={confirmReject}><Link to='/fetch'>Reject</Link></button>
+              <p><b>Are you sure you want to proceed?</b></p>{
+                agree && <button className="Abtn" onClick={confirmAccept}><Link to='/fetch'>Accept</Link></button> }
+              { disagree &&  <button className="Rbtn" onClick={confirmReject}><Link to='/fetch'>Reject</Link></button>
+              }
             </div>
           )}
         </div>

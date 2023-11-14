@@ -27,12 +27,17 @@ const UserStartupview = () => {
         <p className='userdashp'><b>State :</b> {i.state} </p>
         <p className='userdashp'><b>Pin Code :</b> {i.pinCode} </p>
         <p className='userdashp'><b>Business Idea :</b> {i.businessIdea} </p>
-        <p className='userdashp'><b>Business Model File :</b> {i.businessModelFile} </p>
+        <p className='userdashp'><b>Business Model File :</b><a href={i.businessModelFile} target="_blank" rel="noopener noreferrer">
+              Link
+            </a> </p>
         <p className='userdashp'><b>Why Join Us :</b> {i.whyJoinUs} </p>
         <p className='userdashp'><b>Registered? :</b> {i.registered} </p>
         <p className='userdashp'><b>Successful :</b> {i.successful} </p>
-        <p className='userdashp'><b>Linkedin Profile :</b> {i.linkedinProfile} </p>
+        <p className='userdashp'><b>Linkedin Profile :</b><a href={i.linkedinProfile} target="_blank" rel="noopener noreferrer">
+              View profile
+            </a> </p>
         <p className='userdashp'><b>Application status :</b> {i.status} </p>
+        <p className='userdashp'><b>Register on :</b> {i.createdAt.substring(0,10)} </p>
         <hr></hr>
             </div>
           ))

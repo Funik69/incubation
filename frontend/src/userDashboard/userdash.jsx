@@ -9,9 +9,10 @@ import { useDataContext } from '../context/DataContext';
     const id = val && val.user ? val.user.email : '';
     const { data } = useDataContext();
   const filteredData = data.filter((item) => item.email == id);
+  const len = filteredData.length;
   return (
     <div className='outeruser'>
-    <div className='portCover'> <h1>My Startup Application</h1></div>
+    <div className='portCover'> <h1>My Startup Application({len})</h1></div>
     <div className='showdata'>{
       filteredData.map(i=>(
         <div className='cardData' key={i._id}>
@@ -24,11 +25,15 @@ import { useDataContext } from '../context/DataContext';
         <p className='userdashp'><b>State :</b> {i.state} </p>
         <p className='userdashp'><b>Pin Code :</b> {i.pinCode} </p>
         <p className='userdashp'><b>Business Idea :</b> {i.businessIdea} </p>
-        <p className='userdashp'><b>Business Model File :</b> {i.businessModelFile} </p>
+        <p className='userdashp'><b>Business Model File :</b><a href={i.businessModelFile} target="_blank" rel="noopener noreferrer">
+              Link
+            </a> </p>
         <p className='userdashp'><b>Why Join Us :</b> {i.whyJoinUs} </p>
         <p className='userdashp'><b>Registered? :</b> {i.registered} </p>
         <p className='userdashp'><b>Successful :</b> {i.successful} </p>
-        <p className='userdashp'><b>Linkedin Profile :</b> {i.linkedinProfile} </p>
+        <p className='userdashp'><b>Linkedin Profile :</b><a href={i.linkedinProfile} target="_blank" rel="noopener noreferrer">
+              View profile
+            </a> </p>
         <p className='userdashp'><b>Application status :</b> {i.status} </p>
         <hr></hr>
         </div>
