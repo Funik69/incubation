@@ -33,8 +33,10 @@ const register = () => {
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
         navigate("/otp");
+        alert("Email Verification link sent to provided Mail ID")
       } else {
         console.log(res.data.message);
+        alert(res.data.message)
       }
     } catch (error) {
       if (error.response) {
@@ -68,6 +70,7 @@ const register = () => {
             value="User"
             onChange={(e)=>setUserType(e.target.value)}
             required
+            defaultChecked
             />
             User
             <input 
@@ -115,7 +118,7 @@ const register = () => {
               placeholder="Last Name"
               autoComplete='off'
               required
-              autoFocus
+              
             />
           </div>
           <div className="mb-3">

@@ -16,17 +16,20 @@ const login = () => {
         email,
         password,
       });
-      if (res && res.data.success) {
+      
+       if (res && res.status==200) {
         console.log(res.data && res.data.message);
         localStorage.setItem("auth", JSON.stringify(res.data));
         alert("login successful");
         navigate(location.state || "/");
-      } else {
-        console.log(res.data.message);
+      } 
+      else{
+        alert("login unsuccessful");
+        navigate(location.state || "/");
       }
+     
     } catch (error) {
       console.log(error);
-      toast.error("Something went wrong");
     }
   };
   return (

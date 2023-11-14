@@ -228,7 +228,7 @@ function StartupForm() {
     navigate('/Thanks');
     const formDataToSend = {
       receiverEmail: formData.email, // Receiver's email from the form
-      subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
+      subject: 'Innovation Incubation and  Hub - A helping hand for StartUp',
       message: formData.founderName,};
 
       try {

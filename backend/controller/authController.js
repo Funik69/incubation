@@ -126,16 +126,23 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
       });
     }
     //check user
-    const user = await userModel.findOne({ email });
+    const user = await userModel.findOne({ email:email });
     if (!user) {
-      return res.status(404).send({
+      return res.status(400).send({
         success: false,
         message: "Email is not registered",
       });
     }
+    
+    // if (!user.verified) {
+    //   return res.status(401).send({
+    //     success: false,
+    //     message: "Email is not verified",
+    //   });
+    // }
     const match = await bcrypt.compareSync(password, user.password);
     if (!match) {
-      return res.status(200).send({
+      return res.status(401).send({
         success: false,
         message: "Invalid Password",
       });
@@ -143,9 +150,9 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
     
     //token
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
+      expiresIn: "1d",
     });
-    res.status(200).send({
+    res.status(201).send({
       success: true,
       message: "login successfully",
       user: {
@@ -166,6 +173,8 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
     });
   }
 };
+
+
 
 //verify email
 const verifyEmail= async(req,res)=>{
