@@ -1,0 +1,37 @@
+.pagee{
+  margin: 50px;
+}
+.portCover {
+  text-align: center;
+  padding: 20px;
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.userTable th,
+.userTable td {
+  border: 1px solid #000000;
+  padding: 10px;
+  text-align: left;
+}
+
+.userTable th {
+  background-color:rgb(192, 192, 254)
+}
+
+.showdata {
+  margin-bottom: 20px;
+}
+
+.leftside {
+  list-style-type: none;
+}
+@media (max-width: 768px){
+  .pagee{
+    margin: 0;
+  }
+}

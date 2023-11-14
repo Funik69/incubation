@@ -3,12 +3,17 @@ import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import "./StartupForm.css";
 
+const tokenData = localStorage.getItem("auth");
+const val = JSON.parse(tokenData);
+//const mail = val.user.email;
+const mail = val && val.user ? val.user.email : '';
+
 const formData_initialState = {
   startupName: "",
   founderName: "",
   mobileNumber: "",
   alternateNumber: "",
-  email: "",
+  email: mail,
   location: "",
   state: "",
   pinCode: "",
@@ -21,6 +26,7 @@ const formData_initialState = {
   linkedinProfile: "",
   ietDavvRights: false,
   sharewithmentor: false,
+  status:"pending",
 };
 
 function StartupForm() {
@@ -52,7 +58,7 @@ function StartupForm() {
     founderName: "",
     mobileNumber: "",
     alternateNumber: "",
-    email: "",
+    email: mail,
     location: "",
     state: "",
     pinCode: "",
@@ -65,6 +71,7 @@ function StartupForm() {
     linkedinProfile: "",
     ietDavvRights: "",
     sharewithmentor: "",
+    status:"pending",
   });
 
   const validateForm = () => {
@@ -93,13 +100,13 @@ function StartupForm() {
       newErrors.mobileNumber = "";
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Invalid Email Address";
-      isValid = false;
-    } else {
-      newErrors.email = "";
-    }
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(formData.email)) {
+    //   newErrors.email = "Invalid Email Address";
+    //   isValid = false;
+    // } else {
+    //   newErrors.email = "";
+    // }
 
     if (formData.location.trim() === "") {
       newErrors.location = "Location is required";
@@ -369,11 +376,12 @@ function StartupForm() {
                   placeholder="Enter mail address "
                   id="email"
                   name="email"
+                  disabled="true"
                   value={formData.email}
                   onChange={handleChange}
                   required
                 />
-                <div className="error">{formErrors.email}</div>
+
               </div>
 
               <div>
@@ -565,7 +573,7 @@ function StartupForm() {
                 onChange={handleChange}
                 required
               />
-              All rights are reserved with IET DAVV
+              All rights are reserved with DAVV
             </label>
             <div className="error">{formErrors.ietDavvRights}</div>
           </div>

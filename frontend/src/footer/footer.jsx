@@ -37,7 +37,8 @@ function Footer() {
                 <div className ="container">
                     <div className ="row3">
                         <div>
-                            <p className ="copyright-text">Copyright &copy; 2017 All Rights Reserved by DAVV
+                            <p className ="copyright-text">Copyright &copy; 2023 All Rights Reserved by
+                             Priyanshi Shivhare, Raghav Upadhyay, Shivanshi Gupta
                             </p>
                         </div>
 

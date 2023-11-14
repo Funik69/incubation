@@ -127,6 +127,7 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
     }
     //check user
     const user = await userModel.findOne({ email });
+    console.log(user);
     if (!user) {
       return res.status(404).send({
         success: false,
@@ -333,10 +334,22 @@ const forgotPassword = async (req, res) => {
       }
     })
     }
+    const getUser = async (req, res) => {
+      try {
+        const data = await userModel.find({});
+        res.status(200).send(data);
+      }
+      catch(error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+      }
+    };
+
 module.exports = {
     registerController: registerController,
     loginController:loginController,
     verifyEmail:verifyEmail,
     forgotPassword:forgotPassword,
-    resetPassword:resetPassword
+    resetPassword:resetPassword,
+    getUser
   };

@@ -80,6 +80,11 @@ const DataSchema = new mongoose.Schema(
         type: Boolean,
         required:true,
         trim:true,
+    },
+    status:{
+        type:String,
+        required:true,
+        trim:true,
     }
   },
   {timestamps:true}

@@ -83,7 +83,7 @@ const register = () => {
           {userType=="Admin"?
           <div className="mb-3">
           <input
-            type="text"
+            type="password"
             onChange={(e) => setSecretKey(e.target.value)}
             className="form-control"
             id="exampleInputName"
