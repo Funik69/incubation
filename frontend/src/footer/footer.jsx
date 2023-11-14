@@ -7,7 +7,7 @@ function Footer() {
             {/*<!-- Site footer -->*/}
                 <footer className ="site-footer">
                     <div className ="container">
-                        <div className ="row">
+                        <div className ="rowfoot">
                             <div className ="div1">
                                 <h6>About</h6>
                                 <p className ="text-justify">DAVV - Incubation Center is obliged to provide constant support and motivation to its aligned Incubatees.<br/> Our sole purpose is to help entrepreneurs grow their business.We assure that we'll support every idea that has the potential to be converted into a successful business.</p>
@@ -37,7 +37,8 @@ function Footer() {
                 <div className ="container">
                     <div className ="row3">
                         <div>
-                            <p className ="copyright-text">Copyright &copy; 2017 All Rights Reserved by DAVV
+                            <p className ="copyright-text">Copyright &copy; 2023 All Rights Reserved by
+                             Priyanshi Shivhare, Raghav Upadhyay, Shivanshi Gupta
                             </p>
                         </div>
 

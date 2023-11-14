@@ -19,7 +19,9 @@ const otp = () => {
           if (res && res.data.success) {
             console.log(res.data && res.data.message);
             navigate("/login");
+            alert("Email Verified");
           } else {
+            alert("Wrong Unique Id or Otp");
             console.log(res.data.message);
           }
         } catch (error) {

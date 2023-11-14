@@ -10,8 +10,14 @@ function Programs() {
 return (
     <>
     <div className='programhead'>
-    <h2 className='prmainh'>PROGRAMS</h2>
-    <p className='prhead'>Latest Announcements</p>
+    <div className='portCover'>
+        <h1>PROGRAMS</h1>
+    </div>
+    <div className='scrltext'>
+      <marquee direction="left" height="100px" scrollmount="100">
+      Latest Announcements Latest Announcements Latest Announcements Latest Announcements Latest Announcements Latest Announcements Latest Announcements 
+      </marquee>
+    </div>
     </div>
 
         <div className='progcon1'>

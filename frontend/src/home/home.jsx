@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { TypeAnimation } from 'react-type-animation';
 import './home.css';
 import startimg from '../img/coverpic.png';
 import About from '../aboutUs/aboutUs';
@@ -24,10 +25,17 @@ return (
         <div className="content">
           <div className="container">
             <div className="info">
-              <h1>WE <br/>INCUBATE/INNOVATE/SUPPORT</h1>
+              <TypeAnimation
+                    sequence={["We Incubate",1000,"We Support",1000,"We Innovate",1000]}
+                    speed={50}
+                    repeat={4}
+                    style={{ fontSize: '70px', fontWeight: '800', color: '#0d0254'}}
+                    className='animationhereh'
+                />
               <p>Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services.</p>
               <p>With this intent in mind, we are inclined towards offering a effective solution for all the startups in the best possible manner.</p>
-              <button onClick={() => navigate("/Eligibility")}><b>Apply Now</b></button>
+              <button onClick={() => navigate("/Eligibility")} className='firstbut'><b>Apply For Incubation</b></button>
+              <button onClick={() => navigate("/Collaborate")} className='secondbutton'><b>Collaborate here</b></button>
             </div>
             <div className="image">
                 <img src={startimg} height={300} width={450} />

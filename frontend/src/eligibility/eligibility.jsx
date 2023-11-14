@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './eligibility.css';
 function Eligibility() {
     const navigate = useNavigate();
+    const name = localStorage.getItem('auth');
 return (
     <div className="here3"> 
         <div id="cover">
@@ -32,7 +33,7 @@ return (
                     <p className='epara'>- Accept the offer and sign the agreement.</p>
                 </div>
             </div>
-            <button onClick={() => navigate("/StartupForm")}><b className='apply'>Apply Now</b></button>
+            <button onClick={name ? () => navigate("/StartupForm") : () => navigate("/login")} className='eliapply'><b>Apply Now</b></button>
         
     </div>
     );

@@ -1,14 +1,18 @@
-.here3 button {
-    border: 0;
-    border-radius: 20px;
-    padding: 12px 30px;
-    margin-top: 30px;
-    margin-left: 25px;
-    cursor: pointer;
-    color: #FFF;
-    background-color: #0d0254;
-    margin-left: 250px;
+.eliapply {
+  border: 0;
+  border-radius: 20px;
+  padding: 12px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #0d0254;
+  margin-left: 70px;
+  font-size: 17px;
   }
+.eliapply:hover {
+  background-color: rgb(194, 156, 255);
+  color: #0d0254;
+}
   .here3 .headd {
     align-items: center;
     justify-content: center;
@@ -35,9 +39,6 @@
     display: flex;
     color: #0d0254;
     margin-top: 50px;
-  }
-  .apply {
-    font-size: large;
   }
   .epara {
     font-size: 20px;

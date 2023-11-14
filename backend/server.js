@@ -5,6 +5,8 @@ const dotenv = require("dotenv");
 const connectDB  = require('./db.js');
 const authRoutes =require( './routes/authRoute.js');
 const dataRoutes = require('./routes/dataRoute.js');
+const investRoutes = require('./routes/investRoute.js');
+const mentorRoutes = require('./routes/mentorRoute.js');
 const connDB = require('./formDb.js');
 dotenv.config();
   connectDB();
@@ -20,6 +22,10 @@ app.use(cors());
 app.use('/api/v1/auth',authRoutes);
 //data routes 
 app.use('/api/v1/data',dataRoutes);
+//investRoutes
+app.use('/api/v1/invest',investRoutes);
+//mentorRoutes
+app.use('/api/v1/mentor',mentorRoutes);
 // Nodemailer configuration
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
