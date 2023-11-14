@@ -17,6 +17,11 @@ import Thanks from './thankYou/thanks'
 import Getdata from './components/admin/getdata'
 import Userdash from './userDashboard/userdash'
 import Reset from './auth/reset'
+import Collaborate from './Collaborate/collaborate'
+import Investor from './collaborate/investor'
+import InvestForm from './collaborate/investform'
+import Mentor from './collaborate/mentor'
+import MentorForm from './collaborate/mentorform'
 import './App.css';
 function App() {
     return (
@@ -39,7 +44,11 @@ function App() {
           <Route path='/forgot-password' element = {<Forgot />} />
           <Route path='/fetch' element= {<Getdata/>}/>
           <Route path='/userdash' element = {<Userdash />} />
-
+          <Route path='/collaborate' element = {<Collaborate/>} />
+          <Route path='/investor' element = {<Investor/>} />
+          <Route path='/investform' element = {<InvestForm/>} />
+          <Route path='/mentor' element = {<Mentor/>} />
+          <Route path='/mentorform' element = {<MentorForm/>} />
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
           </Routes>
       </BrowserRouter>

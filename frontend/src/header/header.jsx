@@ -71,13 +71,13 @@ return (
                 </a>
               </li> */}
               {name ? <li>
-                <a href='./' onClick={logout}>
-                <b style={{color:'white'}}>Logout</b>
+                <a href='./' onClick={logout} className='logout'>
+                <b>Logout</b>
                 </a>
               </li> : 
               <li>
-                <a href='./login' >
-                <b style={{color:'white'}}>Login</b>
+                <a href='./login' className='login'>
+                <b>Login</b>
                 </a>
               </li>
               }

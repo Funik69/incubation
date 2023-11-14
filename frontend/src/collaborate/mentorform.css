@@ -1,0 +1,52 @@
+.mentformmain {
+    text-align: center;
+}
+.mentformh2 {
+    margin-top: 100px;
+    color: #0d0254;
+    font-size: 45px;
+}
+.mentformh3 {
+    font-size: 30px;
+    color: #0d0254;
+}
+.mentforminfo {
+    margin-left: 300px;
+}
+.mentformlbl {
+    font-size: 17px;
+    font-weight:600;
+    margin-right: 50px;
+}
+#mname,#mconame,#mcity,#mstate,#memail,#mmobile,#myear,#msector,#mlink {
+    font-size: 17px;
+    color: #0d0254;
+    border-color: #0d0254;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 10px;
+    height: 30px;
+    width: 500px;
+    background-color: rgb(244, 238, 254);
+}
+.mentformbut {
+  border: 0;
+  border-radius: 20px;
+  padding: 12px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #0d0254;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-left: 300px;
+  font-size:17px;
+}
+.mentformbut:hover {
+  background-color: #0d0254;
+  color: rgb(244, 238, 254);
+  transform: scale(1.1);
+  font-size: 20px;
+}
+#req::after {
+    content: "*";
+    color: red;
+}

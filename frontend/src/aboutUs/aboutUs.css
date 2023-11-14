@@ -71,12 +71,25 @@
     p{
         font-size: 1em;
     }
+    .aboutmain ,.aboutsec{
+        width: 900px;
+        justify-content: center;
+    flex-direction: column-reverse;
+    gap: 0;
+    min-height: calc(100vh - 101px);
+    }
     .aboutmain p, .aboutsec p{
         margin: 0;
-        line-height: 1.6;
         font-size: 17px;
     }
-    .aboutimg {
+    .aboutinfo , .aboutinfo1 {
+        text-align: left;
+    margin-bottom: 15px ;
+    }
+    .aboutinfo p , .aboutinfo1 p {
+        width: 350px;
+    }
+    /*.aboutimg {
         display: none;
     }
     .aboutheading {
@@ -85,7 +98,6 @@
     .aboutmain , .aboutsec{
         margin-bottom: 250px;
     }
-    /*
     .aboutinfo1 {
         display: none;
         margin-left: 0;

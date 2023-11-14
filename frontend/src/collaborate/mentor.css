@@ -1,0 +1,60 @@
+.mentinfo {
+    width: 900px;
+}
+.mentimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    border-radius: 50%;
+}
+.mentmain {
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    height: 400px;
+}
+.investhead {
+    text-align: center;
+    font-size: 70px;
+}
+.mentanimation {
+    align-items: center;
+    text-align: center;
+}
+.mentdohere {
+    align-items: center;
+    padding-left: 550px;
+    padding-bottom: 50px;
+}
+.menttopic {
+    font-size: 40px;
+    color: #0d0254;
+    font-weight: 300;
+}
+.menthere {
+    padding-left: 50px;
+}
+.mentpara {
+    width: 800px;
+    font-size: 20px;
+    color: #665ab0;
+    height: 200px;
+}
+.mentbut {
+    border: 0;
+  border-radius: 20px;
+  padding: 12px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #0d0254;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+.mentbut:hover {
+    background-color: rgb(194, 156, 255);
+    color: #0d0254;
+}

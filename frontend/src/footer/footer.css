@@ -39,9 +39,10 @@
   margin-left: 30px;
   width: 200px;
 }
-.row {
+.rowfoot {
     display: flex;
     margin-right: 0px;
+    margin-left: 500px;
 }
 .text-justify , .para , .copyright-text{
     color: #757085;

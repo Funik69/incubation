@@ -27,6 +27,11 @@
     border-radius: 90%;
     text-align: center;
 }
+@media (max-width: 1000px) {
+    .eventinfo {
+        background-color: white;
+    }
+}
 .eventp {
     font-weight: 500;
     font-style: italic;
