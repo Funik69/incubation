@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { useAuthContext } from '../../context/AuthContext';
 import './UserList.css';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 
 const UserList = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const { data } = useAuthContext();
   const [searchQuery, setSearchQuery] = useState('');
   const containsSearchQuery = (i, query) => {
@@ -17,6 +20,7 @@ const UserList = () => {
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
+  const navigate = useNavigate();
   return (
     <>
       <div className='portCover'>
@@ -44,7 +48,7 @@ const UserList = () => {
                 <td>{i.fname} {i.lname}</td>
                 <td>{i.email}</td>
                 {/* <td>{i.createdAt.substring(0, 10)}</td> */}
-                <td><Link to={`/viewUserStartup/${i.email}`}><u>View</u></Link></td>
+                <td>{/*<Link to={`/viewUserStartup/${i.email}`}><u>View</u></Link>*/}<button onClick={() => navigate('/viewUserStartup/${i.email' , {replace: true})}>View</button></td>
               </tr>
             ))}
           </tbody>

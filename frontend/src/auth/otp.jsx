@@ -1,9 +1,12 @@
-import React ,{useState} from 'react'
+import React ,{useState , useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import './auth.css'
 const otp = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
     const [otp, setOtp] = useState("");
     const [userId, setUserId] = useState("");
     const navigate = useNavigate();
@@ -18,7 +21,7 @@ const otp = () => {
  });
           if (res && res.data.success) {
             console.log(res.data && res.data.message);
-            navigate("/login");
+            navigate("/login" , {replace: true});
             alert("Email Verified");
           } else {
             alert("Wrong Unique Id or Otp");

@@ -1,10 +1,13 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './admindash.css'
 import Profile_pic from '../../img/ietdavv.logo.jpg'
 import { useAuthContext } from '../../context/AuthContext'
 
 const Admindash = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const {data} = useAuthContext();
   const tokenData = localStorage.getItem("auth");
   const val = JSON.parse(tokenData)

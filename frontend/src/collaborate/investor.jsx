@@ -1,10 +1,23 @@
-import React from 'react';
+import React , {useEffect} from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import './investor.css';
 import meetingimg from '../img/meeting3.jpg';
 import { useNavigate } from 'react-router-dom';
 function Investor() {
+    const name = localStorage.getItem('auth');
     const navigate = useNavigate();
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, []);
+    const Mover = () => {
+        if(name) {
+            navigate('/investform');
+        }
+        else {
+            alert('Please login to continue');
+            navigate('/login');
+        }
+    }
     return (
         <div>
             <div className='herehere2'>
@@ -28,26 +41,22 @@ function Investor() {
                     
                 </div>
                 <div>
-                    <div>
-                    <label className="lbl">
-                        <input type="checkbox" name="ietDavvRights" required/>
-                            You must adhere to terms and conditions.
-                    </label>
+                <div className='iterms'>
+                    <h2>** Terms and conditions</h2>
+                    <ol>
+                    <li>At Institute of Engineering and Technology, DAVV, we assure you that the data provided by you will be kept secure and safe. But the information which you will be providing can be shared with our administration in order to examine and move forward with your candidature.</li>
+                    <li>You should agree to the rules and regulations of Incubation Centre, IET-DAVV and must adhere to them. </li>
+                    <li>If any discrepancies will be found in the data provided by you, IET-DAVV Incubation Center has total rights to cancel your registration so it will be your sole responsibility to provided correct and accurate information.</li>
+                    </ol>
                     </div>
                     <div>
-                    <label className="lbl">
-                        <input type="checkbox" name="ietDavvRights" required/>
-                            You should follow all the guidelines.
-                    </label>
-                    </div>
-                    <div>
-                    <label className="lbl">
-                        <input type="checkbox" name="ietDavvRights" required/>
-                            All rights are reserved with IET-DAVV.
+                    <label className="icheck">
+                        <input type="checkbox" name="mrights"  checked onClick={() => alert("Please agree to our terms and conditions inorder to continue")} required/>
+                            I agree to the terms and conditions.
                     </label>
                     </div>
                 </div>
-                <button className='becomebut'onClick={() => navigate("/InvestForm")}> <b>Apply here</b></button>
+                <button className='becomebut'onClick={Mover}> <b>Agree and Continue</b></button>
             </div>
         </div>
     );

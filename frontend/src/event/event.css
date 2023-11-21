@@ -4,6 +4,11 @@
     height: 400px;
     padding-top: 100px;
 }
+.eventCover {
+    text-align:center;
+    font-size: 45px;
+    color: gray;
+}
 .eventb {
     color: rgb(224, 224, 224);
     font-weight: 800;

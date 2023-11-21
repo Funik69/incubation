@@ -8,8 +8,12 @@ import Programs from '../programs/programs';
 import Event from '../event/event';
 import Portfolio from '../portfolio/portfolio';
 import Contact from '../contact/contact';
+import ColSlider from '../colslider/colslider';
 import axios from 'axios';
 function Home() {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const navigate = useNavigate();
   
 return (
@@ -28,7 +32,7 @@ return (
               <TypeAnimation
                     sequence={["We Incubate",1000,"We Support",1000,"We Innovate",1000]}
                     speed={50}
-                    repeat={4}
+                    repeat={400}
                     style={{ fontSize: '70px', fontWeight: '800', color: '#0d0254'}}
                     className='animationhereh'
                 />
@@ -43,6 +47,7 @@ return (
           </div>
         </div>
       </div>
+      <ColSlider/>
       <About />
       <Programs />
       <Event />

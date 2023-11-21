@@ -1,8 +1,11 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useDataContext } from '../../context/DataContext'
 import axios from 'axios'
 const Singlepage = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
     const {id} = useParams();
     const {data}=useDataContext();
     const filteredData = data.filter((i)=> i._id == id);

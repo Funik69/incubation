@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import "./StartupForm.css";
@@ -30,6 +30,9 @@ const formData_initialState = {
 };
 
 function StartupForm() {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const navigate = useNavigate();
   // const [formData, setFormData] = useState({
   //   startupName: "",

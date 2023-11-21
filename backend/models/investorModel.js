@@ -36,6 +36,10 @@ const InvestorSchema = new mongoose.Schema(
         required:true,
         trim:true,
     },
+    limit: {
+        type: String,
+        required: true,
+    },
     linkedin:{
         type: String,
         required:true,

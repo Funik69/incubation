@@ -12,6 +12,7 @@ const app = express();
       iemail,
       imobile,
       investInto,
+      limit,
       linkedin,} = req.body;
       
 
@@ -23,6 +24,7 @@ const app = express();
         iemail,
         imobile,
         investInto,
+        limit,
         linkedin
       }); 
       await investDetail.save();
