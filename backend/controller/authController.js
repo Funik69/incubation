@@ -527,6 +527,6 @@ module.exports = {
     resetPassword:resetPassword,
     getUser,
     reVerifyMail:reVerifyMail,
-    deleteController:deleteController ,
+    deleteController:deleteController,
     getAnnouncement, updateAnnouncement
   };
