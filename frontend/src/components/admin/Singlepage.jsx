@@ -1,31 +1,34 @@
 import React from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useDataContext } from '../../context/DataContext'
 import axios from 'axios'
 const Singlepage = () => {
     const {id} = useParams();
     const {data}=useDataContext();
     const filteredData = data.filter((i)=> i._id == id);
+    const navigate = useNavigate();
     const handleUnRegister = async () => {
       try {
-        await axios.put(`http://localhost:8000/api/v1/data/inactive/${id}`);
+        await axios.put(`http://localhost:8000/api/v1/data/inactive/${id}`)
+        .then((res) => location.reload());
         const updatedData = data.map((item) =>
           item._id == id ? { ...item, status: 'Inactive' } : item
         );
         setData(updatedData);
-        
-       
+        navigate('../acceptedIdea')
       } catch (error) {
         console.error('Error in unregistering the startup');
       }
     };
     const handleReRegister = async () => {
       try {
-        await axios.put(`http://localhost:8000/api/v1/data/updatedata/${id}`);
+        await axios.put(`http://localhost:8000/api/v1/data/updatedata/${id}`)
+        .then((res) => location.reload());
         const updatedData = data.map((item) =>
           item._id == id ? { ...item, status: 'accepted' } : item
         );
         setData(updatedData);
+        navigate('../inactive')
         
       } catch (error) {
         console.error('Error re-registering the startup');
@@ -34,7 +37,7 @@ const Singlepage = () => {
   return (
     <div>
     {filteredData.map(item => (
-    <div className='cardData'>
+    <div className='cardData' key={item._id}>
     <div className='portCover'><h1>{item.startupName}</h1></div>
       <div className='card-item'><strong>Founder Name:</strong> {item.founderName}</div>
       <div className='card-item'><strong>Mobile Number:</strong> {item.mobileNumber}</div>
@@ -59,12 +62,12 @@ const Singlepage = () => {
         <br></br><br></br>
         {
           item.status=="accepted"?(<div className='decisionButton'>
-            <button className='Abtn' onClick={handleUnRegister}><Link to='/acceptedIdea'>UnRegister</Link></button>
+            <button className='Abtn' onClick={handleUnRegister}>UnRegister</button>
           </div>):(<p></p>)
         }
         {
           item.status=="Inactive"?(<div className='decisionButton'>
-            <button className='Abtn' onClick={handleReRegister}><Link to='/inactive'>Re-Register</Link></button>
+            <button className='Abtn' onClick={handleReRegister}>Re-Register</button>
           </div>):(<p></p>)
         }
     </div>

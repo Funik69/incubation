@@ -30,6 +30,7 @@ const otp = () => {
             // other than 2xx (e.g., 400, 401, 404).
             console.error('Request failed with status code:', error.response.status);
             console.error('Response data:', error.response.data);
+            alert(error.response.data.message);
           } else if (error.request) {
             // The request was made but no response was received (e.g., network error).
             console.error('No response received:', error.request);

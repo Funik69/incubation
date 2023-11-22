@@ -34,7 +34,7 @@ const register = () => {
         toast.success(res.data && res.data.message);
         navigate("/otp");
       } else {
-        console.log(res.data.message);
+        alert(res.data.message);
       }
     } catch (error) {
       if (error.response) {

@@ -6,7 +6,9 @@ import big from '../img/big.jpg';
 import mentorshipprogram from '../img/mentorshipprogram.png';
 import preincubation from '../img/preincubation.png';
 import startupprogram from '../img/startupprogram.jpg';
+import {useAlertContext} from '../context/AlertContext'
 function Programs() {
+    const {alert} = useAlertContext();
 return (
     <>
     <div className='programhead'>
@@ -15,7 +17,7 @@ return (
     </div>
     <div className='scrltext'>
       <marquee direction="left" height="100px" scrollmount="100">
-      Latest Announcements Latest Announcements Latest Announcements Latest Announcements Latest Announcements Latest Announcements Latest Announcements 
+      <div dangerouslySetInnerHTML={{ __html: alert.latestinfo }} />;
       </marquee>
     </div>
     </div>

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
  function Getdata(){
   const { data } = useDataContext();
   const [searchQuery, setSearchQuery] = useState('');
-
+ 
   const containsSearchQuery = (item, query) => {
     const searchFields =[item.startupName, item.founderName, item.email];
     return searchFields.some((field) => field.toLowerCase().includes(query.toLowerCase()));
@@ -25,7 +25,7 @@ import { Link } from 'react-router-dom';
     <h1>List of Applied Startups({len})</h1>
     <input
           type="text"
-          placeholder=" Search startup"
+          placeholder="startupName/founderName/email"
           value={searchQuery}
           onChange={handleSearch}
           className='search_data'

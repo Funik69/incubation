@@ -23,7 +23,7 @@ const UserList = () => {
         <h1>User List</h1>
         <input
           type="text"
-          placeholder=" Search User"
+          placeholder=" Search User by name/email"
           value={searchQuery}
           onChange={handleSearch}
           className='search_data'
@@ -35,6 +35,7 @@ const UserList = () => {
             <tr>
               <th>Name</th>
               <th>Email</th>
+              <th>Verified</th>
               <th>View Startup</th>
             </tr>
           </thead>
@@ -43,6 +44,7 @@ const UserList = () => {
               <tr key={i._id}>
                 <td>{i.fname} {i.lname}</td>
                 <td>{i.email}</td>
+                <td>{i.verified==1?'Yes':'No'}</td>
                 {/* <td>{i.createdAt.substring(0, 10)}</td> */}
                 <td><Link to={`/viewUserStartup/${i.email}`}><u>View</u></Link></td>
               </tr>

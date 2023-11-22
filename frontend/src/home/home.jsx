@@ -9,15 +9,17 @@ import Event from '../event/event';
 import Portfolio from '../portfolio/portfolio';
 import Contact from '../contact/contact';
 import axios from 'axios';
+import { useAlertContext } from '../context/AlertContext';
 function Home() {
   const navigate = useNavigate();
+  const {alert} = useAlertContext();
   
 return (
     <div> 
 
     <div className='scrltext'>
-      <marquee direction="left" height="100px" scrollmount="100">
-      Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services. These encompass initial seed funding, invaluable networking prospects, well-equipped laboratory facilities, and expert advisory services.
+      <marquee direction="left" height="100px" scrollmount="100"> 
+      <div dangerouslySetInnerHTML={{ __html: alert.alertmsg }} />;
       </marquee>
     </div>
 
