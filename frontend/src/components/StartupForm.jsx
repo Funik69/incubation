@@ -55,6 +55,7 @@ function StartupForm() {
   // });
 
   const [formData, setFormData] = useState(formData_initialState)
+  const [loading,setLoading] = useState(false)
 
   const [formErrors, setFormErrors] = useState({
     startupName: "",
@@ -212,6 +213,7 @@ function StartupForm() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const isValid = validateForm();
 
@@ -270,6 +272,7 @@ function StartupForm() {
           //   ietDavvRights: "",
           //   sharewithmentor: "",
           // });
+          setLoading(false);
           setFormData(formData_initialState)
           console.log("Email sent successfully");
           // You can add further logic or redirection after successful email sending.
@@ -598,7 +601,7 @@ function StartupForm() {
 
           <div className="btn">
             <button id="btnstyle" type="submit">
-              <b>Submit</b>
+              <b>{loading ? "Sending..." : "Submit"}</b>
             </button>
           </div>
         </form>

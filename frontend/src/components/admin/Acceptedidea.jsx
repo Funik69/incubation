@@ -28,7 +28,7 @@ const Acceptedidea = () => {
         <h1>List of Approved Startups({len})</h1>
         <input
           type="text"
-          placeholder=" Search startup"
+          placeholder="startupName/founderName/email"
           value={searchQuery}
           onChange={handleSearch}
           className='search_data'

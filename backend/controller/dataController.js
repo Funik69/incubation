@@ -87,12 +87,12 @@ const nodemailer = require('nodemailer');
 //admin accept the startup idea
     const updateData = async (req, res) => {
       try {
+        const checkData = await DataModel.findById(req.params._id);
         const data = await DataModel.findByIdAndUpdate(req.params._id, { status: 'accepted' }, { new: true });
         res.status(200).send('update data');
         // console.log(data);
         // console.log(data.email)
-
-        const emailContent = `
+        const emailContent = checkData.status ==='Inactive'?"Startup is re-registered":`
         <html>
           <body>
           <div style="padding:20px">

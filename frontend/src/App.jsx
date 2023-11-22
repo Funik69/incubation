@@ -32,16 +32,20 @@ import './App.css';
 import Admindash from './components/admin/admindash'
 import { DataProvider } from './context/DataContext'
 import { AuthProvider } from './context/AuthContext'
+import { AlertProvider } from './context/AlertContext'
 import FullPage from './components/admin/FullPage'
 import Singlepage from './components/admin/Singlepage'
 import InactiveStartup from './components/admin/InactiveStartup'
 import UserStartupview from './userDashboard/UserStartupview'
+import Form from './components/admin/Form'
+import Notices from './components/admin/Notices'
 function App() {
     return (
     <div className='app-main'>
       <BrowserRouter>
       <DataProvider>
       <AuthProvider>
+      <AlertProvider>
       <Header />
         <Routes>
           <Route path="/" element = {<Home />} />
@@ -76,7 +80,10 @@ function App() {
           <Route path='/viewUserStartup/:id' element={<UserStartupview/>}/>
           
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
+          <Route path='/createForm' element = {<Form />} />
+          <Route path='/notices' element = {<Notices />} />
           </Routes>
+          </AlertProvider>
           </AuthProvider>
           </DataProvider>
       </BrowserRouter>

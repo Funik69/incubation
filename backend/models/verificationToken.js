@@ -14,6 +14,18 @@ const verificationTokenSchema = new mongoose.Schema({
     type:Date,
     expires: 3600,
     default:Date.now()
+  },
+  latestinfo : {
+    type:String,
+  },
+  alertmsg : {
+    type:String,
+  },
+  scounter :{
+    type:String,
+  },
+  ucounter :{
+    type:String,
   }
 });
 

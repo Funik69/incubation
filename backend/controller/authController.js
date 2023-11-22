@@ -7,6 +7,7 @@ const userModel=mongoose.model("User");
 const JWT=require("jsonwebtoken");
 const {isValidObjectId}=require("mongoose");
 const { generateOTP, mailTransport } = require("../utils/mail.js");
+const verificationToken = require("../models/verificationToken.js");
 
 //register controller
  const registerController = async (req, res) => {
@@ -53,6 +54,8 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
       })
       await verificationToken.save();
       await user.save();
+      const unqId = hashedPassword.toString();
+      const sendId = unqId.substring(29,37);
       
       // mailTransport().sendMail({
       //   from:"priyashivhare2003@gmail.com",
@@ -78,7 +81,7 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
       <p><b>Dear ${fname+" "+lname}</b><p>
       <p>Welcome to IET DAVV Incubation! To get started and ensure the security of your account, we require you to complete the verification process.</p>
       <p><b>Your verification credentials for <a href="mailto:${user.email}">${user.email}</a> are: <b></p>
-      <p><b>Unique id : ${user._id}</b></p>
+      <p><b>Unique id : ${sendId}</b></p>
       <p><b>OTP : ${OTP}</b></p>
       <p>Thank you for choosing IET DAVV Incubation. We look forward to supporting your innovative journey. 
       If you have any questions or require assistance, please do not hesitate to contact us.</p>
@@ -120,16 +123,15 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
     const { email, password } = req.body;
     //validation
     if (!email || !password) {
-      return res.status(404).send({
+      return res.status(200).send({
         success: false,
         message: "Invalid email or password",
       });
     }
     //check user
     const user = await userModel.findOne({ email });
-    console.log(user);
     if (!user) {
-      return res.status(404).send({
+      return res.status(200).send({
         success: false,
         message: "Email is not registered",
       });
@@ -172,24 +174,38 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
 const verifyEmail= async(req,res)=>{
   try{
   const {userId,otp}=req.body;
-  if (!userId || !otp) {
+  const regex = userId.toString();
+  if(regex.length!=8){
     return res.status(404).send({
-      success: false,
-      message: "Not",
+      success:false,
+      message:"Invalid UniqueId"
     });
   }
-  if(!isValidObjectId(userId)){
+  // if (!userId || !otp) {
+  //   return res.status(404).send({
+  //     success: false,
+  //     message: "Not",
+  //   });
+  // }
+  // if(!isValidObjectId(userId)){
     
-      return res.status(401).send({
-        success: false,
-        message: "Invalid userid",
-      });
+  //     return res.status(401).send({
+  //       success: false,
+  //       message: "Invalid userid",
+  //     });
     
+  // }
+  const sdata=await userModel.find({password:{$regex:regex}});
+  if(sdata.length == 0 ){
+    return res.status(401).send({
+      success: false,
+      message: "Invalid UniqueId",
+    });
   }
-  const newuser=await userModel.findById(userId);
+  const newuser = sdata[0];
   if(!newuser)return res.status(402).send({
     success: false,
-    message: "User Not Found",
+    message: "Invalid UniqueId",
   });
   
   if(newuser.verified)
@@ -200,14 +216,14 @@ const verifyEmail= async(req,res)=>{
   const token = await VerificationToken.findOne({owner:newuser._id})
   if(!token)return res.status(403).send({
     success: false,
-    message: "User Not Found",
+    message: "Invalid OTP",
   });
 
   const match = await bcrypt.compare(otp, token.token);
   if(!match){
     return res.status(403).send({
       success: false,
-      message: "User Not Found",
+      message: "Invalid OTP",
     });
   }
   newuser.verified=true;
@@ -345,11 +361,44 @@ const forgotPassword = async (req, res) => {
       }
     };
 
+    const getAnnouncement = async (req, res) =>{
+      try{
+        const data = await VerificationToken.findById({_id:process.env.objId});
+        res.status(200).send(data);
+      }
+      catch(error){
+        console.error(error);
+        res.status(500).send('Information Server Error');
+      }
+    }
+    
+    const updateAnnouncement = async (req, res) => {
+      const { selectedOption,message} = req.body;
+      try {
+        const data = await verificationToken.updateOne(
+         { _id:process.env.objId},
+         {$set:{[selectedOption]:message}}
+        );
+        console.log(data);
+        if (!data) {
+          return res.status(404).send('Document not found');
+        }
+        res.status(200).send(data);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send('Update Server Error');
+      }
+    };
+    
+
+   
+    
+
 module.exports = {
     registerController: registerController,
     loginController:loginController,
     verifyEmail:verifyEmail,
     forgotPassword:forgotPassword,
     resetPassword:resetPassword,
-    getUser
+    getUser, getAnnouncement, updateAnnouncement
   };

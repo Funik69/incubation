@@ -29,7 +29,7 @@ const Admindash = () => {
             <img src={Profile_pic} id='admin_pic'></img>
         </li>
         <li>
-             <h2>{i.fname}</h2><br></br>
+             <h2>{i.fname} {i.lname}</h2><br></br>
         </li>
         <li>
              <h3>{i.email}</h3>
@@ -56,7 +56,13 @@ const Admindash = () => {
         <Link to='/inactive'>Inactive Startups</Link>
         </div>
         <div className='card_block'>
-        <Link to='/userlist'>User List</Link>
+        <Link to='/userlist'>Applicant Profile</Link>
+        </div>
+        <div className='card_block'>
+        <Link to='/createForm'>Create Event</Link>
+        </div>
+        <div className='card_block'>
+        <Link to='/notices'>Announcements</Link>
         </div>
     </div>
     </div>

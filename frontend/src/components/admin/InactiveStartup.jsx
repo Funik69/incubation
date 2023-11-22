@@ -27,7 +27,7 @@ const InactiveStartup = () => {
       <h1>List of InActive Startups({len})</h1>
       <input
           type="text"
-          placeholder=" Search startup"
+          placeholder="startupName/founderName/email"
           value={searchQuery}
           onChange={handleSearch}
           className='search_data'

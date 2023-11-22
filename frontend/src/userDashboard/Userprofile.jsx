@@ -29,7 +29,7 @@ const Userprofile = () => {
               <img src={Profile_pic} id='admin_pic'></img>
           </li>
           <li>
-               <h2>{i.fname}</h2><br></br>
+               <h2>{i.fname} {i.lname}</h2><br></br>
           </li>
           <li>
                <h3>{i.email}</h3>

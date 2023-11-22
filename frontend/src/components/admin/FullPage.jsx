@@ -59,7 +59,7 @@ const FullPage = () => {
   return (
     <div>
       {filteredData.map((item) => (
-        <div className="cardData">
+        <div className="cardData" key={item._id}>
         <div className='portCover'><h1>{item.startupName}</h1></div>
           <div className='card-item'><strong>Founder Name:</strong> {item.founderName}</div>
           <div className='card-item'><strong>Mobile Number:</strong> {item.mobileNumber}</div>

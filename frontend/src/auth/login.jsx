@@ -26,9 +26,12 @@ const login = () => {
         navigate(location.state || "/");
       } else {
         console.log(res.data.message);
+        alert(res.data.message);
+        
       }
     } catch (error) {
       console.log(error);
+      alert("Invalid User mailId");
       toast.error("Something went wrong");
     }
   };
