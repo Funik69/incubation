@@ -55,6 +55,12 @@ const Admindash = () => {
         <div className='card_block'>
         <Link to='/userlist'>User List</Link>
         </div>
+        <div className='card_block'>
+        <Link to='/mentorlist'>Mentor List</Link>
+        </div>
+        <div className='card_block'>
+        <Link to='/investorlist'>Investor List</Link>
+        </div>
     </div>
     </div>
   )

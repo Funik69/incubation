@@ -11,6 +11,7 @@ import Header from './header/header'
 import Login from './auth/login'
 import Register from './auth/register'
 import Otp from './auth/otp'
+import Verify from './auth/verify'
 import Forgot from './auth/forgot_password'
 import Footer from './footer/footer'
 import Eligibility from './eligibility/eligibility'
@@ -34,6 +35,8 @@ import FullPage from './components/admin/FullPage'
 import Singlepage from './components/admin/Singlepage'
 import InactiveStartup from './components/admin/InactiveStartup'
 import UserStartupview from './userDashboard/UserStartupview'
+import MentorList from './components/admin/MentorList'
+import InvestorList from './components/admin/InvestorList'
 function App() {
     return (
     <div className='app-main'>
@@ -66,11 +69,14 @@ function App() {
           <Route path='/admindash' element={<Admindash/>}/>
           <Route path='/inactive' element={<InactiveStartup/>}/>
           <Route path='/userlist' element={<UserList/>}/>
+          <Route path='/investorlist' element={<InvestorList/>}/>
+          <Route path='/mentorlist' element={<MentorList/>}/>
           <Route path='/acceptedIdea' element={<Acceptedidea/>}/>
           <Route path='/viewdata/:id' element={<FullPage/>}/>
           <Route path='/singlepage/:id' element={<Singlepage/>}/>
           <Route path='/viewUserStartup/:id' element={<UserStartupview/>}/>
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
+          <Route path='/verify' element={<Verify/>}/>
           </Routes>
           </AuthProvider>
           </DataProvider>

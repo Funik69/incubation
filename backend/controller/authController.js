@@ -2,6 +2,8 @@ const mongoose=require("mongoose");
 require("../models/userModel.js");
 const bcrypt=require("bcrypt");
 const nodemailer = require('nodemailer');
+require("../models/formDataModel.js");
+const DataModel=mongoose.model("DataModel");
 const VerificationToken=require('../models/verificationToken.js')
 const userModel=mongoose.model("User");
 const JWT=require("jsonwebtoken");
@@ -129,10 +131,16 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
     const user = await userModel.findOne({ email });
     console.log(user);
     if (!user) {
-      return res.status(404).send({
+      return res.status(202).send({
         success: false,
         message: "Email is not registered",
       });
+    }
+    if(!user.verified){
+      return res.status(203).send({
+        success: false,
+        message: "Email is not verified,verify please",
+      }); 
     }
     const match = await bcrypt.compareSync(password, user.password);
     if (!match) {
@@ -148,7 +156,7 @@ const { generateOTP, mailTransport } = require("../utils/mail.js");
     });
     res.status(200).send({
       success: true,
-      message: "login successfully",
+      message: "login successful",
       user: {
         _id: user._id,
         fname: user.name,
@@ -173,21 +181,21 @@ const verifyEmail= async(req,res)=>{
   try{
   const {userId,otp}=req.body;
   if (!userId || !otp) {
-    return res.status(404).send({
+    return res.status(200).send({
       success: false,
       message: "Not",
     });
   }
   if(!isValidObjectId(userId)){
     
-      return res.status(401).send({
+      return res.status(206).send({
         success: false,
         message: "Invalid userid",
       });
     
   }
   const newuser=await userModel.findById(userId);
-  if(!newuser)return res.status(402).send({
+  if(!newuser)return res.status(202).send({
     success: false,
     message: "User Not Found",
   });
@@ -198,14 +206,14 @@ const verifyEmail= async(req,res)=>{
     message: "Account Verified Already",});
 
   const token = await VerificationToken.findOne({owner:newuser._id})
-  if(!token)return res.status(403).send({
+  if(!token)return res.status(204).send({
     success: false,
     message: "User Not Found",
   });
 
   const match = await bcrypt.compare(otp, token.token);
   if(!match){
-    return res.status(403).send({
+    return res.status(203).send({
       success: false,
       message: "User Not Found",
     });
@@ -233,7 +241,7 @@ const verifyEmail= async(req,res)=>{
     const mailOptions = {
       from: process.env.SMTP_MAIL,
       to: newuser.email,
-      subject:"Verify your email account",
+      subject:"Email Verified Successfully",
       html:"Email Verified",
     };
   
@@ -274,7 +282,7 @@ const forgotPassword = async (req, res) => {
     const {email}=req.body;
     const user = await userModel.findOne({ email });
     if (!user) {
-      return res.status(404).send({
+      return res.status(201).send({
         success: false,
         message: "Email is not registered",
       });
@@ -345,11 +353,131 @@ const forgotPassword = async (req, res) => {
       }
     };
 
+
+    const reVerifyMail = async (req, res) => {
+    const {email}=req.body;
+    const user = await userModel.findOne({ email });
+    if (!user) {
+      return res.status(202).send({
+        success: false,
+        message: "Email is not registered",
+      });
+    }
+    try{
+    const OTP=generateOTP();
+      const hashedToken= await bcrypt.hashSync(OTP, 10);
+      const verificationToken=new VerificationToken({
+        owner:user._id,
+        token:hashedToken
+      })
+      await verificationToken.save();
+      await user.save();
+      
+      // mailTransport().sendMail({
+      //   from:"priyashivhare2003@gmail.com",
+      //   to:user.email,
+      //   subject:"Verify your email account",
+      //   html:`<h1>${OTP}</h1>`
+      // })
+      const transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        secure: false, 
+        service:'Gmail',
+      auth: {
+        user: process.env.SMTP_MAIL, 
+        pass: process.env.SMTP_PASSWORD,
+      },
+    });
+    const mailOptions = {
+      from: process.env.SMTP_MAIL,
+      to: user.email,
+      subject:"Welcome to IET DAVV Incubation - Account Verification",
+      html:`
+      <p><b>Dear </b><p>
+      <p>Welcome to IET DAVV Incubation! To get started and ensure the security of your account, we require you to complete the verification process.</p>
+      <p><b>Your verification credentials for <a href="mailto:${user.email}">${user.email}</a> are: <b></p>
+      <p><b>Unique id : ${user._id}</b></p>
+      <p><b>OTP : ${OTP}</b></p>
+      <p>Thank you for choosing IET DAVV Incubation. We look forward to supporting your innovative journey. 
+      If you have any questions or require assistance, please do not hesitate to contact us.</p>
+      <p><b>Best Regards<b></p>
+      <p><b>IET DAVV Incubation<b></p>
+      <p><b>Contact No 123456789<b></p>
+      <p><b><a href="#">Visit us on link</a><b><p>
+`,
+    };
+  
+    // Send email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending email: ', error);
+        res.status(500).send('Error sending email');
+      } else {
+        console.log('Email sent: ', info.response);
+        res.status(200).send('Email sent successfully');
+      }
+    });
+      res.status(201).send({
+        success: true,
+        message: "Mail Sent Successfully",
+        user,
+      });
+    }
+    catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        message: "Error in Registration",
+        error,
+      });
+    }
+    }   
+
+
+    //delete user
+    const deleteController = async (req, res) => {
+      try{
+        console.log(req.params.id);
+        const user=await userModel.findById(req.params.id);
+        console.log(user);
+        await userModel.findByIdAndDelete(req.params.id);
+         return res.json({
+          success: true,
+          message: "entries deleted successfully.",
+        });
+     
+        
+      
+
+        // return res.status(200).send({
+        //   success: true,
+        //   message: "done",
+          
+        // });
+        // await DataModel.deleteMany(user.email);
+
+
+      }
+      catch (error) {
+        console.log(error);
+        res.status(500).send({
+          success: false,
+          message: "Error in Deletion",
+          error,
+        });
+      }
+
+    }
+
+
 module.exports = {
     registerController: registerController,
     loginController:loginController,
     verifyEmail:verifyEmail,
     forgotPassword:forgotPassword,
     resetPassword:resetPassword,
-    getUser
+    getUser,
+    reVerifyMail:reVerifyMail,
+    deleteController:deleteController
   };

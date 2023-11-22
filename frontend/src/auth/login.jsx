@@ -22,7 +22,10 @@ const login = () => {
         alert("login successful");
         navigate(location.state || "/");
       } else {
-        console.log(res.data.message);
+        if(res && res.status===203){
+          console.log("Email not verified")
+          navigate("/verify");
+        }
       }
     } catch (error) {
       console.log(error);

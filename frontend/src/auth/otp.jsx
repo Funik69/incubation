@@ -16,12 +16,11 @@ const otp = () => {
           otp,
           userId,
  });
-          if (res && res.data.success) {
+          if (res && res.status==201) {
             console.log(res.data && res.data.message);
             navigate("/login");
             alert("Email Verified");
           } else {
-            alert("Wrong Unique Id or Otp");
             console.log(res.data.message);
           }
         } catch (error) {
