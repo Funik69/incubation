@@ -8,16 +8,22 @@ import Programs from '../programs/programs';
 import Event from '../event/event';
 import Portfolio from '../portfolio/portfolio';
 import Contact from '../contact/contact';
+import ColSlider from '../colslider/colslider';
 import axios from 'axios';
+import { useAlertContext } from '../context/AlertContext';
 function Home() {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const navigate = useNavigate();
+  const {alert} = useAlertContext();
   
 return (
     <div> 
 
     <div className='scrltext'>
-      <marquee direction="left" height="100px" scrollmount="100">
-      Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services. These encompass initial seed funding, invaluable networking prospects, well-equipped laboratory facilities, and expert advisory services.
+      <marquee direction="left" height="100px" scrollmount="100"> 
+      <div dangerouslySetInnerHTML={{ __html: alert.alertmsg }} />;
       </marquee>
     </div>
 
@@ -28,7 +34,7 @@ return (
               <TypeAnimation
                     sequence={["We Incubate",1000,"We Support",1000,"We Innovate",1000]}
                     speed={50}
-                    repeat={4}
+                    repeat={400}
                     style={{ fontSize: '70px', fontWeight: '800', color: '#0d0254'}}
                     className='animationhereh'
                 />
@@ -43,6 +49,7 @@ return (
           </div>
         </div>
       </div>
+      <ColSlider/>
       <About />
       <Programs />
       <Event />

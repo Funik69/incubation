@@ -18,7 +18,9 @@
     font-size: 30px;
     color: #0d0254;
   }
-  
+  .readbutton , .programapply {
+    color: #0d0254;
+  }
   .pcard1 {
     border: 1px solid #ccc;
     padding: 10px;

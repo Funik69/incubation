@@ -1,7 +1,10 @@
-import React , { useState } from 'react'
+import React , { useState , useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 const forgot_password = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 const [email,setEmail]=useState();
 const navigate = useNavigate();
 
@@ -12,7 +15,7 @@ const handleSubmit = async (e) => {
       email,
 });
     if (res && res.data.success) {
-      navigate("/login");
+      navigate("/login" , {replace: true});
       alert("Mail sent to Update Password")
       console.log(res.data.message)
     } else {

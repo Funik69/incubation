@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { useParams, Link} from 'react-router-dom';
 import { useDataContext } from '../../context/DataContext';
 import axios from 'axios';
 
 const FullPage = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const { id } = useParams();
   const { data, setData } = useDataContext();
   const filteredData = data.filter((i) => i._id == id);
@@ -56,7 +59,7 @@ const FullPage = () => {
   return (
     <div>
       {filteredData.map((item) => (
-        <div className="cardData">
+        <div className="cardData" key={item._id}>
         <div className='portCover'><h1>{item.startupName}</h1></div>
           <div className='card-item'><strong>Founder Name:</strong> {item.founderName}</div>
           <div className='card-item'><strong>Mobile Number:</strong> {item.mobileNumber}</div>

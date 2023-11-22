@@ -4,6 +4,12 @@
   top: 0;
   background-color: rgb(244, 238, 254);
 }
+.loginbut {
+  color: black;
+}
+.headerlist:hover {
+  color: #090236;
+}
 .main .container nav .menu {
   display: none;
   position: absolute;

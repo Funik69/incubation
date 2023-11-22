@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import "./StartupForm.css";
@@ -30,6 +30,9 @@ const formData_initialState = {
 };
 
 function StartupForm() {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const navigate = useNavigate();
   // const [formData, setFormData] = useState({
   //   startupName: "",
@@ -52,6 +55,7 @@ function StartupForm() {
   // });
 
   const [formData, setFormData] = useState(formData_initialState)
+  const [loading,setLoading] = useState(false)
 
   const [formErrors, setFormErrors] = useState({
     startupName: "",
@@ -209,6 +213,7 @@ function StartupForm() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const isValid = validateForm();
     
@@ -260,7 +265,8 @@ function StartupForm() {
                 //   ietDavvRights: "",
                 //   sharewithmentor: "",
                 // });
-                setFormData(formData_initialState)
+                setLoading(false);
+          setFormData(formData_initialState)
                 console.log("Email sent successfully");
                 // You can add further logic or redirection after successful email sending.
               } 
@@ -276,6 +282,7 @@ function StartupForm() {
         
           else {
             console.log("Use unique Name");
+            setLoading(false);
             alert("Use unique Name");
           }
         } 
@@ -604,7 +611,7 @@ function StartupForm() {
 
           <div className="btn">
             <button id="btnstyle" type="submit">
-              <b>Submit</b>
+              <b>{loading ? "Sending..." : "Submit"}</b>
             </button>
           </div>
         </form>

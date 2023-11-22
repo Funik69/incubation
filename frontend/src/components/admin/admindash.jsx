@@ -1,10 +1,13 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import './admindash.css'
 import Profile_pic from '../../img/ietdavv.logo.jpg'
 import { useAuthContext } from '../../context/AuthContext'
 
 const Admindash = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const {data} = useAuthContext();
   const tokenData = localStorage.getItem("auth");
   const val = JSON.parse(tokenData)
@@ -26,7 +29,7 @@ const Admindash = () => {
             <img src={Profile_pic} id='admin_pic'></img>
         </li>
         <li>
-             <h2>{i.fname}</h2><br></br>
+             <h2>{i.fname} {i.lname}</h2><br></br>
         </li>
         <li>
              <h3>{i.email}</h3>
@@ -53,7 +56,13 @@ const Admindash = () => {
         <Link to='/inactive'>Inactive Startups</Link>
         </div>
         <div className='card_block'>
-        <Link to='/userlist'>User List</Link>
+        <Link to='/userlist'>Applicant Profile</Link>
+        </div>
+        <div className='card_block'>
+        <Link to='/createForm'>Create Event</Link>
+        </div>
+        <div className='card_block'>
+        <Link to='/notices'>Announcements</Link>
         </div>
         <div className='card_block'>
         <Link to='/mentorlist'>Mentor List</Link>

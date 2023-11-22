@@ -25,6 +25,9 @@
     height: auto;
     
   }
+.startuphead , .startupdis {
+  color: #0d0254;
+}
   
   @media (max-width: 768px) {
     .con1 {

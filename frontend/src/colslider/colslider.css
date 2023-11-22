@@ -1,0 +1,66 @@
+.App {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+  .slideshow-container {
+    position: relative;
+  }
+  
+  .slideimg {
+    width: 100%;
+    height: auto;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .prev {
+    left: 0;
+  }
+  .moreinfo {
+    color: #0d0254;
+  }
+  .next {
+    right: 0;
+  }
+  
+  .slideimg {
+    height: 500px;
+    width: 1400px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  .slidebut {
+    border: 0;
+  border-radius: 20px;
+  padding: 12px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #0d0254;
+  font-size: 20px;
+  }
+  .slidebut:hover {
+    background-color: rgb(194, 156, 255);
+    color: #0d0254;
+  }
+  .colCover {
+    color: gray;
+    text-align: center;
+    font-size: 45px;
+  }

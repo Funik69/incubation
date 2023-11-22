@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import './contact.css';
 import mail from '../img/emaillogo.png';
 import mob from '../img/moblogo.png';
 import location from '../img/locationlogo.png';
 
 function Contact() {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 return ( 
     <>
     <div className='portCover'>

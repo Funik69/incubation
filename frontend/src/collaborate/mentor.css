@@ -9,11 +9,18 @@
     margin-bottom: 200px;
     border-radius: 50%;
 }
+.mterms {
+    width: 900px;
+    font-size: 16px;
+}
+.mcheck {
+    font-size: 20px;
+}
 .mentmain {
     display: flex;
     margin-top: 50px;
     margin-bottom: 0px;
-    height: 400px;
+    height: 350px;
 }
 .investhead {
     text-align: center;

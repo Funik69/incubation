@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import './thanks.css';
 import Tickimg from '../img/tickimg.png';
 function Thanks() {
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, []);
 return (
     <div className='ttop'>
     <div className='tmain'> 

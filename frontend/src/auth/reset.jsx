@@ -1,7 +1,10 @@
-import React , { useState } from 'react'
+import React , { useState , useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
 const reset = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 const [password,setPassword]=useState();
 const navigate = useNavigate();
 const {id,token}=useParams();
@@ -13,7 +16,7 @@ const handleSubmit = async (e) => {
       password
 });
     if (res && res.data.Status=="Success") {
-      navigate("/login");
+      navigate("/login" , {replace: true});
       console.log("password changed")
     } else {
       console.log(res.data.message);

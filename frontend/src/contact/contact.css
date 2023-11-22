@@ -26,12 +26,13 @@
     font-size: 24px;
     margin-bottom: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #0d0254;
   }
   
   .p1 {
     font-size: 18px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #333;
+    color: #0d0254;
   }
  .contmain {
   text-align: justify;
