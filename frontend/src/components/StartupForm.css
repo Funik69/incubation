@@ -52,7 +52,6 @@
     border-color: #0d0254;
 }
 #filee{
-    display: inline-block;
     float: right;
 }
 .lbl{
@@ -70,14 +69,22 @@
 }
 .btn :hover{
     transform: scale(1.1);
+    background-color: rgb(194, 156, 255);
+    color: #0d0254;
+    font-size: 20px;
 }
 #btnstyle{
     position: absolute;
     height: 40px;
     width: 170px;
     border-radius: 25px 25px;
+    font-size: 20px;
 }
-@media (max-width: 768px) {
+#req::after {
+    content: "*";
+    color: red;
+}
+@media (max-width: 1160px) {
     .c1, .c2, .c3, .c4, .ProgramPref,.doc {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -85,4 +92,16 @@
 
 .error{
     color: red;
+}
+@media (max-width: 1160px) {
+    #startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile,#businessIdea,#whyJoinUs,#registered,#development,#successful {
+        width: 500px;
+        margin-left: 0px;
+    }
+}
+@media (max-width: 750px) {
+    #startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile,#businessIdea,#whyJoinUs,#registered,#development,#successful {
+        width: 250px;
+        margin-left: 0px;
+    }
 }

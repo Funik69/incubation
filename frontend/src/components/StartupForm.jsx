@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import "./StartupForm.css";
+
+const tokenData = localStorage.getItem("auth");
+const val = JSON.parse(tokenData);
+//const mail = val.user.email;
+const mail = val && val.user ? val.user.email : '';
 
 const formData_initialState = {
   startupName: "",
   founderName: "",
   mobileNumber: "",
   alternateNumber: "",
-  email: "",
+  email: mail,
   location: "",
   state: "",
   pinCode: "",
@@ -21,9 +26,13 @@ const formData_initialState = {
   linkedinProfile: "",
   ietDavvRights: false,
   sharewithmentor: false,
+  status:"pending",
 };
 
 function StartupForm() {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const navigate = useNavigate();
   // const [formData, setFormData] = useState({
   //   startupName: "",
@@ -46,13 +55,14 @@ function StartupForm() {
   // });
 
   const [formData, setFormData] = useState(formData_initialState)
+  const [loading,setLoading] = useState(false)
 
   const [formErrors, setFormErrors] = useState({
     startupName: "",
     founderName: "",
     mobileNumber: "",
     alternateNumber: "",
-    email: "",
+    email: mail,
     location: "",
     state: "",
     pinCode: "",
@@ -65,6 +75,7 @@ function StartupForm() {
     linkedinProfile: "",
     ietDavvRights: "",
     sharewithmentor: "",
+    status:"pending",
   });
 
   const validateForm = () => {
@@ -93,13 +104,13 @@ function StartupForm() {
       newErrors.mobileNumber = "";
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Invalid Email Address";
-      isValid = false;
-    } else {
-      newErrors.email = "";
-    }
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(formData.email)) {
+    //   newErrors.email = "Invalid Email Address";
+    //   isValid = false;
+    // } else {
+    //   newErrors.email = "";
+    // }
 
     if (formData.location.trim() === "") {
       newErrors.location = "Location is required";
@@ -202,9 +213,11 @@ function StartupForm() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     const isValid = validateForm();
-
+    if(!isValid)
+    setLoading(false);
     if (isValid) {
       try {
         const response = await fetch('http://localhost:8000/api/v1/data/savedata', {
@@ -215,63 +228,74 @@ function StartupForm() {
           body: JSON.stringify(formData),
         });
   
-        if (response.ok) {
-          console.log('Form data sent successfully');
-        } else {
-          console.error('Form data failed to send');
-        }
-      } catch (error) {
+        if (response && response.status==201) {
+          console.log("success");
+          console.log(formData);
+          navigate('/Thanks');
+          const formDataToSend = {
+            receiverEmail: formData.email, // Receiver's email from the form
+            subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
+            message: formData.founderName,};
+      
+            try {
+              const res = await fetch("http://localhost:8000/send-email", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formDataToSend),
+              });
+      
+              if (res.status === 200) {
+                // setFormData({
+                //   startupName: "",
+                //   founderName: "",
+                //   mobileNumber: "",
+                //   alternateNumber: "",
+                //   email: "",
+                //   location: "",
+                //   state: "",
+                //   pinCode: "",
+                //   businessIdea: "",
+                //   businessModelFile: null,
+                //   whyJoinUs: "",
+                //   registered: "",
+                //   development: "",
+                //   successful: "",
+                //   linkedinProfile: "",
+                //   ietDavvRights: "",
+                //   sharewithmentor: "",
+                // });
+                setLoading(false);
+          setFormData(formData_initialState)
+                console.log("Email sent successfully");
+                // You can add further logic or redirection after successful email sending.
+              } 
+              else {
+                console.error("Error sending email");
+                // Handle the error as needed.
+              }
+            }
+             catch (error) {
+              console.error("Error sending email: ", error);
+            }
+          }
+        
+          else {
+            console.log("Use unique Name");
+            setLoading(false);
+            alert("Use unique Name");
+          }
+        } 
+      
+       
+    catch (error) {
         console.error('Error:', error);
       }
     
-    console.log(formData);
-    navigate('/Thanks');
-    const formDataToSend = {
-      receiverEmail: formData.email, // Receiver's email from the form
-      subject: 'Innovation Incubation and  Hub - A helping hand for StartUp',
-      message: formData.founderName,};
-
-      try {
-        const response = await fetch("http://localhost:8000/send-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formDataToSend),
-        });
-
-        if (response.status === 200) {
-          // setFormData({
-          //   startupName: "",
-          //   founderName: "",
-          //   mobileNumber: "",
-          //   alternateNumber: "",
-          //   email: "",
-          //   location: "",
-          //   state: "",
-          //   pinCode: "",
-          //   businessIdea: "",
-          //   businessModelFile: null,
-          //   whyJoinUs: "",
-          //   registered: "",
-          //   development: "",
-          //   successful: "",
-          //   linkedinProfile: "",
-          //   ietDavvRights: "",
-          //   sharewithmentor: "",
-          // });
-          setFormData(formData_initialState)
-          console.log("Email sent successfully");
-          // You can add further logic or redirection after successful email sending.
-        } else {
-          console.error("Error sending email");
-          // Handle the error as needed.
-        }
-      } catch (error) {
-        console.error("Error sending email: ", error);
-      }
-    }
-  };
+  }
+}
+    
 
   return (
     <div className="mainCont">
@@ -289,8 +313,8 @@ function StartupForm() {
             <h4 className="h14">Applicant's Information</h4>
             <div className="c1">
               <div>
-                <label className="lbl" htmlFor="startupName">
-                  Startup Name*
+                <label className="lbl" htmlFor="startupName" id="req">
+                  Startup Name
                 </label>
                 <br></br>
                 <input
@@ -306,8 +330,8 @@ function StartupForm() {
               </div>
 
               <div>
-                <label className="lbl" htmlFor="founderName">
-                  Founder Name*
+                <label className="lbl" htmlFor="founderName" id="req">
+                  Founder Name
                 </label>
                 <br></br>
                 <input
@@ -325,8 +349,8 @@ function StartupForm() {
 
             <div className="c2">
               <div>
-                <label className="lbl" htmlFor="mobileNumber">
-                  Contact Number*
+                <label className="lbl" htmlFor="mobileNumber" id="req">
+                  Contact Number
                 </label>
                 <br></br>
                 <input
@@ -360,8 +384,8 @@ function StartupForm() {
 
             <div className="c3">
               <div>
-                <label className="lbl" htmlFor="email">
-                  Email*
+                <label className="lbl" htmlFor="email" id="req">
+                  Email
                 </label>{" "}
                 <br></br>
                 <input
@@ -369,16 +393,17 @@ function StartupForm() {
                   placeholder="Enter mail address "
                   id="email"
                   name="email"
+                  disabled="true"
                   value={formData.email}
                   onChange={handleChange}
                   required
                 />
-                <div className="error">{formErrors.email}</div>
+
               </div>
 
               <div>
-                <label className="lbl" htmlFor="location">
-                  Location*
+                <label className="lbl" htmlFor="location" id="req">
+                  Location
                 </label>
                 <br></br>
                 <input
@@ -396,8 +421,8 @@ function StartupForm() {
 
             <div className="c4">
               <div>
-                <label className="lbl" htmlFor="state">
-                  State*
+                <label className="lbl" htmlFor="state" id="req" >
+                  State
                 </label>
                 <br></br>
                 <input
@@ -413,8 +438,8 @@ function StartupForm() {
               </div>
 
               <div>
-                <label className="lbl" htmlFor="pinCode">
-                  PIN Code*
+                <label className="lbl" htmlFor="pinCode" id="req">
+                  PIN Code
                 </label>
                 <br></br>
                 <input
@@ -434,7 +459,7 @@ function StartupForm() {
           <h4 className="h14">Startup Proposal</h4>
           <div className="doc">
             <div>
-              <label className="lbl" htmlFor="businessIdea">
+              <label className="lbl" htmlFor="businessIdea" id="req">
                 Startup idea summary in 200 words{" "}
               </label>
               <br></br>
@@ -451,8 +476,8 @@ function StartupForm() {
             </div>
 
             <div id="filee">
-              <label className="lbl" htmlFor="businessModelFile">
-                Business Model Link*
+              <label className="lbl" htmlFor="businessModelFile" id="req">
+                Business Model Link
               </label>
               <br></br>
               <input
@@ -469,7 +494,7 @@ function StartupForm() {
           <h4 className="h14">Program preferences</h4>
           <div className="ProgramPref">
             <div>
-              <label className="lbl" htmlFor="whyJoinUs">
+              <label className="lbl" htmlFor="whyJoinUs" id="req">
                 Why you want to join us?
               </label>{" "}
               <br></br>
@@ -486,7 +511,7 @@ function StartupForm() {
             </div>
 
             <div>
-              <label className="lbl" htmlFor="registered">
+              <label className="lbl" htmlFor="registered" id="req">
                 Are you registered with any other incubation?
               </label>
               <br></br>
@@ -503,7 +528,7 @@ function StartupForm() {
             </div>
 
             <div>
-              <label className="lbl" htmlFor="development">
+              <label className="lbl" htmlFor="development" id="req">
                 Stage of development?
               </label>{" "}
               <br></br>
@@ -520,7 +545,7 @@ function StartupForm() {
             </div>
 
             <div>
-              <label className="lbl" htmlFor="successful">
+              <label className="lbl" htmlFor="successful" id="req">
                 Specify how your startup became successful?
               </label>{" "}
               <br></br>
@@ -538,7 +563,7 @@ function StartupForm() {
           </div>
 
           <div>
-            <label className="lbl" htmlFor="linkedinProfile">
+            <label className="lbl" htmlFor="linkedinProfile" id="req">
               Linkedin Profile
             </label>
             <br></br>
@@ -565,7 +590,7 @@ function StartupForm() {
                 onChange={handleChange}
                 required
               />
-              All rights are reserved with IET DAVV
+              All rights are reserved with DAVV
             </label>
             <div className="error">{formErrors.ietDavvRights}</div>
           </div>
@@ -587,7 +612,7 @@ function StartupForm() {
 
           <div className="btn">
             <button id="btnstyle" type="submit">
-              Submit
+              <b>{loading ? "Sending..." : "Submit"}</b>
             </button>
           </div>
         </form>

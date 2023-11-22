@@ -1,0 +1,44 @@
+.colmaindiv {
+    text-align:center;
+    color: #0d0254;
+}
+.colinfo {
+    display: flex;
+    color: #0d0254;
+    margin-bottom: 100px;
+}
+.investor {
+    margin-right: 50px;
+    margin-left: 100px;
+    background-color: rgb(224, 207, 250);
+    width: 500px;
+    text-align: center;
+}
+.mentor {
+    margin-left: 150px;
+    background-color: rgb(224, 207, 250);
+    width: 500px;
+    text-align: center;
+}
+.colhead {
+    font-size: 70px;
+    margin-bottom: 150px;
+}
+.shorthead {
+    margin-bottom: 100px;
+}
+.usefulbut {
+    border: 0;
+  border-radius: 20px;
+  padding: 12px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #0d0254;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.usefulbut:hover {
+    background-color: rgb(194, 156, 255);
+    color: #0d0254;
+}

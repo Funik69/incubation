@@ -1,7 +1,10 @@
 const express =  require('express');
-const  {DataSaveController , getData , getSingleData} =require ('../controller/dataController.js');
+const  {DataSaveController , getData , getSingleData, updateData,deleteData,UnRegister} =require ('../controller/dataController.js');
 const router=express.Router();
 router.post('/savedata',DataSaveController);
 router.get('/getdata',getData);
 router.get('/getsingledata/:_id' , getSingleData);
+router.put('/updatedata/:_id',updateData);
+router.put('/inactive/:_id',UnRegister);
+router.delete('/deletedata/:_id',deleteData);
 module.exports = router;

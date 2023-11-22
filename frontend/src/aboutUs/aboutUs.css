@@ -6,7 +6,7 @@
   	position: absolute;
     background-image: url('../img/aboutUsbg.jpg');
     background-repeat: no-repeat;
-    background-size: 1500px 600px;
+    background-size: 1400px 600px;
     width: 1500px;
     height: 600px;
     filter: blur(3px);
@@ -20,14 +20,13 @@
   	position: absolute;
     display: flex;
     width: 1200px;
-    height: 200px;
+    height: 120px;
 }
 .title-text {
   	position: relative;
   	background-color: rgb(244, 238, 254);
     color: #0d0254;
-    margin-left: 500px;
-    padding: 0 40px 0 40px;
+    margin-left: 475px;
     font-family: Helvetica;
     font-weight: 200;
     font-size: 36px;
@@ -71,12 +70,25 @@
     p{
         font-size: 1em;
     }
+    .aboutmain ,.aboutsec{
+        width: 900px;
+        justify-content: center;
+    flex-direction: column-reverse;
+    gap: 0;
+    min-height: calc(100vh - 101px);
+    }
     .aboutmain p, .aboutsec p{
         margin: 0;
-        line-height: 1.6;
         font-size: 17px;
     }
-    .aboutimg {
+    .aboutinfo , .aboutinfo1 {
+        text-align: left;
+    margin-bottom: 15px ;
+    }
+    .aboutinfo p , .aboutinfo1 p {
+        width: 350px;
+    }
+    /*.aboutimg {
         display: none;
     }
     .aboutheading {
@@ -85,7 +97,6 @@
     .aboutmain , .aboutsec{
         margin-bottom: 250px;
     }
-    /*
     .aboutinfo1 {
         display: none;
         margin-left: 0;
@@ -93,4 +104,13 @@
 }
 .headinga {
     text-align: center;
+    text-decoration: underline;
+}
+.headincub {
+    text-decoration: underline;
+}
+.aboutcover {
+    text-align:center;
+    font-size: 45px;
+    color:gray;
 }

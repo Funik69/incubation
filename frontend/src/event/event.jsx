@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import sides from '../img/sideimg.jpg';
 import audiimg from '../img/audiimg.jpg';
 import './event.css';
 function Event() {
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, []);
     return (
         <div>
-            <h2 className='eventh'>Events</h2>
+            <div className='eventCover'>
+                <h1>Events</h1>
+            </div>
         <div className='eventmain'>
             <div className='eventinfo'>
                 <h3>Indian Innovation Programme</h3>

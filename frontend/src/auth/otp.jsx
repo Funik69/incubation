@@ -1,9 +1,11 @@
-import React ,{useState} from 'react'
+import React ,{useState , useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import axios from "axios";
 import './auth.css'
 const otp = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
     const [otp, setOtp] = useState("");
     const [userId, setUserId] = useState("");
     const navigate = useNavigate();
@@ -16,10 +18,10 @@ const otp = () => {
           otp,
           userId,
  });
-          if (res && res.data.success) {
+          if (res && res.status==201) {
             console.log(res.data && res.data.message);
-            navigate("/login");
-            alert("Email Verified")
+            navigate("/login" , {replace: true});
+            alert("Email Verified");
           } else {
             alert(res.data.message)
             console.log(res.data.message);
@@ -30,6 +32,7 @@ const otp = () => {
             // other than 2xx (e.g., 400, 401, 404).
             console.error('Request failed with status code:', error.response.status);
             console.error('Response data:', error.response.data);
+            alert(error.response.data.message);
           } else if (error.request) {
             // The request was made but no response was received (e.g., network error).
             console.error('No response received:', error.request);
