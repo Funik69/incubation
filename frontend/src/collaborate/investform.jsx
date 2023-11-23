@@ -1,20 +1,29 @@
-import React , {useState} from 'react';
+import React , {useState , useEffect} from 'react';
+import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./investform.css";
+
+const tokenData = localStorage.getItem("auth");
+const val = JSON.parse(tokenData);
+const mail = val && val.user ? val.user.email : '';
 
 const investData_initialState = {
   investorName: "",
   companyName: "",
   icity: "",
   istate: "",
-  iemail: "",
+  iemail: mail,
   imobile: "",
   investInto: "",
+  limit: "",
   linkedin: "",
 };
 
 function InvestForm() {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
     const navigate = useNavigate();
     const [investData, setInvestData] = useState(investData_initialState)
     const [investErrors, setInvestErrors] = useState({
@@ -22,9 +31,10 @@ function InvestForm() {
       companyName: "",
       icity: "",
       istate: "",
-      iemail: "",
+      iemail: mail,
       imobile: "",
       investInto: "",
+      limit: "",
       linkedin: "",
     });
     
@@ -46,20 +56,20 @@ function InvestForm() {
         newErrors.companyName = "";
       }
   
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      /*const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(investData.iemail)) {
         newErrors.iemail = "Invalid Email Address";
         isValid = false;
       } else {
         newErrors.iemail = "";
-      }
+      }*/
 
       const mobileNumberRegex = /^\d{10}$/;
       if (!mobileNumberRegex.test(investData.imobile)) {
         newErrors.imobile = "Invalid Mobile Number";
         isValid = false;
       } else {
-        newErrors.mobile = "";
+        newErrors.imobile = "";
       }
 
       if (investData.investInto.trim() === "") {
@@ -68,7 +78,15 @@ function InvestForm() {
       } else {
         newErrors.investInto = "";
       }
-  
+
+      const limitRadioButtons = document.querySelectorAll('input[name="limit"]');
+  if (![...limitRadioButtons].some((radio) => radio.checked)) {
+    newErrors.limit = "Please select an investment range";
+    isValid = false;
+  } else {
+    newErrors.limit = "";
+  }
+
       const linkedinRegex = /https:\/\/www\.linkedin\.com\/in\/[A-Za-z0-9-]+\/?/;
       if (!linkedinRegex.test(investData.linkedin)) {
         newErrors.linkedin = "Linkedin Profile is invalid";
@@ -96,13 +114,10 @@ function InvestForm() {
       const isValid = validInvestForm();
       if(isValid) {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/invest/investdata', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(investData),
-            });
+          const response = await axios.post('http://localhost:8000/api/v1/invest/investdata', {
+            ...investData,
+            limit: document.querySelector('input[name="limit"]:checked').value, // Get the value of the checked radio button
+          });
             if(response.status === 200) {
               setInvestData(investData_initialState)
             }
@@ -115,7 +130,7 @@ function InvestForm() {
           } catch (error) {
             console.error('Error:', error);
           }
-          navigate('/Thanks');
+          navigate('/investthanks');
           setInvestData(investData_initialState);
       }
     };
@@ -134,65 +149,76 @@ function InvestForm() {
             <form onSubmit={handleSubmit}>
                 <div className='invforminfo'>
                   <div>
-                    <label className='invformlbl' htmlFor='investorName' id='req'>Investor Name : </label>
+                    <Form.Label className='invformlbl' htmlFor='investorName' id='req'>Investor Name : </Form.Label>
                     <br></br>
-                    <input type="text" placeholder="Enter your name" id='investorName' name='investorName' value={investData.investorName} onChange={handleChange} required/>
+                    <Form.Control type="text" placeholder="Enter your name" id='investorName' name='investorName' value={investData.investorName} onChange={handleChange} required/>
                     <div className="error">{investErrors.investorName}</div>
-                    <br></br>
                     <br></br>
                   </div>
                   <div>
-                    <label className='invformlbl' htmlFor='companyName' id='req'>Company Name :  </label>
+                    <Form.Label className='invformlbl' htmlFor='companyName' id='req'>Company Name :  </Form.Label>
                     <br></br>
-                    <input type="text" placeholder="Enter company name" id='companyName' name='companyName' value={investData.companyName} onChange={handleChange} required/>
+                    <Form.Control type="text" placeholder="Enter company name" id='companyName' name='companyName' value={investData.companyName} onChange={handleChange} required/>
                     <div className="error">{investErrors.companyName}</div>
                     <br></br>
                     <br></br>
                   </div>
                   <div>
-                    <label className='invformlbl' htmlFor='icity'>City : </label>
+                    <Form.Label className='invformlbl' htmlFor='icity'>City : </Form.Label>
                     <br></br>
-                    <input type="text" placeholder="Enter city" id='icity' name='icity' value={investData.city} onChange={handleChange} />
+                    <Form.Control type="text" placeholder="Enter city" id='icity' name='icity' value={investData.icity} onChange={handleChange} />
                     <div className="error">{investErrors.icity}</div>
                     <br></br>
                     <br></br>
                   </div>
                   <div>
-                    <label className='invformlbl' htmlFor='istate'>State :  </label>
+                    <Form.Label className='invformlbl' htmlFor='istate'>State :  </Form.Label>
                     <br></br>
-                    <input type="text" placeholder="Enter state" id='istate' name='istate' value={investData.state} onChange={handleChange} />
+                    <Form.Control type="text" placeholder="Enter state" id='istate' name='istate' value={investData.istate} onChange={handleChange} />
                     <div className="error">{investErrors.istate}</div>
                     <br></br>
                     <br></br>
                   </div>
                   <div>
-                    <label className='invformlbl' htmlFor='iemail' id='req' >Email :  </label>
+                    <Form.Label className='invformlbl' htmlFor='iemail' id='req' >Email :  </Form.Label>{" "}
                     <br></br>
-                    <input type="text" placeholder="Enter email" id='iemail' name='iemail' value={investData.email} onChange={handleChange} required/>
-                    <div className="error">{investErrors.iemail}</div>
+                    <Form.Control type="email" placeholder="Enter email" id='iemail' name='iemail' value={investData.iemail} disabled={true} onChange={handleChange} required/>
                     <br></br>
                     <br></br>
                   </div>
                   <div>
-                    <label className='invformlbl' htmlFor='imobile' id='req' >Mobile :  </label>
+                    <Form.Label className='invformlbl' htmlFor='imobile' id='req' >Mobile :  </Form.Label>
                     <br></br>
-                    <input type="text" placeholder="Enter mobile" id='imobile' name='imobile' value={investData.mobile} onChange={handleChange} required/>
+                    <Form.Control type="text" placeholder="Enter mobile" id='imobile' name='imobile' value={investData.imobile} onChange={handleChange} required/>
                     <div className="error">{investErrors.imobile}</div>
                     <br></br>
                     <br></br>
                   </div>
                   <div>
-                    <label className='invformlbl' htmlFor='investInto' id='req'> Which company you want to invest into :  </label>
+                    <Form.Label className='invformlbl' htmlFor='investInto' id='req'> Which company you want to invest into :  </Form.Label>
                     <br></br>
-                    <input type="text" placeholder="Enter Startup Name" id='investInto' name='investInto' value={investData.investInto} onChange={handleChange} required/>
+                    <Form.Control type="text" placeholder="Enter Startup Name" id='investInto' name='investInto' value={investData.investInto} onChange={handleChange} required/>
                     <div className="error">{investErrors.investInto}</div>
                     <br></br>
                     <br></br>
                   </div>
                   <div>
-                    <label className='invformlbl' htmlFor='linkedin' id='req'>Linkedin :  </label>
+                  <Form.Label className='invformlbl' htmlFor='limit' id='req'> Please Specify your Investment Range :  </Form.Label>
                     <br></br>
-                    <input type="text" placeholder="https://www.linkedin.com/in/" id='linkedin' name='linkedin' value={investData.linkedin} onChange={handleChange} required/>
+                    <input type="radio" id='limit1' name='limit' value={'Upto 1L'}  onChange={() => setInvestData({ ...investData, limit: true })} required />
+                    <label htmlFor="limit1">Upto <b>1 Lakh</b></label><br></br>
+                    <input type="radio" id='limit2' name='limit' value={'1-3 L'}  onChange={() => setInvestData({ ...investData, limit: true })} required />
+                    <label htmlFor="limit2"><b>1-3 Lakhs</b></label><br></br>
+                    <input type="radio" id='limit3' name='limit' value={'More than 3L'}  onChange={() => setInvestData({ ...investData, limit: true })} required />
+                    <label htmlFor="limit3">More than <b>3 Lakhs</b></label><br></br>
+                    <div className="error">{investErrors.limit}</div>
+                    <br></br>
+                    <br></br>
+                  </div>
+                  <div>
+                    <Form.Label className='invformlbl' htmlFor='linkedin' id='req'>Linkedin :  </Form.Label>
+                    <br></br>
+                    <Form.Control type="text" placeholder="https://www.linkedin.com/in/" id='linkedin' name='linkedin' value={investData.linkedin} onChange={handleChange} required/>
                     <div className="error">{investErrors.linkedin}</div>
                     <br></br>
                     <br></br>

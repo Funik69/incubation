@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./auth.css";
 
 const login = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -22,6 +25,10 @@ const login = () => {
         alert("login successful");
         navigate(location.state || "/");
       } else {
+        if(res && res.status===203){
+          console.log("Email not verified")
+          navigate("/verify");
+        }
         console.log(res.data.message);
         alert(res.data.message);
         

@@ -1,10 +1,13 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import './Userprofile.css'
 import { Link } from 'react-router-dom'
 import Profile_pic from '../img/incubation.logo.png'
 import { useAuthContext } from '../context/AuthContext'
 
 const Userprofile = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
     const {data} = useAuthContext();
     const tokenData = localStorage.getItem("auth");
     const val = JSON.parse(tokenData)

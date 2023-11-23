@@ -42,6 +42,29 @@ const app = express();
         });
       }
     };
+
+
+    const MentorGetController = async (req, res) => {
+      try {
+        const mentor = await MentorModel
+          .find({})
+          .sort({ createdAt: -1 });
+        res.status(200).send({
+          success: true,
+          countTotal: mentor.length,
+          message: "All Mentors ",
+          mentor,
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(500).send({
+          success: false,
+          message: "Error in getting products",
+          error: error.message,
+        });
+      }
+    };
     module.exports = {
-        MentorSaveController: MentorSaveController
+        MentorSaveController: MentorSaveController,
+        MentorGetController:MentorGetController,
       };

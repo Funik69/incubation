@@ -45,6 +45,15 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.data {
+  width: 50%; /* Adjust the width as needed, consider leaving some space for margins/paddings */
+  margin-bottom: 20px;
+  border: 1px solid #ddd; /* Optional: Add border for a card-like appearance */
+  padding: 15px;
+  text-align: center;
+  font-size: 22px;
+  color: blueviolet;
+}
 
 .card_block {
   width: 30%; /* Adjust the width as needed, consider leaving some space for margins/paddings */

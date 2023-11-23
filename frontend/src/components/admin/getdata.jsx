@@ -5,6 +5,9 @@ import { useDataContext } from '../../context/DataContext';
 import { Link } from 'react-router-dom';
 
  function Getdata(){
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const { data } = useDataContext();
   const [searchQuery, setSearchQuery] = useState('');
  

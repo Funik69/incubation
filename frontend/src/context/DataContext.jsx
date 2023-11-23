@@ -12,6 +12,9 @@ export const useDataContext = () => {
 };
 
 export const DataProvider = ({ children }) => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const [data, setData] = useState([]);
 
   useEffect(() => {

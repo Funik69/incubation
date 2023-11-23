@@ -3,6 +3,9 @@ import axios from 'axios';
 import './userdash.css';
 import { useDataContext } from '../context/DataContext';
  function Userdash(){
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
     const tokenData = localStorage.getItem("auth");
     const val = JSON.parse(tokenData);
     // const id = val.user.email;

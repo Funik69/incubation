@@ -12,6 +12,9 @@ export const useAuthContext = () => {
 };
 
 export const AuthProvider = ({ children }) => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const [data, setData] = useState([]);
   // const val = localStorage.getItem("auth");
   // const myuser = JSON.parse(val);

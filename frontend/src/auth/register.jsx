@@ -1,10 +1,13 @@
-import React ,{useState} from 'react'
+import React ,{useState , useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import './auth.css'
 
 const register = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +35,7 @@ const register = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
-        navigate("/otp");
+        navigate("/otp" );
       } else {
         alert(res.data.message);
       }
@@ -68,6 +71,7 @@ const register = () => {
             value="User"
             onChange={(e)=>setUserType(e.target.value)}
             required
+            
             />
             User
             <input 
@@ -115,7 +119,7 @@ const register = () => {
               placeholder="Last Name"
               autoComplete='off'
               required
-              autoFocus
+              
             />
           </div>
           <div className="mb-3">
@@ -148,7 +152,7 @@ const register = () => {
           </button>
 
           <p className="txtlink" onClick={() => {
-                navigate("/login");
+                navigate("/login" , {replace: true});
               }}>Sign In</p>
           </div>  
         </form>

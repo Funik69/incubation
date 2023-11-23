@@ -1,8 +1,11 @@
-import React, {useState } from 'react';
+import React, {useState , useEffect } from 'react';
 import { useDataContext } from '../../context/DataContext';
 import { Link } from 'react-router-dom';
 
 const Acceptedidea = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
   const { data } = useDataContext();
   const [searchQuery, setSearchQuery] = useState('');
 

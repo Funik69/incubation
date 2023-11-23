@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom';
 import { useDataContext } from '../context/DataContext';
 
 const UserStartupview = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
  const {data} = useDataContext();
  const { id } = useParams();
  const filteredData = data.filter((i)=> i.email == id)

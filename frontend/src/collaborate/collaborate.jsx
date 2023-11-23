@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import investorimg from '../img/investor.jpg';
 import mentorimg from '../img/mentor.jpg';
 import './collaborate.css';
 function Collaborate() {
     const navigate = useNavigate();
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, []);
     return (
         <div>
             <div className='colmaindiv'>

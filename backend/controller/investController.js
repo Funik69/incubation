@@ -12,6 +12,7 @@ const app = express();
       iemail,
       imobile,
       investInto,
+      limit,
       linkedin,} = req.body;
       
 
@@ -23,6 +24,7 @@ const app = express();
         iemail,
         imobile,
         investInto,
+        limit,
         linkedin
       }); 
       await investDetail.save();
@@ -40,6 +42,30 @@ const app = express();
         });
       }
     };
+
+    const InvestorGetController= async (req, res) => {
+      try {
+        const investor = await InvestModel
+          .find({})
+          .sort({ createdAt: -1 });
+          
+        res.status(200).send({
+          success: true,
+          countTotal: investor.length,
+          message: "All Investors ",
+          investor,
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(500).send({
+          success: false,
+          message: "Error in getting products",
+          error: error.message,
+        });
+      }
+    };
     module.exports = {
-        InvestSaveController: InvestSaveController
+        InvestSaveController: InvestSaveController,
+        InvestorGetController:InvestorGetController
+
       };

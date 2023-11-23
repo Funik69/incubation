@@ -1,7 +1,10 @@
-import React , { useState } from 'react'
+import React , { useState , useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
 const reset = () => {
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, []);
 const [password,setPassword]=useState();
 const navigate = useNavigate();
 const {id,token}=useParams();
@@ -14,6 +17,7 @@ const handleSubmit = async (e) => {
 });
     if (res && res.data.Status=="Success") {
       navigate("/login");
+      alert("Password Changed")
       console.log("password changed")
     } else {
       console.log(res.data.message);
@@ -34,6 +38,18 @@ const handleSubmit = async (e) => {
               value={password}
               id="exampleInputPassword1"
               placeholder="New Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            </div>
+            <div>
+             <input
+              type="password"
+              autoComplete='off'
+              className="form-control"
+              value={password}
+              id="exampleInputPassword1"
+              placeholder="Retype Password"
               onChange={(e) => setPassword(e.target.value)}
               required
             />
