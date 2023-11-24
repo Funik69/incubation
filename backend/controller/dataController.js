@@ -26,7 +26,6 @@ const nodemailer = require('nodemailer');
       sharewithmentor,
       status,} = req.body;
       
-
       const formDetail =  new DataModel({
       startupName,
       founderName,
@@ -47,12 +46,21 @@ const nodemailer = require('nodemailer');
       sharewithmentor,
       status
       }); 
+      const existingName = await DataModel.findOne({ startupName });
+      //exisiting user
+      if (existingName) {
+        return res.status(200).send({
+          success: false,
+          message: "Already Registered , Please choose a different name."
+        });
+      }
       await formDetail.save();
       res.status(201).send({
         success: true,
         message: "Mail Sent Successfully",
         formDetail,
       });
+      
      } catch (error) {
         console.log(error);
         res.status(500).send({

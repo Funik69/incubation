@@ -71,6 +71,7 @@ const register = () => {
             value="User"
             onChange={(e)=>setUserType(e.target.value)}
             required
+            
             />
             User
             <input 
@@ -118,7 +119,7 @@ const register = () => {
               placeholder="Last Name"
               autoComplete='off'
               required
-              autoFocus
+              
             />
           </div>
           <div className="mb-3">

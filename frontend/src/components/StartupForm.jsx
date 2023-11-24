@@ -216,7 +216,8 @@ function StartupForm() {
     setLoading(true);
     e.preventDefault();
     const isValid = validateForm();
-
+    if(!isValid)
+    setLoading(false);
     if (isValid) {
       try {
         const response = await fetch('http://localhost:8000/api/v1/data/savedata', {
@@ -227,64 +228,74 @@ function StartupForm() {
           body: JSON.stringify(formData),
         });
   
-        if (response.ok) {
-          console.log('Form data sent successfully');
-        } else {
-          console.error('Form data failed to send');
-        }
-      } catch (error) {
+        if (response && response.status==201) {
+          console.log("success");
+          console.log(formData);
+          navigate('/Thanks');
+          const formDataToSend = {
+            receiverEmail: formData.email, // Receiver's email from the form
+            subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
+            message: formData.founderName,};
+      
+            try {
+              const res = await fetch("http://localhost:8000/send-email", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formDataToSend),
+              });
+      
+              if (res.status === 200) {
+                // setFormData({
+                //   startupName: "",
+                //   founderName: "",
+                //   mobileNumber: "",
+                //   alternateNumber: "",
+                //   email: "",
+                //   location: "",
+                //   state: "",
+                //   pinCode: "",
+                //   businessIdea: "",
+                //   businessModelFile: null,
+                //   whyJoinUs: "",
+                //   registered: "",
+                //   development: "",
+                //   successful: "",
+                //   linkedinProfile: "",
+                //   ietDavvRights: "",
+                //   sharewithmentor: "",
+                // });
+                setLoading(false);
+          setFormData(formData_initialState)
+                console.log("Email sent successfully");
+                // You can add further logic or redirection after successful email sending.
+              } 
+              else {
+                console.error("Error sending email");
+                // Handle the error as needed.
+              }
+            }
+             catch (error) {
+              console.error("Error sending email: ", error);
+            }
+          }
+        
+          else {
+            console.log("Use unique Name");
+            setLoading(false);
+            alert("Use unique Name");
+          }
+        } 
+      
+       
+    catch (error) {
         console.error('Error:', error);
       }
     
-    console.log(formData);
-    navigate('/Thanks');
-    const formDataToSend = {
-      receiverEmail: formData.email, // Receiver's email from the form
-      subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
-      message: formData.founderName,};
-
-      try {
-        const response = await fetch("http://localhost:8000/send-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formDataToSend),
-        });
-
-        if (response.status === 200) {
-          // setFormData({
-          //   startupName: "",
-          //   founderName: "",
-          //   mobileNumber: "",
-          //   alternateNumber: "",
-          //   email: "",
-          //   location: "",
-          //   state: "",
-          //   pinCode: "",
-          //   businessIdea: "",
-          //   businessModelFile: null,
-          //   whyJoinUs: "",
-          //   registered: "",
-          //   development: "",
-          //   successful: "",
-          //   linkedinProfile: "",
-          //   ietDavvRights: "",
-          //   sharewithmentor: "",
-          // });
-          setLoading(false);
-          setFormData(formData_initialState)
-          console.log("Email sent successfully");
-          // You can add further logic or redirection after successful email sending.
-        } else {
-          console.error("Error sending email");
-          // Handle the error as needed.
-        }
-      } catch (error) {
-        console.error("Error sending email: ", error);
-      }
-    }
-  };
+  }
+}
+    
 
   return (
     <div className="mainCont">

@@ -1,6 +1,5 @@
 import React ,{useState , useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import axios from "axios";
 import './auth.css'
 const otp = () => {
@@ -19,12 +18,12 @@ const otp = () => {
           otp,
           userId,
  });
-          if (res && res.data.success) {
+          if (res && res.status==201) {
             console.log(res.data && res.data.message);
             navigate("/login" , {replace: true});
             alert("Email Verified");
           } else {
-            alert("Wrong Unique Id or Otp");
+            alert(res.data.message)
             console.log(res.data.message);
           }
         } catch (error) {

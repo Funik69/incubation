@@ -16,7 +16,8 @@ const handleSubmit = async (e) => {
       password
 });
     if (res && res.data.Status=="Success") {
-      navigate("/login" , {replace: true});
+      navigate("/login");
+      alert("Password Changed")
       console.log("password changed")
     } else {
       console.log(res.data.message);
@@ -37,6 +38,18 @@ const handleSubmit = async (e) => {
               value={password}
               id="exampleInputPassword1"
               placeholder="New Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            </div>
+            <div>
+             <input
+              type="password"
+              autoComplete='off'
+              className="form-control"
+              value={password}
+              id="exampleInputPassword1"
+              placeholder="Retype Password"
               onChange={(e) => setPassword(e.target.value)}
               required
             />

@@ -25,6 +25,10 @@ const login = () => {
         alert("login successful");
         navigate(location.state || "/");
       } else {
+        if(res && res.status===203){
+          console.log("Email not verified")
+          navigate("/verify");
+        }
         console.log(res.data.message);
         alert(res.data.message);
         
