@@ -8,7 +8,6 @@ function Portfolio() {
       }, []);
     const {data} = useDataContext();
     const filteredData = data.filter((i)=> i.status ==='accepted');
-    console.log(filteredData);
 return (
     <>
     <div className='portCover'>
