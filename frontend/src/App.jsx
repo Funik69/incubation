@@ -42,6 +42,7 @@ import MentorList from './components/admin/MentorList'
 import InvestorList from './components/admin/InvestorList'
 import Form from './components/admin/Form'
 import Notices from './components/admin/Notices'
+
 function App() {
     return (
     <div className='app-main'>

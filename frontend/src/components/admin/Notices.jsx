@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { useAlertContext } from '../../context/AlertContext'
 import axios from 'axios';
+import { MYURL } from '../../../env';
 
 const Notices = () => {
     const {alert} = useAlertContext();
@@ -28,7 +29,7 @@ const Notices = () => {
     // console.log('Selected Option:', selectedOption);
     // console.log('Message:', message);
     try{
-      const res = await axios.put("http://localhost:8000/api/v1/auth/updateinformed",{
+      const res = await axios.put(`${MYURL}api/v1/auth/updateinformed`,{
         selectedOption,
         message,
       }).then((res) =>{

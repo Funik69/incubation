@@ -3,6 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./auth.css";
+import { MYURL } from "../../env";
 
 const login = () => {
   useEffect(() => {
@@ -15,7 +16,7 @@ const login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(" http://localhost:8000/api/v1/auth/login", {
+      const res = await axios.post(`${MYURL}api/v1/auth/login`, {
         email,
         password,
       });

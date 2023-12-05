@@ -1,6 +1,7 @@
 import React ,{useState} from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
+import { MYURL } from '../../env';
 
 const verify = () => {
 const [email,setEmail]=useState();
@@ -10,7 +11,7 @@ const navigate = useNavigate();
 const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(` http://localhost:8000/api/v1/auth/reverify`, {
+      const res = await axios.post(`${MYURL}api/v1/auth/reverify`, {
         email
   });
       if (res && res.status===201) {

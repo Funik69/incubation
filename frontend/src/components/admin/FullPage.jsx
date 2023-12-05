@@ -2,6 +2,7 @@ import React, { useState , useEffect} from 'react';
 import { useParams, Link} from 'react-router-dom';
 import { useDataContext } from '../../context/DataContext';
 import axios from 'axios';
+import { MYURL } from '../../../env';
 
 const FullPage = () => {
   useEffect(() => {
@@ -28,7 +29,7 @@ const FullPage = () => {
 
   const confirmAccept = async () => {
     try {
-      await axios.put(`http://localhost:8000/api/v1/data/updatedata/${id}`);
+      await axios.put(`${MYURL}api/v1/data/updatedata/${id}`);
       const updatedData = data.map((item) =>
         item._id === id ? { ...item, status: 'accepted' } : item
       );
@@ -44,7 +45,7 @@ const FullPage = () => {
 
   const confirmReject = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/v1/data/deletedata/${id}`);
+      await axios.delete(`${MYURL}api/v1/data/deletedata/${id}`);
       const updatedData = data.filter((item) => item._id !== id);
       setData(updatedData);
     } catch (error) {

@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from 'react';
 import axios from 'axios';
 import { useNavigate ,Link} from "react-router-dom";
+import { MYURL } from '../../../env';
 
 const InvestorList = () => {
     const [investor, setInvestor] = useState([]);
@@ -9,7 +10,7 @@ const InvestorList = () => {
     
       const getAllInvestor = async () => {
         try {
-          const { data } = await axios.get("http://localhost:8000/api/v1/invest/get_investor");
+          const { data } = await axios.get(`${MYURL}api/v1/invest/get_investor`);
           console.log(data);
           setInvestor(data.investor);
         } catch (error) {

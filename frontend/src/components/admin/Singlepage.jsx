@@ -2,6 +2,8 @@ import React, {useEffect} from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useDataContext } from '../../context/DataContext'
 import axios from 'axios'
+import { MYURL } from '../../../env'
+
 const Singlepage = () => {
   useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -12,7 +14,7 @@ const Singlepage = () => {
     const navigate = useNavigate();
     const handleUnRegister = async () => {
       try {
-        await axios.put(`http://localhost:8000/api/v1/data/inactive/${id}`)
+        await axios.put(`${MYURL}api/v1/data/inactive/${id}`)
         .then((res) => location.reload());
         const updatedData = data.map((item) =>
           item._id == id ? { ...item, status: 'Inactive' } : item
@@ -25,7 +27,7 @@ const Singlepage = () => {
     };
     const handleReRegister = async () => {
       try {
-        await axios.put(`http://localhost:8000/api/v1/data/updatedata/${id}`)
+        await axios.put(`${MYURL}api/v1/data/updatedata/${id}`)
         .then((res) => location.reload());
         const updatedData = data.map((item) =>
           item._id == id ? { ...item, status: 'accepted' } : item

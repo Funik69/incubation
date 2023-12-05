@@ -1,6 +1,7 @@
 import React , { useState , useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
+import { MYURL } from '../../env';
 const forgot_password = () => {
   useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -11,7 +12,7 @@ const navigate = useNavigate();
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post(" http://localhost:8000/api/v1/auth/forgot_password", {
+    const res = await axios.post(`${MYURL}api/v1/auth/forgot_password`, {
       email,
 });
     if (res && res.data.success) {
