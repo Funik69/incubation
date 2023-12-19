@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { MYURL } from '../../env';
 
 const AuthContext = createContext();
 
@@ -21,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   // const id = myuser.user.email;
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/v1/auth/getuser`)
+      .get(`${MYURL}api/v1/auth/getuser`)
       .then((response) => {
         const sortedData = response.data.sort((a, b) => {
           // Assuming fname and lname are strings

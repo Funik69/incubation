@@ -3,6 +3,7 @@ import { useAuthContext } from '../../context/AuthContext';
 import './UserList.css';
 import { Link , useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import { MYURL } from '../../../env';
 
 const UserList = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -66,7 +67,7 @@ const UserList = () => {
       }
       
     const data  = await axios.delete(
-        `http://localhost:8000/api/v1/auth/delete_user/${id}`
+        `${MYURL}api/v1/auth/delete_user/${id}`
       );
       console.log(data);
       console.log("User Deleted Successfully");

@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './mentorform.css';
+import { MYURL } from "../../env";
 
 const tokenData = localStorage.getItem("auth");
 const val = JSON.parse(tokenData);
@@ -127,7 +128,7 @@ function MentorForm() {
       const isValid = validMentorForm();
       if(isValid) {
         try {
-            const response = await fetch('http://localhost:8000/api/v1/mentor/mentordata', {
+            const response = await fetch(`${MYURL}api/v1/mentor/mentordata`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

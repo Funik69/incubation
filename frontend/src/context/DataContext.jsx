@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { MYURL } from '../../env';
 
 const DataContext = createContext();
 
@@ -19,7 +20,7 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/v1/data/getdata')
+      .get(`${MYURL}api/v1/data/getdata`)
       .then((response) => {
         const sortedData = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setData(sortedData);

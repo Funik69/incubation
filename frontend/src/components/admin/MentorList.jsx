@@ -3,6 +3,7 @@ import './UserList.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { MYURL } from '../../../env';
 
 const MentorList = () => {
   const [mentor, setMentor] = useState([]);
@@ -11,7 +12,7 @@ const MentorList = () => {
 
   const getAllMentor = async () => {
     try {
-      const { data } = await axios.get('http://localhost:8000/api/v1/mentor/get_mentor');
+      const { data } = await axios.get(`${MYURL}api/v1/mentor/get_mentor`);
       setMentor(data.mentor);
     } catch (error) {
       console.log(error);

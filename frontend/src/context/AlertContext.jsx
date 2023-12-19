@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { MYURL } from '../../env';
 
 const AlertContext = createContext();
 
@@ -16,7 +17,7 @@ export const AlertProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/v1/auth/getinformed')
+      .get(`${MYURL}api/v1/auth/getinformed`)
       .then((response) => {
         setAlert(response.data);
       })
