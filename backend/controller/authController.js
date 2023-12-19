@@ -524,10 +524,87 @@ const forgotPassword = async (req, res) => {
       }
     };
     
-
-   
+    const getUserByEmail = async (req, res) => {
+      try {
+        const { email } = req.params;
+        const user = await userModel.findOne({ email });
     
+        if (!user) {
+          return res.status(404).send({
+            success: false,
+            message: 'User not found',
+          });
+        }
+    
+        res.status(200).send({
+          success: true,
+          message: 'User found',
+          user,
+        });
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({
+          success: false,
+          message: 'Error fetching user data',
+          error,
+        });
+      }
+    };
+    
+    // Import necessary modules and models
 
+// ... (Previous code)
+
+// Update user type
+const updateUserType = async (req, res) => {
+  try {
+    const { email, userType } = req.body;
+
+    // Check if email and userType are provided
+    if (!email || !userType) {
+      return res.status(400).send({
+        success: false,
+        message: "Email and userType are required",
+      });
+    }
+
+    // Find the user by email
+    const user = await userModel.findOne({ email });
+
+    // Check if the user exists
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    // Update the userType
+    user.userType = userType;
+
+    // Save the updated user
+    await user.save();
+
+    res.status(200).send({
+      success: true,
+      message: "User type updated successfully",
+      user: {
+        _id: user._id,
+        fname: user.fname,
+        lname: user.lname,
+        email: user.email,
+        userType: user.userType,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      success: false,
+      message: "Error updating user type",
+      error,
+    });
+  }
+};
 module.exports = {
     registerController: registerController,
     loginController:loginController,
@@ -537,5 +614,6 @@ module.exports = {
     getUser,
     reVerifyMail:reVerifyMail,
     deleteController:deleteController,
-    getAnnouncement, updateAnnouncement
+    getAnnouncement, updateAnnouncement ,
+    getUserByEmail, updateUserType
   };

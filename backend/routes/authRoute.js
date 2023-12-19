@@ -1,6 +1,6 @@
 const express =  require('express');
 const { registerController, loginController, verifyEmail ,forgotPassword,
-    resetPassword, getUser, getAnnouncement, updateAnnouncement, reVerifyMail, deleteController} =require ('../controller/authController.js');
+    resetPassword, getUser, getAnnouncement, updateAnnouncement, reVerifyMail, deleteController , getUserByEmail , updateUserType} =require ('../controller/authController.js');
 const router=express.Router();
 const {validateUser,validate}=require("../middlewares/validator.js");
 
@@ -27,7 +27,9 @@ router.post('/reverify',reVerifyMail)
 
 router.delete('/delete_user/:id',deleteController);
 
+router.get('/user/:email', getUserByEmail);
 
+router.post('/update-user-type', updateUserType);
 
 
 

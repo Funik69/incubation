@@ -1,0 +1,29 @@
+.coadminform {
+    margin-left: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.emailinp {
+    width: 500px;
+    margin-left: 50px;
+    height: 30px;
+    font-size: 20px;
+}
+.emaillab {
+    font-size: 20px;
+}
+.coadminbut {
+    border: 0;
+  border-radius: 20px;
+  padding: 12px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #0d0254;
+  margin-left: 70px;
+  font-size: 17px;
+}
+.coadminbut:hover {
+    background-color: rgb(194, 156, 255);
+    color: #0d0254;
+  }

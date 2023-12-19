@@ -1,13 +1,35 @@
-import React , {useEffect} from 'react'
+import React , {useEffect , useState} from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import './admindash.css'
 import Profile_pic from '../../img/ietdavv.logo.jpg'
 import { useAuthContext } from '../../context/AuthContext'
 
 const Admindash = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  const tokenDatad = localStorage.getItem("auth");
+  const valt = JSON.parse(tokenDatad)
+  //const mail=val.user.email;
+  const mails = valt && valt.user ? valt.user.email : '';
+  console.log(mails);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/v1/auth/user/${mails}`);
+        const adminStatus = response.data.user.userType === 'Admin';
+        setIsAdmin(adminStatus);
+
+        // ... (existing code)
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        // Handle error accordingly, e.g., redirect to login page or display an error message
+      }
+    };
+
+    fetchData();
   }, []);
+
   const {data} = useAuthContext();
   const tokenData = localStorage.getItem("auth");
   const val = JSON.parse(tokenData)
@@ -17,6 +39,8 @@ const Admindash = () => {
   const logout = () => {
     localStorage.removeItem("auth");
 };
+const response = axios.get(`http://localhost:8000/api/v1/auth/user/${mail}`);
+
   return (
     <div className='ad1'>
     <div className='admin_info'>
@@ -58,18 +82,27 @@ const Admindash = () => {
         <div className='card_block'>
         <Link to='/userlist'>Applicant Profile</Link>
         </div>
-        <div className='card_block'>
-        <Link to='/createForm'>Create Event</Link>
-        </div>
-        <div className='card_block'>
+        {isAdmin &&
+        (<div className='card_block'>
+        <Link to='/eventform'>Create Event</Link>
+        </div>)
+        }   
+        {isAdmin &&
+         (<div className='card_block'>
         <Link to='/notices'>Announcements</Link>
-        </div>
+        </div>)
+        }
         <div className='card_block'>
         <Link to='/mentorlist'>Mentor List</Link>
         </div>
         <div className='card_block'>
         <Link to='/investorlist'>Investor List</Link>
         </div>
+        {isAdmin &&
+        (<div className='card_block'>
+        <Link to='/coadmin'>Make Co-Admin</Link>
+        </div>)
+        }
     </div>
     </div>
   )

@@ -40,8 +40,9 @@ import InactiveStartup from './components/admin/InactiveStartup'
 import UserStartupview from './userDashboard/UserStartupview'
 import MentorList from './components/admin/MentorList'
 import InvestorList from './components/admin/InvestorList'
-import Form from './components/admin/Form'
+import Eventform from './components/admin/Eventform'
 import Notices from './components/admin/Notices'
+import Coadmin from './components/admin/coadmin'
 function App() {
     return (
     <div className='app-main'>
@@ -86,8 +87,9 @@ function App() {
           
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
           <Route path='/verify' element={<Verify/>}/>
-          <Route path='/createForm' element = {<Form />} />
+          <Route path='/eventform' element={<Eventform/>} />
           <Route path='/notices' element = {<Notices />} />
+          <Route path='/coadmin' element = {<Coadmin/>} />
           </Routes>
           </AlertProvider>
           </AuthProvider>

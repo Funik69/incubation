@@ -71,7 +71,7 @@ function Header() {
                 filteredData.map((i) => (
                   <li key={i._id}>
                     {
-                      i.userType === 'Admin' ? (
+                      (i.userType === 'Admin' || i.userType === 'coadmin') ? (
                         <NavLink to="/admindash" style={{ color: 'black' }}>
                           <b><h3><FaUser size={18} /> {i.fname}</h3></b>
                         </NavLink>

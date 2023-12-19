@@ -23,7 +23,7 @@ const otp = () => {
             navigate("/login" , {replace: true});
             alert("Email Verified");
           } else {
-            alert(res.data.message)
+            alert("Invalid Fields")
             console.log(res.data.message);
           }
         } catch (error) {
