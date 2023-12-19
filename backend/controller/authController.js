@@ -329,7 +329,7 @@ const forgotPassword = async (req, res) => {
       from: process.env.SMTP_MAIL,
       to: user.email,
       subject:"Reset Your Password",
-      text:`http://localhost:5173/reset-password/${user._id}/${token}`,
+      text:`https://incubation.vercel.app/reset-password/${user._id}/${token}`,
     };
   
     // Send email

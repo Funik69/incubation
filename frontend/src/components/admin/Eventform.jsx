@@ -2,6 +2,7 @@ import React , {useState , useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import './Eventform.css';
+import { MYURL } from "../../../env";
 
 const eventData_initialState = {
   eventname: "",
@@ -29,7 +30,7 @@ function Eventform() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8000/api/v1/event/saveevent', {
+      const response = await fetch(`${MYURL}api/v1/event/saveevent`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

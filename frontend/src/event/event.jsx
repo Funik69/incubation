@@ -4,13 +4,14 @@ import audiimg from '../img/audiimg.jpg';
 import calendar from '../img/calendar.jpg';
 import './event.css';
 import axios from 'axios';
+import { MYURL } from '../../env';
 function Event() {
 
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-        axios.get('http://localhost:8000/api/v1/event/getallevents') // Replace with your actual server endpoint
+        axios.get(`${MYURL}api/v1/event/getallevents`) // Replace with your actual server endpoint
       .then((response) => setEvents(response.data.events))
       .catch((error) => console.error('Error fetching events:', error));
       }, []);
