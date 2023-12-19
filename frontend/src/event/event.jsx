@@ -4,7 +4,7 @@ import audiimg from '../img/audiimg.jpg';
 import calendar from '../img/calendar.jpg';
 import './event.css';
 import axios from 'axios';
-import { MYURL } from '../../env';
+import {MYURL} from '../../env';
 function Event() {
 
     const [events, setEvents] = useState([]);

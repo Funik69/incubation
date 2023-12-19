@@ -16,7 +16,7 @@ const UserList = () => {
   console.log(mails);
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/auth/user/${mails}`);
+        const response = await axios.get(`${MYURL}api/v1/auth/user/${mails}`);
         const adminStatus = response.data.user.userType === 'Admin';
         setIsAdmin(adminStatus);
 

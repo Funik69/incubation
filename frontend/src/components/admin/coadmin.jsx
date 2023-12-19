@@ -22,7 +22,7 @@ function Coadmin() {
         const userData = response.data.user;
         setUser(userData);
 
-        const updateUserResponse = await axios.post(`http://localhost:8000/api/v1/auth/update-user-type`, {
+        const updateUserResponse = await axios.post(`${MYURL}api/v1/auth/update-user-type`, {
         email: userData.email,
         userType: 'coadmin',
       });

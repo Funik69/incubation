@@ -4,6 +4,7 @@ import axios from 'axios'
 import './admindash.css'
 import Profile_pic from '../../img/ietdavv.logo.jpg'
 import { useAuthContext } from '../../context/AuthContext'
+import { MYURL } from '../../../env'
 
 const Admindash = () => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -16,7 +17,7 @@ const Admindash = () => {
   console.log(mails);
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/auth/user/${mails}`);
+        const response = await axios.get(`${MYURL}api/v1/auth/user/${mails}`);
         const adminStatus = response.data.user.userType === 'Admin';
         setIsAdmin(adminStatus);
 
@@ -39,7 +40,7 @@ const Admindash = () => {
   const logout = () => {
     localStorage.removeItem("auth");
 };
-const response = axios.get(`http://localhost:8000/api/v1/auth/user/${mail}`);
+const response = axios.get(`${MYURL}api/v1/auth/user/${mail}`);
 
   return (
     <div className='ad1'>

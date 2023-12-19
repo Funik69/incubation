@@ -15,7 +15,7 @@ const FullPage = () => {
   console.log(mails);
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/auth/user/${mails}`);
+        const response = await axios.get(`${MYURL}api/v1/auth/user/${mails}`);
         const adminStatus = response.data.user.userType === 'Admin';
         setIsAdmin(adminStatus);
 
@@ -32,7 +32,7 @@ const FullPage = () => {
   const tokenData = localStorage.getItem("auth");
   const val = JSON.parse(tokenData);
   const mail = val && val.user ? val.user.email : '';
-  const response = axios.get(`http://localhost:8000/api/v1/auth/user/${mail}`);
+  const response = axios.get(`${MYURL}api/v1/auth/user/${mail}`);
 
   const { id } = useParams();
   const { data, setData } = useDataContext();

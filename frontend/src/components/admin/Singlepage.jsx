@@ -15,7 +15,7 @@ const Singlepage = () => {
   console.log(mail);
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/v1/auth/user/${mail}`);
+        const response = await axios.get(`${MYURL}api/v1/auth/user/${mail}`);
         const adminStatus = response.data.user.userType === 'Admin';
         setIsAdmin(adminStatus);
 
