@@ -46,13 +46,11 @@ function Coadmin() {
   };
 
   return (
-    <div>
+    <div className='coform'>
       <form onSubmit={handleSubmit}>
         <div className='coadminform'>
           <label className='emaillab'><b>Email of Co-admin : </b></label>
           <input type='text' value={email} placeholder='Enter Email of Co-admin' onChange={(e) => setEmail(e.target.value)} className='emailinp' />
-          <br></br>
-          <br></br>
           <button type='submit' className='coadminbut'><b>Make Co-admin</b></button>
         </div>
       </form>

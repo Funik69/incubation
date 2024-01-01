@@ -3,7 +3,10 @@
     color: #0d0254;
 }
 .colinfo {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 60px;
+    place-items: center;
     color: #0d0254;
     margin-bottom: 100px;
 }
@@ -11,13 +14,14 @@
     margin-right: 50px;
     margin-left: 100px;
     background-color: rgb(224, 207, 250);
-    width: 500px;
+    max-width: 100%;
     text-align: center;
 }
 .mentor {
-    margin-left: 150px;
+    margin-right: 50px;
+    margin-left: 100px;
     background-color: rgb(224, 207, 250);
-    width: 500px;
+    max-width: 100%;
     text-align: center;
 }
 .colhead {

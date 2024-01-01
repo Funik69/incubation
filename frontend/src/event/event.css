@@ -3,42 +3,37 @@
     padding-bottom: 0px;
     height: 400px;
     padding-top: 100px;
+    
 }
 .multicolortext {
-    background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
+    background-image: linear-gradient(to left, blue, violet, indigo, green, yellow, orange, red);
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text;
     color: transparent;
+    display: grid;
+    place-content: center;
   }
 .eventname {
-    margin-left: 80px;
-    padding-top: 10px;
-    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
     color: #0d0254;
 }
 .calenimg {
-    height: 90px;
-    width: 90px;
+    max-height: 60px;
+    max-width: 60px;
 }
 .elist {
-    background-color: rgb(244, 238, 254);
-    height: 300px;
-    width: 900px;
-    margin-left: 200px;
-    border-radius: 2%;
-    margin-bottom: 100px;
-    padding-bottom: 50px;
+    display: flex;
+    height: auto;
+    width: 100%;
+ margin-bottom: 2%;
 }
 .eventmhead {
-    margin-left: 200px;
-    margin-bottom: 70px;
-    display: flex;
-    color: #0d0254;
-    font-size: 15px;
+    text-align: center;
 }
 .eventCover {
     text-align:center;
-    font-size: 45px;
+    font-size: 40px;
     color: gray;
 }
