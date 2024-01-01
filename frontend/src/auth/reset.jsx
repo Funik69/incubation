@@ -6,12 +6,17 @@ const reset = () => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, []);
 const [password,setPassword]=useState();
+const [password2,setPassword2]=useState();
 const navigate = useNavigate();
 const {id,token}=useParams();
 
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
+    if(password!=password2){
+      alert("password didn't matched");
+      return ;
+    }
     const res = await axios.post(` http://localhost:8000/api/v1/auth/reset-password/${id}/${token}`, {
       password
 });
@@ -38,6 +43,18 @@ const handleSubmit = async (e) => {
               id="exampleInputPassword1"
               placeholder="New Password"
               onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            </div>
+            <div>
+            <input
+              type="password"
+              autoComplete='off'
+              className="form-control"
+              value={password2}
+              id="exampleInputPassword1"
+              placeholder="New Password"
+              onChange={(e) => setPassword2(e.target.value)}
               required
             />
           </div>

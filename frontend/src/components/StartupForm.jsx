@@ -13,6 +13,8 @@ const formData_initialState = {
   founderName: "",
   mobileNumber: "",
   alternateNumber: "",
+  instituteName: "",
+  mentorName:"",
   email: mail,
   location: "",
   state: "",
@@ -27,6 +29,7 @@ const formData_initialState = {
   ietDavvRights: false,
   sharewithmentor: false,
   status:"pending",
+  
 };
 
 function StartupForm() {
@@ -53,7 +56,8 @@ function StartupForm() {
   //   ietDavvRights: false,
   //   sharewithmentor: false,
   // });
-
+  //mentor
+  const [mentor, setMentor] = useState([]);
   const [formData, setFormData] = useState(formData_initialState)
   const [loading,setLoading] = useState(false)
 
@@ -62,6 +66,8 @@ function StartupForm() {
     founderName: "",
     mobileNumber: "",
     alternateNumber: "",
+    instituteName: "",
+    mentorName:"",
     email: mail,
     location: "",
     state: "",
@@ -76,6 +82,7 @@ function StartupForm() {
     ietDavvRights: "",
     sharewithmentor: "",
     status:"pending",
+    
   });
 
   const validateForm = () => {
@@ -197,6 +204,21 @@ function StartupForm() {
     } else {
       newErrors.sharewithmentor = "";
     }
+    
+
+    if (formData.instituteName.trim() === "") {
+      newErrors.instituteName = "Institute Name is required";
+      isValid = false;
+    } else {
+      newErrors.instituteName = "";
+    }
+
+    if (formData.mentorName.trim() === "") {
+      newErrors.mentorName = "Institute Name is required";
+      isValid = false;
+    } else {
+      newErrors.instituteName = "";
+    }
 
     setFormErrors(newErrors);
     return isValid;
@@ -294,6 +316,21 @@ function StartupForm() {
     
   }
 }
+
+//mentor parsing
+const getAllMentor = async () => {
+  try {
+    const { data } = await axios.get('http://localhost:8000/api/v1/mentor/get_mentor');
+    setMentor(data.mentor);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// Lifecycle method
+useEffect(() => {
+  getAllMentor();
+}, []);
     
 
   return (
@@ -365,7 +402,7 @@ function StartupForm() {
               </div>
 
               <div>
-                <label className="lbl" htmlFor="alternateNumber">
+                <label className="lbl" htmlFor="alternateNumber" id="req">
                   Alternate Number
                 </label>
                 <br></br>
@@ -380,6 +417,62 @@ function StartupForm() {
                 <div className="error">{formErrors.alternateNumber}</div>
               </div>
             </div>
+          
+    {/* Choose Institute */}
+        <div className="c2">
+        <div>
+        <label style={{fontSize:'20px'}}  htmlFor="instituteName" id="req">
+                 Institute Name
+                </label>
+                <br></br>
+          <select
+            id="instituteName"
+            name="instituteName"
+            value={formData.instituteName}
+            onChange={handleChange}
+            required
+          >
+            <option value=""  disabled>
+              Select Institute
+            </option>
+            <option value="IET DAVV" >IET DAVV</option>
+            <option value="SCSIT">SCSIT</option>
+            <option value="IIPS">IIPS</option>
+          </select>
+          <div className="error">{formErrors.instituteName}</div>
+        </div>
+      
+
+    {/* Choose Mentor */}
+  
+        <div>
+          <div><label style={{fontSize:'20px'}} htmlFor="mentorName" id="req">
+            Select Mentor
+          </label>
+          <br></br>
+          
+          <select
+            id="mentorName"
+            name="mentorName"
+            value={formData.mentorName}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>
+              Select Mentor
+            </option>
+            {mentor?.map((c) => (
+                  <option key={c._id} value={c.mname}>
+                    {c.mname}
+                  </option>
+                ))}
+          </select>
+          <div className="error">{formErrors.mentorName}</div>
+        </div>
+      </div>
+      </div>
+
+
 
             <div className="c3">
               <div>

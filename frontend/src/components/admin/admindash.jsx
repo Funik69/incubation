@@ -70,6 +70,12 @@ const Admindash = () => {
         <div className='card_block'>
         <Link to='/investorlist'>Investor List</Link>
         </div>
+        <div className='card_block'>
+        <Link to='/mentor_application'>Mentor Proposals</Link>
+        </div>
+        <div className='card_block'>
+        <Link to='/investor_application'>Investor Proposals</Link>
+        </div>
     </div>
     </div>
   )

@@ -34,19 +34,28 @@ import Admindash from './components/admin/admindash'
 import { DataProvider } from './context/DataContext'
 import { AuthProvider } from './context/AuthContext'
 import { AlertProvider } from './context/AlertContext'
+import { MentorProvider } from './context/MentorContext'
 import FullPage from './components/admin/FullPage'
 import Singlepage from './components/admin/Singlepage'
 import InactiveStartup from './components/admin/InactiveStartup'
 import UserStartupview from './userDashboard/UserStartupview'
 import MentorList from './components/admin/MentorList'
 import InvestorList from './components/admin/InvestorList'
-import Form from './components/admin/Form'
+import ProgramRegistration from './components/admin/programRegistration'
 import Notices from './components/admin/Notices'
+import MentorRequests from './components/admin/MentorRequests'
+import InvestorRequests from './components/admin/InvestorRequests'
+import ViewMentorFullPage from './components/admin/ViewMentorFullPage'
+import { InvestorProvider } from './context/InvestorContext'
+import ViewInvestorFullPage from './components/admin/ViewInvestorFullPage'
+
 function App() {
     return (
     <div className='app-main'>
       <BrowserRouter>
       <DataProvider>
+      <MentorProvider>
+        <InvestorProvider>
       <AuthProvider>
       <AlertProvider>
       <Header />
@@ -86,11 +95,18 @@ function App() {
           
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
           <Route path='/verify' element={<Verify/>}/>
-          <Route path='/createForm' element = {<Form />} />
+          <Route path='/programRegistration' element = {<ProgramRegistration />} />
           <Route path='/notices' element = {<Notices />} />
+          <Route path='/mentor_application' element = {<MentorRequests />} />
+          <Route path='/investor_application' element = {<InvestorRequests />} />
+          <Route path='/view_mentor_application/:id' element = {<ViewMentorFullPage />} />
+          <Route path='/view_investor_application/:id' element = {<ViewInvestorFullPage />} />
+
           </Routes>
           </AlertProvider>
           </AuthProvider>
+          </InvestorProvider>
+          </MentorProvider>
           </DataProvider>
       </BrowserRouter>
       <Footer />

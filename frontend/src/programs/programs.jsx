@@ -7,6 +7,7 @@ import mentorshipprogram from '../img/mentorshipprogram.png';
 import preincubation from '../img/preincubation.png';
 import startupprogram from '../img/startupprogram.jpg';
 import {useAlertContext} from '../context/AlertContext'
+import { Link } from 'react-router-dom'
 function Programs() {
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -19,7 +20,10 @@ return (
         <h1>Programs</h1>
     </div>
     <div className='scrltext'>
-      <marquee direction="left" height="100px" scrollmount="100">
+      <marquee direction="left" height="100px" 
+      onMouseOver={(e) => e.target.start()}
+      onMouseOut={(e) => e.target.stop()}
+      scrollmount="100">
       <div dangerouslySetInnerHTML={{ __html: alert.latestinfo }} />;
       </marquee>
     </div>
@@ -30,42 +34,42 @@ return (
             <img src={incubationprogram} alt='Image' className='progimg'></img>
             <h2 className='programhead'>Applications Open</h2>
             <button className='readbutton'><b>Read More</b></button>
-            <button className='programapply'><b>Apply Now</b></button>   
+            <button className='submit'> <Link to='/programRegistration'>Apply Now</Link></button>   
         </div>
 
         <div className='pcard1'>
             <img src={nidhiprayas} alt='Image' className='progimg'></img>
             <h2 className='programhead'>Applications Open</h2>
             <button className='readbutton'><b>Read More</b></button>
-            <button className='programapply'><b>Apply Now</b></button>   
+            <button className='submit'> <Link to='/programRegistration'>Apply Now</Link></button>
         </div>
 
         <div className='pcard1'>
             <img src={big} alt='Image' className='progimg'></img>
             <h2 className='programhead'>Applications Open</h2>
             <button className='readbutton'><b>Read More</b></button>
-            <button className='programapply'><b>Apply Now</b></button>
+            <button className='submit'> <Link to='/programRegistration'>Apply Now</Link></button>
         </div>
 
         <div className='pcard1'>
             <img src={mentorshipprogram} alt='Image' className='progimg'></img>
             <h2 className='programhead'>Applications Open</h2>
             <button className='readbutton'><b>Read More</b></button>
-            <button className='programapply'><b>Apply Now</b></button>
+            <button className='submit'> <Link to='/programRegistration'>Apply Now</Link></button>
         </div>
 
         <div className='pcard1'>
             <img src={preincubation} alt='Image' className='progimg'></img>
             <h2 className='programhead'>Applications Open</h2>
             <button className='readbutton'><b>Read More</b></button>
-            <button className='programapply'><b>Apply Now</b></button>
+            <button className='submit'> <Link to='/programRegistration'>Apply Now</Link></button>
         </div>
 
         <div className='pcard1'>
             <img src={startupprogram} alt='Image' className='progimg'></img>
             <h2 className='programhead'>Applications Open</h2>
             <button className='readbutton'><b>Read More</b></button>
-            <button className='programapply'><b>Apply Now</b></button>
+            <button className='submit'> <Link to='/programRegistration'>Apply Now</Link></button>
         </div>
 
 

@@ -48,6 +48,8 @@ const Singlepage = () => {
       <div className='card-item'><strong>Email:</strong> {item.email}</div>
       <div className='card-item'><strong>Location:</strong> {item.location}</div>
       <div className='card-item'><strong>State:</strong> {item.state}</div>
+      <div className='card-item'><strong>Institute:</strong> {item.instituteName}</div>
+      <div className='card-item'><strong>Mentor Name:</strong> {item.mname}</div>
       <div className='card-item'><strong>Pincode:</strong> {item.pinCode}</div>
       <div className='card-item'><strong>Business Idea:</strong> {item.businessIdea}</div>
       <div>

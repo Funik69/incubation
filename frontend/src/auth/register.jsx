@@ -12,17 +12,13 @@ const register = () => {
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType,setUserType]=useState("");
-  const [secretKey,setSecretKey]=useState("");
+  
+  
   const navigate = useNavigate();
 
 
   const handleSubmit = async (e) => {
-    if(userType=="Admin" && secretKey!="12345678"){
-      e.preventDefault();
-      alert("Invalid Admin")
-    }
-    else{
+    
       e.preventDefault();
     try {
       const res = await axios.post(" http://localhost:8000/api/v1/auth/register", {
@@ -30,7 +26,7 @@ const register = () => {
         lname,
         email,
         password,
-        userType
+  
 
       });
       if (res && res.data.success) {
@@ -54,7 +50,7 @@ const register = () => {
       }
 
     }
-  }
+  
   };
   return (
     <div>
@@ -63,40 +59,7 @@ const register = () => {
    
         <div className='myform'>
           <h4 className="title">REGISTER</h4>
-          <div>
-            Register as
-            <input 
-            type="radio"
-            name ="UserType"
-            value="User"
-            onChange={(e)=>setUserType(e.target.value)}
-            required
-            
-            />
-            User
-            <input 
-            type="radio"
-            name ="UserType"
-            value="Admin"
-            onChange={(e)=>setUserType(e.target.value)}
-            required
-            />
-            Admin
-
-          </div>
-          {userType=="Admin"?
-          <div className="mb-3">
-          <input
-            type="password"
-            onChange={(e) => setSecretKey(e.target.value)}
-            className="form-control"
-            id="exampleInputName"
-            placeholder="Secret Key"
-            autoComplete='off'
-            required
-            autoFocus
-          />
-        </div> :null}
+  
          
         <div className="mb-3">
             <input

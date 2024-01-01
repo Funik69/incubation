@@ -18,6 +18,7 @@ const investData_initialState = {
   investInto: "",
   limit: "",
   linkedin: "",
+  status:"pending",
 };
 
 function InvestForm() {
@@ -118,15 +119,10 @@ function InvestForm() {
             ...investData,
             limit: document.querySelector('input[name="limit"]:checked').value, // Get the value of the checked radio button
           });
-            if(response.status === 200) {
+            
               setInvestData(investData_initialState)
-            }
-      
-            if (response.ok) {
               console.log('Form data sent successfully');
-            } else {
-              console.error('Form data failed to send');
-            }
+    
           } catch (error) {
             console.error('Error:', error);
           }

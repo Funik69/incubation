@@ -18,6 +18,7 @@ const mentorData_initialState = {
     myear:"",
     msector:"",
     mlink:"",
+    status:"pending",
   };
 
 function MentorForm() {
@@ -134,17 +135,12 @@ function MentorForm() {
               },
               body: JSON.stringify(mentorData),
             });
-            if(response.status === 200) {
-              setMentorData(mentorData_initialState)
-            }
-      
-            if (response.ok) {
+            
+              setMentorData(mentorData_initialState);
               console.log('Form data sent successfully');
-            } else {
-              console.error('Form data failed to send');
-            }
+            
           } catch (error) {
-            console.error('Error:', error);
+            console.error("problem");
           }
           navigate('/investthanks');
           setMentorData(mentorData_initialState);

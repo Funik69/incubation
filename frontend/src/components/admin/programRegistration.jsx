@@ -1,9 +1,10 @@
 import React, {useState, useRef} from 'react'
-
-const Form = () => {
+import { useNavigate } from 'react-router-dom'
+const ProgramRegistration = () => {
     const formRef = useRef(null)
     const scriptUrl = "https://script.google.com/macros/s/AKfycbyCkd6vC8Qk_SVwwhZXML5Dbrm8PCioyArXaaIZLPRcwfzCLWUhoCLW363lgFamP_Vm/exec"
     const [loading, setLoading] = useState(false)
+    const navigate=useNavigate();
 
     const getCurrentDate = () => {
         const now = new Date();
@@ -23,8 +24,8 @@ const Form = () => {
         })
           .then((res) => {
             console.log('SUCCESSFULLY SUBMITTED');
-            location.reload();
             setLoading(false);
+            navigate('/programs');
           })
           .catch((err) => console.log(err));
       };
@@ -67,4 +68,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default ProgramRegistration

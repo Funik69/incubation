@@ -1,36 +1,25 @@
 import React, { useState ,useEffect} from 'react';
 import axios from 'axios';
 import { useNavigate ,Link} from "react-router-dom";
+import { useAuthContext } from '../../context/AuthContext';
 
 const InvestorList = () => {
     const [investor, setInvestor] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const navigate = useNavigate();
+    const { data } = useAuthContext();
     
-      const getAllInvestor = async () => {
-        try {
-          const { data } = await axios.get("http://localhost:8000/api/v1/invest/get_investor");
-          console.log(data);
-          setInvestor(data.investor);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    
-      //lifecycle method
-      useEffect(() => {
-        getAllInvestor();
-      }, []);
+      
 
       const handleSearch = (e) => {
         setSearchQuery(e.target.value);
       };
     
       // Filter mentor data based on search query
-      const filteredMentor = investor.filter(
+      const filteredMentor = data.filter(
         (m) =>
-          m.investorName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          m.iemail.toLowerCase().includes(searchQuery.toLowerCase()) 
+          m.fname.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          m.email.toLowerCase().includes(searchQuery.toLowerCase()) 
       );
       return (
             <div>
@@ -50,17 +39,13 @@ const InvestorList = () => {
                     <tr>
                       <th>Name</th>
                       <th>Email</th>
-                      <th>Linkedin</th>
                     </tr>
                   </thead>
                   <tbody>
                     {filteredMentor?.map((i) => (
                       <tr key={i._id}>
-                        <td>{i.investorName}</td>
-                        <td>{i.iemail}</td>
-
-                        {/* <td>{i.createdAt.substring(0, 10)}</td> */}
-                        <td><Link to ={i.linkedin}>{i.linkedin}</Link></td>
+                        <td>{i.fname} {i.lname}</td>
+                        <td>{i.email}</td>
                       </tr>
                     ))}
                   </tbody>

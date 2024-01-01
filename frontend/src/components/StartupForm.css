@@ -41,7 +41,7 @@
     border-radius: 25px 50px 25px 50px;
     border-color: #0d0254;
 }
-#startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile{
+#startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile,#instituteName ,#mentorName{
     font-size: 19px;
     color: #0d0254;
     padding: 5px;
@@ -84,6 +84,10 @@
     content: "*";
     color: red;
 }
+
+
+
+
 @media (max-width: 1160px) {
     .c1, .c2, .c3, .c4, .ProgramPref,.doc {
         grid-template-columns: repeat(1, 1fr);
@@ -94,13 +98,13 @@
     color: red;
 }
 @media (max-width: 1160px) {
-    #startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile,#businessIdea,#whyJoinUs,#registered,#development,#successful {
+    #startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile,#businessIdea,#whyJoinUs,#registered,#development,#successful,#instituteName ,#mentorName {
         width: 500px;
         margin-left: 0px;
     }
 }
 @media (max-width: 750px) {
-    #startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile,#businessIdea,#whyJoinUs,#registered,#development,#successful {
+    #startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile,#businessIdea,#whyJoinUs,#registered,#development,#successful,#instituteName ,#mentorName {
         width: 250px;
         margin-left: 0px;
     }

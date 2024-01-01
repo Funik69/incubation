@@ -19,7 +19,10 @@ const handleSubmit = async (e) => {
       alert("Mail sent to Update Password")
       console.log(res.data.message)
     } else {
-      console.log(res.data.message);
+      if(res && res.status===201){
+        navigate("/register");
+        console.log("Email not Registered");
+      }
     }
   } catch (error) {
     console.log(error);

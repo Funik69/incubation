@@ -15,15 +15,20 @@ function Home() {
   useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, []);
+
   const navigate = useNavigate();
   const {alert} = useAlertContext();
-  
-return (
+  return (
     <div> 
 
-    <div className='scrltext'>
-      <marquee direction="left" height="100px" scrollmount="100"> 
-      <div dangerouslySetInnerHTML={{ __html: alert.alertmsg }} />;
+<div className='scrltext'>
+      <marquee
+        direction="left"
+        height="100px"
+        onMouseOver={(e) => e.target.start()}
+        onMouseOut={(e) => e.target.stop()}
+      >
+        <div dangerouslySetInnerHTML={{ __html: alert.alertmsg }} />
       </marquee>
     </div>
 

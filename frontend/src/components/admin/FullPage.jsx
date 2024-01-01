@@ -65,6 +65,8 @@ const FullPage = () => {
           <div className='card-item'><strong>Mobile Number:</strong> {item.mobileNumber}</div>
           <div className='card-item'><strong>Alternate Number:</strong> {item.alternateNumber}</div>
           <div className='card-item'><strong>Email:</strong> {item.email}</div>
+          <div className='card-item'><strong>Institute:</strong> {item.instituteName}</div>
+          <div className='card-item'><strong>Mentor Name:</strong> {item.mname}</div>
           <div className='card-item'><strong>Location:</strong> {item.location}</div>
           <div className='card-item'><strong>State:</strong> {item.state}</div>
           <div className='card-item'><strong>Pincode:</strong> {item.pinCode}</div>
