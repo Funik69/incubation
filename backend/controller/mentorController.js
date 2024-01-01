@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose=require("mongoose");
 require("../models/mentorModel.js");
 const MentorModel=mongoose.model("MentorModel");
+require("../models/userModel.js");
+const userModel=mongoose.model("User");
 const app = express();
  const MentorSaveController = async (req, res) => {
     try {
@@ -13,7 +15,9 @@ const app = express();
       mconame,
       myear,
       msector,
-      mlink,} = req.body;
+      mlink,
+      status
+    } = req.body;
       
 
       const mentorDetail =  new MentorModel({
@@ -26,8 +30,20 @@ const app = express();
       myear,
       msector,
       mlink,
+      status,
       }); 
       await mentorDetail.save();
+      const value = await userModel.findOne({ email: memail });
+
+// Update the user type to 'investor'
+try {
+  if(value.userType==='user'){
+  const data = await userModel.findByIdAndUpdate(value._id, { userType: 'pseudo_mentor' },{new:true});
+  console.log('Updated user data:');
+  }
+} catch (error) {
+  console.error('Error updating user data:', error);
+}
       res.status(201).send({
         success: true,
         message: "Data Submitted Successfully",
@@ -45,26 +61,46 @@ const app = express();
 
 
     const MentorGetController = async (req, res) => {
-      try {
-        const mentor = await MentorModel
-          .find({})
-          .sort({ createdAt: -1 });
-        res.status(200).send({
-          success: true,
-          countTotal: mentor.length,
-          message: "All Mentors ",
-          mentor,
-        });
-      } catch (error) {
-        console.log(error);
-        res.status(500).send({
-          success: false,
-          message: "Error in getting products",
-          error: error.message,
-        });
-      }
+        try {
+          const data = await MentorModel.find({});
+          res.status(200).send(data);
+        }
+        catch(error) {
+          console.error(error);
+          res.status(500).send('Server Error');
+        }
     };
+
+    const updateData = async (req, res) => {
+      try {
+        const checkData = await MentorModel.findById(req.params._id);
+        const data = await MentorModel.findByIdAndUpdate(req.params._id, { status: 'accepted' }, { new: true });
+        const value = await userModel.findOneAndUpdate({ email: checkData.memail }, { userType: 'mentor' }, { new: true });
+
+        console.log(data);
+        console.log(value);
+        res.status(200).send('update data');
+
+      }
+    catch (error) {
+      console.error(error);
+      res.status(500).send('Server Error');
+    }
+  };
+
+  const deleteData = async (req, res) => {
+    try {
+      
+
+    }
+  catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
     module.exports = {
         MentorSaveController: MentorSaveController,
         MentorGetController:MentorGetController,
+        updateData:updateData,
+        deleteData:deleteData,
       };

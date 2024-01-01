@@ -21,6 +21,14 @@ const DataSchema = new mongoose.Schema(
         required:false,
         trim:true,
     },
+    instituteName:{
+        type: String,
+        required:true,
+    },
+    mentorName:{
+        type: String,
+        required:true,
+    },
     email:{
         type: String,
         required:true,

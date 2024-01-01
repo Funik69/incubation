@@ -28,6 +28,8 @@ const userSchema = new mongoose.Schema(
     },
     userType:{
       type:String,
+      default:'User',
+      required:true,
     }
     
   },

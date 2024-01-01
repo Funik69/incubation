@@ -1,10 +1,10 @@
 const mongoose=require("mongoose");
-require("../models/userModel.js");
 const bcrypt=require("bcrypt");
 const nodemailer = require('nodemailer');
 require("../models/formDataModel.js");
 const DataModel=mongoose.model("DataModel");
 const VerificationToken=require('../models/verificationToken.js')
+require("../models/userModel.js");
 const userModel=mongoose.model("User");
 const JWT=require("jsonwebtoken");
 const {isValidObjectId}=require("mongoose");
