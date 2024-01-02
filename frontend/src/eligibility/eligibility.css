@@ -52,10 +52,10 @@
       display: grid;
       place-content: center;
     }
-    .div_1,.div_2{
+    .div_1, .div_2 {
       padding: 2%;
-      margin-right: 2%;
+      margin-right: 170px;
       text-align: left;
-      width: 360px;
-    }
+      width: 350px;
+  }
   }

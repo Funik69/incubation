@@ -15,13 +15,13 @@ function Collaborate() {
             </div>
             <div className='colinfo'>
                 <div className='investor'>
-                    <h1 className='shorthead'><i>INVEST WITH US</i></h1>
+                    <h1 className='shorthead'>INVEST WITH US</h1>
                     <img src={investorimg}></img>
                     <p>An effort to connect potential startups with the capable and helping hands in order to promote effective communication and insightful connections among them.</p>
                     <button onClick={() => navigate("/Investor")} className='usefulbut'><b>Become Investor</b></button>
                 </div>
                 <div className='mentor'>
-                    <h1 className='shorthead'><i>PROVIDE MENTORSHIP</i></h1>
+                    <h1 className='shorthead'>PROVIDE MENTORSHIP</h1>
                     <img src={mentorimg}></img>
                     <p>With an intent of guidance in mind, we are on the path of connecting expert mentors to growing startups so that with the right mentorship, they will reach great heights. </p>
                     <button onClick={() => navigate("/Mentor")} className='usefulbut'><b>Become Mentor</b></button>
