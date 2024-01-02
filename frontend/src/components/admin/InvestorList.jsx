@@ -15,11 +15,11 @@ const InvestorList = () => {
         setSearchQuery(e.target.value);
       };
     
-      // Filter mentor data based on search query
-      const filteredMentor = data.filter(
+      // Filter investor data based on search query
+      const filteredInvestor = data.filter(
         (m) =>
-          m.fname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          m.email.toLowerCase().includes(searchQuery.toLowerCase()) 
+          (m.fname.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          m.email.toLowerCase().includes(searchQuery.toLowerCase()) )&& m.userType === 'Investor'
       );
       return (
             <div>
@@ -42,7 +42,7 @@ const InvestorList = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredMentor?.map((i) => (
+                    {filteredInvestor?.map((i) => (
                       <tr key={i._id}>
                         <td>{i.fname} {i.lname}</td>
                         <td>{i.email}</td>

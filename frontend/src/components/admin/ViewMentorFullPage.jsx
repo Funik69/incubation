@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from 'react';
 import { useParams, Link} from 'react-router-dom';
 import { useMentorContext } from '../../context/MentorContext';
+import { MYURL } from '../../../env';
 import axios from 'axios';
 const ViewMentorFullPage = () => {
   useEffect(() => {
@@ -19,7 +20,7 @@ const ViewMentorFullPage = () => {
   };
   const confirmAccept = async () => {
     try {
-       await axios.put(`http://localhost:8000/api/v1/mentor/updatedata/${id}`);
+       await axios.put(`${MYURL}api/v1/mentor/updatedata/${id}`);
       const updatedData = data.map((item) =>
         item._id === id ? { ...item, status: 'accepted' } : item
       );
@@ -40,7 +41,7 @@ const ViewMentorFullPage = () => {
   };
   const confirmReject = async () => {
     try {
-      await axios.put(`http://localhost:8000/api/v1/mentor/deletedata/${id}`);
+      await axios.put(`${MYURL}api/v1/mentor/deletedata/${id}`);
       const updatedData = data.filter((item) => item._id !== id);
       setData(updatedData);
     } catch (error) {

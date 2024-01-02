@@ -39,7 +39,9 @@ function ColSlider() {
         <h1>Collaborate</h1>
       </div>
       <div className='slideshow-container'>
+        <div className='imgCont'>
         <img src={images[currentImageIndex]} alt={`Slide ${currentImageIndex + 1}`} className='slideimg' />
+        </div>
         <div className='prev' onClick={goToPreviousSlide}>&#8249;</div>
         <div className='next' onClick={goToNextSlide}>&#8250;</div>
       <br></br>

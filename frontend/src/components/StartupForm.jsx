@@ -2,6 +2,7 @@ import React, { useState , useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import "./StartupForm.css";
+import { MYURL } from "../../env";
 
 const tokenData = localStorage.getItem("auth");
 const val = JSON.parse(tokenData);
@@ -238,10 +239,11 @@ function StartupForm() {
     setLoading(true);
     e.preventDefault();
     const isValid = validateForm();
-    
+    if(!isValid)
+    setLoading(false);
     if (isValid) {
       try {
-        const response = await fetch('http://localhost:8000/api/v1/data/savedata', {
+        const response = await fetch(`${MYURL}api/v1/data/savedata`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -259,7 +261,7 @@ function StartupForm() {
             message: formData.founderName,};
       
             try {
-              const res = await fetch("http://localhost:8000/send-email", {
+              const res = await fetch(`${MYURL}send-email`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

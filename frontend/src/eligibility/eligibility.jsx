@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './eligibility.css';
 function Eligibility() {
@@ -13,7 +14,7 @@ return (
         <h2 className="h121">APPLY</h2>
       </div>
             <div className='dparent'>
-                <div className='div1'>
+                <div className='div_1'>
                     <h3 className='heading'> Who can Apply ? </h3>
                     <p className='epara'>- Any start-up company</p>
                     <p className='epara'>- Faculties / Staff / Students</p>
@@ -27,7 +28,7 @@ return (
                     <p className='epara'>- Mechatronics</p>
                     <p className='epara'>- Robotics</p>
                 </div>
-                <div className='div2'>
+                <div className='div_2'>
                     <h3 className='heading'> How to Apply ? </h3>
                     <p className='epara'>- Login to the Portal.</p>
                     <p className='epara'>- Fill the Registration Form if you meet the eligibility criteria.</p>
@@ -36,7 +37,10 @@ return (
                     <p className='epara'>- Accept the offer and sign the agreement.</p>
                 </div>
             </div>
-            <button onClick={name ? () => navigate("/StartupForm") : () => navigate("/login")} className='eliapply'><b>Apply Now</b></button>
+            <div className='btn'>
+                <button onClick={name ? () => navigate("/StartupForm") : () => navigate("/login")} className='eliapply'><b>Apply Now</b></button>
+            </div>
+            
         
     </div>
     );

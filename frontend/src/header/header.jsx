@@ -38,40 +38,40 @@ function Header() {
           <div className='links'>
             <ul className={menuOpen ? "open" : ""}>
               <li>
-                <a href='/' className='headerlist'>
+                <NavLink to='/' className='headerlist'>
                   <b>Home</b>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='./about' className='headerlist'>
+                <NavLink to='./about' className='headerlist'>
                   <b>About Us</b>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='./programs' className='headerlist'>
+                <NavLink to='./programs' className='headerlist'>
                   <b>Programs</b>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='./event' className='headerlist'>
+                <NavLink to='./event' className='headerlist'>
                   <b>Event</b>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='./portfolio' className='headerlist'>
+                <NavLink to='./portfolio' className='headerlist'>
                   <b>Portfolio</b>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href='./contact' className='headerlist'>
+                <NavLink to='./contact' className='headerlist'>
                   <b>Contact</b>
-                </a>
+                </NavLink>
               </li>
               {name ? (
                 filteredData.map((i) => (
                   <li key={i._id}>
                     {
-                      i.userType === 'Admin' ? (
+                      (i.userType === 'Admin' || i.userType === 'coadmin') ? (
                         <NavLink to="/admindash" style={{ color: 'black' }}>
                           <b><h3><FaUser size={18} /> {i.fname}</h3></b>
                         </NavLink>

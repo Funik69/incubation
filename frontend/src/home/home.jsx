@@ -36,6 +36,7 @@ function Home() {
         <div className="content">
           <div className="container">
             <div className="info">
+              <h1 className='smallhead'>We Support</h1>
               <TypeAnimation
                     sequence={["We Incubate",1000,"We Support",1000,"We Innovate",1000]}
                     speed={50}
@@ -43,8 +44,8 @@ function Home() {
                     style={{ fontSize: '70px', fontWeight: '800', color: '#0d0254'}}
                     className='animationhereh'
                 />
-              <p>Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services.</p>
-              <p>With this intent in mind, we are inclined towards offering a effective solution for all the startups in the best possible manner.</p>
+              <p className='homep'>Incubation centres play a pivotal role as institutions offering an array of essential business and technical support services.</p>
+              <p className='homep'>With this intent in mind, we are inclined towards offering a effective solution for all the startups in the best possible manner.</p>
               <button onClick={() => navigate("/Eligibility")} className='firstbut'><b>Apply For Incubation</b></button>
               <button onClick={() => navigate("/Collaborate")} className='secondbutton'><b>Collaborate here</b></button>
             </div>

@@ -35,3 +35,24 @@
     margin: 0;
   }
 }
+
+
+.delete-button {
+  
+  background-color:  #fff; /* Red background color */
+  color: #0a1aed; /* White text color */
+  border: none; /* No border */
+  padding: 8px 12px; /* Padding for better spacing */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.delete-button:hover {
+  background-color: #06f41e; /* Darker red on hover */
+}
+
+.delete-icon {
+  color: inherit; /* Inherit the color from the parent element */
+  margin-right: 6px; /* Margin between the icon and text */
+}

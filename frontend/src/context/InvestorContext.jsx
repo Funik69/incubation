@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-
+import { MYURL } from '../../env';
 const InvestorContext = createContext();
 
 export const useInvestorContext = () => {
@@ -19,9 +19,9 @@ export const InvestorProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/v1/invest/get_investor')
+      .get(`${MYURL}api/v1/invest/get_investor`)
       .then((response) => {
-        const sortedData = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        const sortedData = response.data;
         setData(sortedData);
       })
       .catch((error) => {

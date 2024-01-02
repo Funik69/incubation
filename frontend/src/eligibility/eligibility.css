@@ -13,27 +13,19 @@
   background-color: rgb(194, 156, 255);
   color: #0d0254;
 }
-  .here3 .headd {
-    align-items: center;
-    justify-content: center;
-  }
   .here3 .heading {
     text-align: left;
     font-size:xx-large;
   }
-  .here3 .main-head {
-    color: #0d0254;
-    text-align:center;
-    margin-top: 0;
-    margin-bottom: 50px;
-    background-color: rgb(244, 238, 254);
-  }
-  .here3 .div1 {
+  .here3 .div_1 {
+    
+    padding-left: 10%;
+    margin: 0;
     margin-left: 75px;
   }
-  .here3 .div2 {
+  .here3 .div_2 {
     margin-left: 75px;
-    width: 500px;
+    padding-left: 10%;
   }
   .dparent {
     display: flex;
@@ -42,6 +34,7 @@
   }
   .epara {
     font-size: 20px;
+    text-align: left;
   }
   .here3 {
     padding: 20px;
@@ -52,4 +45,17 @@
     padding: 20px;
     text-align:center;
     font-size: 45px;
+  }
+
+  @media (max-width: 1000px){
+    .dparent{
+      display: grid;
+      place-content: center;
+    }
+    .div_1,.div_2{
+      padding: 2%;
+      margin-right: 2%;
+      text-align: left;
+      width: 360px;
+    }
   }

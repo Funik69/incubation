@@ -16,7 +16,7 @@ const app = express();
       investInto,
       limit,
       linkedin,
-    status,} = req.body;
+      status,} = req.body;
       
 
       const investDetail =  new InvestModel({

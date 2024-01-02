@@ -42,7 +42,9 @@ import UserStartupview from './userDashboard/UserStartupview'
 import MentorList from './components/admin/MentorList'
 import InvestorList from './components/admin/InvestorList'
 import ProgramRegistration from './components/admin/programRegistration'
+import Eventform from './components/admin/Eventform'
 import Notices from './components/admin/Notices'
+import Coadmin from './components/admin/coadmin'
 import MentorRequests from './components/admin/MentorRequests'
 import InvestorRequests from './components/admin/InvestorRequests'
 import ViewMentorFullPage from './components/admin/ViewMentorFullPage'
@@ -95,8 +97,10 @@ function App() {
           
           <Route path='/reset-password/:id/:token' element = {<Reset />} />
           <Route path='/verify' element={<Verify/>}/>
+          <Route path='/eventform' element={<Eventform/>} />
           <Route path='/programRegistration' element = {<ProgramRegistration />} />
           <Route path='/notices' element = {<Notices />} />
+          <Route path='/coadmin' element = {<Coadmin/>} />
           <Route path='/mentor_application' element = {<MentorRequests />} />
           <Route path='/investor_application' element = {<InvestorRequests />} />
           <Route path='/view_mentor_application/:id' element = {<ViewMentorFullPage />} />

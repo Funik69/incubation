@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./investform.css";
+import { MYURL } from '../../env';
 
 const tokenData = localStorage.getItem("auth");
 const val = JSON.parse(tokenData);
@@ -115,7 +116,7 @@ function InvestForm() {
       const isValid = validInvestForm();
       if(isValid) {
         try {
-          const response = await axios.post('http://localhost:8000/api/v1/invest/investdata', {
+          const response = await axios.post(`${MYURL}api/v1/invest/investdata`, {
             ...investData,
             limit: document.querySelector('input[name="limit"]:checked').value, // Get the value of the checked radio button
           });

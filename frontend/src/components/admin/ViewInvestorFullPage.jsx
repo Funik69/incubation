@@ -1,6 +1,8 @@
 import React, { useState , useEffect} from 'react';
 import { useParams, Link} from 'react-router-dom';
 import { useInvestorContext } from '../../context/InvestorContext';
+
+import { MYURL } from '../../../env';
 import axios from 'axios';
 const ViewInvestorFullPage = () => {
   useEffect(() => {
@@ -19,7 +21,7 @@ const ViewInvestorFullPage = () => {
   };
   const confirmAccept = async () => {
     try {
-       await axios.put(`http://localhost:8000/api/v1/invest/updatedata/${id}`);
+       await axios.put(`${MYURL}api/v1/invest/updatedata/${id}`);
       const updatedData = data.map((item) =>
         item._id === id ? { ...item, status: 'accepted' } : item
       );
@@ -40,7 +42,7 @@ const ViewInvestorFullPage = () => {
   };
   const confirmReject = async () => {
     try {
-      await axios.put(`http://localhost:8000/api/v1/invest/deletedata/${id}`);
+      await axios.put(`${MYURL}api/v1/invest/deletedata/${id}`);
       const updatedData = data.filter((item) => item._id !== id);
       setData(updatedData);
     } catch (error) {

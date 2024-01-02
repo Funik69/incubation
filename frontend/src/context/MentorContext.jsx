@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import axios from 'axios';    
+import { MYURL } from '../../env';
 
 const MentorContext = createContext();
 
@@ -19,9 +20,10 @@ export const MentorProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/v1/mentor/get_mentor')
+      .get(`${MYURL}api/v1/mentor/get_mentor`)
       .then((response) => {
-        const sortedData = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        const sortedData = response.data;
+        
         setData(sortedData);
       })
       .catch((error) => {

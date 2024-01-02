@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import './auth.css'
+import { MYURL } from '../../env';
 
 const register = () => {
   useEffect(() => {
@@ -21,7 +22,7 @@ const register = () => {
     
       e.preventDefault();
     try {
-      const res = await axios.post(" http://localhost:8000/api/v1/auth/register", {
+      const res = await axios.post(`${MYURL}api/v1/auth/register`, {
         fname,
         lname,
         email,

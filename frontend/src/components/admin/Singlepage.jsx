@@ -1,18 +1,41 @@
-import React, {useEffect} from 'react'
+import React, {useEffect , useState} from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useDataContext } from '../../context/DataContext'
 import axios from 'axios'
+import { MYURL } from '../../../env'
+
 const Singlepage = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  const tokenData = localStorage.getItem("auth");
+  const val = JSON.parse(tokenData)
+  //const mail=val.user.email;
+  const mail = val && val.user ? val.user.email : '';
+  
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${MYURL}api/v1/auth/user/${mail}`);
+        const adminStatus = response.data.user.userType === 'Admin';
+        setIsAdmin(adminStatus);
+
+        // ... (existing code)
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        // Handle error accordingly, e.g., redirect to login page or display an error message
+      }
+    };
+
+    fetchData();
   }, []);
+
     const {id} = useParams();
     const {data}=useDataContext();
     const filteredData = data.filter((i)=> i._id == id);
     const navigate = useNavigate();
     const handleUnRegister = async () => {
       try {
-        await axios.put(`http://localhost:8000/api/v1/data/inactive/${id}`)
+        await axios.put(`${MYURL}api/v1/data/inactive/${id}`)
         .then((res) => location.reload());
         const updatedData = data.map((item) =>
           item._id == id ? { ...item, status: 'Inactive' } : item
@@ -25,7 +48,7 @@ const Singlepage = () => {
     };
     const handleReRegister = async () => {
       try {
-        await axios.put(`http://localhost:8000/api/v1/data/updatedata/${id}`)
+        await axios.put(`${MYURL}api/v1/data/updatedata/${id}`)
         .then((res) => location.reload());
         const updatedData = data.map((item) =>
           item._id == id ? { ...item, status: 'accepted' } : item
@@ -65,12 +88,12 @@ const Singlepage = () => {
           LinkedIn
         </a>
         <br></br><br></br>
-        {
+        {isAdmin &&
           item.status=="accepted"?(<div className='decisionButton'>
             <button className='Abtn' onClick={handleUnRegister}>UnRegister</button>
           </div>):(<p></p>)
         }
-        {
+        {isAdmin &&
           item.status=="Inactive"?(<div className='decisionButton'>
             <button className='Abtn' onClick={handleReRegister}>Re-Register</button>
           </div>):(<p></p>)

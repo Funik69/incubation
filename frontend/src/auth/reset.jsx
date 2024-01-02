@@ -1,6 +1,7 @@
 import React , { useState , useEffect } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
+import { MYURL } from '../../env';
 const reset = () => {
   useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -17,11 +18,12 @@ const handleSubmit = async (e) => {
       alert("password didn't matched");
       return ;
     }
-    const res = await axios.post(` http://localhost:8000/api/v1/auth/reset-password/${id}/${token}`, {
+    const res = await axios.post(`${MYURL}api/v1/auth/reset-password/${id}/${token}`, {
       password
 });
     if (res && res.data.Status=="Success") {
-      navigate("/login" , {replace: true});
+      navigate("/login");
+      alert("Password Changed")
       console.log("password changed")
     } else {
       console.log(res.data.message);
@@ -47,14 +49,14 @@ const handleSubmit = async (e) => {
             />
             </div>
             <div>
-            <input
+             <input
               type="password"
               autoComplete='off'
               className="form-control"
-              value={password2}
+              value={password}
               id="exampleInputPassword1"
-              placeholder="New Password"
-              onChange={(e) => setPassword2(e.target.value)}
+              placeholder="Retype Password"
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>

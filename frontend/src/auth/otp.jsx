@@ -1,8 +1,8 @@
 import React ,{useState , useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
 import axios from "axios";
 import './auth.css'
+import { MYURL } from '../../env';
 const otp = () => {
   useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -15,7 +15,7 @@ const otp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const res = await axios.post(" http://localhost:8000/api/v1/auth/verify-email", {
+          const res = await axios.post(`${MYURL}api/v1/auth/verify-email`, {
           otp,
           userId,
  });
@@ -24,6 +24,7 @@ const otp = () => {
             navigate("/login" , {replace: true});
             alert("Email Verified");
           } else {
+            alert("Invalid Fields")
             console.log(res.data.message);
           }
         } catch (error) {

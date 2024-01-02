@@ -1,0 +1,30 @@
+.eventfmain {
+    margin-left: 300px;
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+.eventfinp {
+    height: 30px;
+    width: 450px;
+    margin-top: 20px;
+}
+.eventfbut {
+    border: 0;
+  border-radius: 20px;
+  padding: 12px 30px;
+  margin-top: 30px;
+  cursor: pointer;
+  color: #FFF;
+  background-color: #0d0254;
+  margin-left: 70px;
+  font-size: 17px;
+}
+.eventfhead {
+    text-align: center;
+    color: #0d0254;
+    font-size: 60px;
+}
+.eventfl1 {
+    font-size: 20px;
+    color: #0d0254;
+}

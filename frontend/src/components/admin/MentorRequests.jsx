@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useMentorContext } from '../../context/MentorContext';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import './getdata.css';
 
 const MentorRequests = () => {
-    useEffect(() => {
-        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-      }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
+
   const { data } = useMentorContext();
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -15,8 +16,13 @@ const MentorRequests = () => {
     return searchFields.some((field) => field.toLowerCase().includes(query.toLowerCase()));
   };
 
-  const filteredData = data.filter((item) => item.status === 'pending' && containsSearchQuery(item, searchQuery));
+  // Check if data is an array before using filter
+
+  const filteredData = Array.isArray(data)
+    ? data.filter((item) => item.status === 'pending' && containsSearchQuery(item, searchQuery))
+    : [];
   const len = filteredData.length;
+
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
@@ -34,7 +40,7 @@ const MentorRequests = () => {
         />
       </div>
       <div className='showdata'>
-        {filteredData.map(item => (
+        {filteredData.map((item) => (
           <div className='cardData' key={item._id}>
             <div className='card-item'><strong>Name:</strong> {item.mname}</div>
             <div className='card-item'><strong>City:</strong> {item.mcity}</div>
@@ -45,6 +51,6 @@ const MentorRequests = () => {
       </div>
     </>
   );
-}
+};
 
 export default MentorRequests;
