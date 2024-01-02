@@ -1,13 +1,13 @@
-import React, { useState , useEffect} from "react";
-import {useNavigate} from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./StartupForm.css";
 import { MYURL } from "../../env";
 
 const tokenData = localStorage.getItem("auth");
 const val = JSON.parse(tokenData);
 //const mail = val.user.email;
-const mail = val && val.user ? val.user.email : '';
+const mail = val && val.user ? val.user.email : "";
 
 const formData_initialState = {
   startupName: "",
@@ -15,7 +15,7 @@ const formData_initialState = {
   mobileNumber: "",
   alternateNumber: "",
   instituteName: "",
-  mentorName:"",
+  mentorName: "",
   email: mail,
   location: "",
   state: "",
@@ -29,13 +29,12 @@ const formData_initialState = {
   linkedinProfile: "",
   ietDavvRights: false,
   sharewithmentor: false,
-  status:"pending",
-  
+  status: "pending",
 };
 
 function StartupForm() {
   useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   const navigate = useNavigate();
   // const [formData, setFormData] = useState({
@@ -59,8 +58,8 @@ function StartupForm() {
   // });
   //mentor
   const [mentor, setMentor] = useState([]);
-  const [formData, setFormData] = useState(formData_initialState)
-  const [loading,setLoading] = useState(false)
+  const [formData, setFormData] = useState(formData_initialState);
+  const [loading, setLoading] = useState(false);
 
   const [formErrors, setFormErrors] = useState({
     startupName: "",
@@ -68,7 +67,7 @@ function StartupForm() {
     mobileNumber: "",
     alternateNumber: "",
     instituteName: "",
-    mentorName:"",
+    mentorName: "",
     email: mail,
     location: "",
     state: "",
@@ -82,8 +81,7 @@ function StartupForm() {
     linkedinProfile: "",
     ietDavvRights: "",
     sharewithmentor: "",
-    status:"pending",
-    
+    status: "pending",
   });
 
   const validateForm = () => {
@@ -149,7 +147,7 @@ function StartupForm() {
       newErrors.businessIdea = "";
     }
 
-    if (formData.businessModelFile.trim()==="") {
+    if (formData.businessModelFile.trim() === "") {
       newErrors.businessModelFile = "Business Model file is required";
       isValid = false;
     } else {
@@ -205,7 +203,6 @@ function StartupForm() {
     } else {
       newErrors.sharewithmentor = "";
     }
-    
 
     if (formData.instituteName.trim() === "") {
       newErrors.instituteName = "Institute Name is required";
@@ -215,7 +212,7 @@ function StartupForm() {
     }
 
     if (formData.mentorName.trim() === "") {
-      newErrors.mentorName = "Institute Name is required";
+      newErrors.mentorName = "Mentor Name is required";
       isValid = false;
     } else {
       newErrors.instituteName = "";
@@ -239,101 +236,93 @@ function StartupForm() {
     setLoading(true);
     e.preventDefault();
     const isValid = validateForm();
-    if(!isValid)
-    setLoading(false);
+    if (!isValid) setLoading(false);
     if (isValid) {
       try {
         const response = await fetch(`${MYURL}api/v1/data/savedata`, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
         });
-  
-        if (response && response.status==201) {
+
+        if (response && response.status == 201) {
           console.log("success");
           console.log(formData);
-          navigate('/Thanks');
+          navigate("/Thanks");
           const formDataToSend = {
             receiverEmail: formData.email, // Receiver's email from the form
-            subject: 'Incubation and Innovation Hub - A helping hand for StartUp',
-            message: formData.founderName,};
-      
-            try {
-              const res = await fetch(`${MYURL}send-email`, {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formDataToSend),
-              });
-      
-              if (res.status === 200) {
-                // setFormData({
-                //   startupName: "",
-                //   founderName: "",
-                //   mobileNumber: "",
-                //   alternateNumber: "",
-                //   email: "",
-                //   location: "",
-                //   state: "",
-                //   pinCode: "",
-                //   businessIdea: "",
-                //   businessModelFile: null,
-                //   whyJoinUs: "",
-                //   registered: "",
-                //   development: "",
-                //   successful: "",
-                //   linkedinProfile: "",
-                //   ietDavvRights: "",
-                //   sharewithmentor: "",
-                // });
-                setLoading(false);
-          setFormData(formData_initialState)
-                console.log("Email sent successfully");
-                // You can add further logic or redirection after successful email sending.
-              } 
-              else {
-                console.error("Error sending email");
-                // Handle the error as needed.
-              }
+            subject:
+              "Incubation and Innovation Hub - A helping hand for StartUp",
+            message: formData.founderName,
+          };
+
+          try {
+            const res = await fetch(`${MYURL}send-email`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formDataToSend),
+            });
+
+            if (res.status === 200) {
+              // setFormData({
+              //   startupName: "",
+              //   founderName: "",
+              //   mobileNumber: "",
+              //   alternateNumber: "",
+              //   email: "",
+              //   location: "",
+              //   state: "",
+              //   pinCode: "",
+              //   businessIdea: "",
+              //   businessModelFile: null,
+              //   whyJoinUs: "",
+              //   registered: "",
+              //   development: "",
+              //   successful: "",
+              //   linkedinProfile: "",
+              //   ietDavvRights: "",
+              //   sharewithmentor: "",
+              // });
+              setLoading(false);
+              setFormData(formData_initialState);
+              console.log("Email sent successfully");
+              // You can add further logic or redirection after successful email sending.
+            } else {
+              console.error("Error sending email");
+              // Handle the error as needed.
             }
-             catch (error) {
-              console.error("Error sending email: ", error);
-            }
+          } catch (error) {
+            console.error("Error sending email: ", error);
           }
-        
-          else {
-            console.log("Use unique Name");
-            setLoading(false);
-            alert("Use unique Name");
-          }
-        } 
-      
-       
-    catch (error) {
-        console.error('Error:', error);
+        } else {
+          console.log("Use unique Name");
+          setLoading(false);
+          alert("Use unique Name");
+        }
+      } catch (error) {
+        console.error("Error:", error);
       }
-    
-  }
-}
+    }
+  };
 
-//mentor parsing
-const getAllMentor = async () => {
-  try {
-    const { data } = await axios.get('http://localhost:8000/api/v1/mentor/get_mentor');
-    setMentor(data.mentor);
-  } catch (error) {
-    console.log(error);
-  }
-};
+  //mentor parsing
+  const getAllMentor = async () => {
+    try {
+      const { data } = await axios.get(`${MYURL}api/v1/mentor/get_mentor`);
+      setMentor(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-// Lifecycle method
-useEffect(() => {
-  getAllMentor();
-}, []);
-    
+  // Lifecycle method
+  useEffect(() => {
+    getAllMentor();
+  }, []);
 
   return (
     <div className="mainCont">
@@ -419,62 +408,67 @@ useEffect(() => {
                 <div className="error">{formErrors.alternateNumber}</div>
               </div>
             </div>
-          
-    {/* Choose Institute */}
-        <div className="c2">
-        <div>
-        <label style={{fontSize:'20px'}}  htmlFor="instituteName" id="req">
-                 Institute Name
+
+            {/* Choose Institute */}
+            <div className="c2">
+              <div>
+                <label
+                  style={{ fontSize: "20px" }}
+                  htmlFor="instituteName"
+                  id="req"
+                >
+                  Institute Name
                 </label>
                 <br></br>
-          <select
-            id="instituteName"
-            name="instituteName"
-            value={formData.instituteName}
-            onChange={handleChange}
-            required
-          >
-            <option value=""  disabled>
-              Select Institute
-            </option>
-            <option value="IET DAVV" >IET DAVV</option>
-            <option value="SCSIT">SCSIT</option>
-            <option value="IIPS">IIPS</option>
-          </select>
-          <div className="error">{formErrors.instituteName}</div>
-        </div>
-      
+                <select
+                  id="instituteName"
+                  name="instituteName"
+                  value={formData.instituteName}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="" disabled>
+                    Select Institute
+                  </option>
+                  <option value="IET DAVV">IET DAVV</option>
+                  <option value="SCSIT">SCSIT</option>
+                  <option value="IIPS">IIPS</option>
+                </select>
+                <div className="error">{formErrors.instituteName}</div>
+              </div>
 
-    {/* Choose Mentor */}
-  
-        <div>
-          <div><label style={{fontSize:'20px'}} htmlFor="mentorName" id="req">
-            Select Mentor
-          </label>
-          <br></br>
-          
-          <select
-            id="mentorName"
-            name="mentorName"
-            value={formData.mentorName}
-            onChange={handleChange}
-            required
-          >
-            <option value="" disabled>
-              Select Mentor
-            </option>
-            {mentor?.map((c) => (
+              {/* Choose Mentor */}
+
+              <div>
+                <div>
+                  <label
+                    style={{ fontSize: "20px" }}
+                    htmlFor="mentorName"
+                    id="req"
+                  >
+                    Select Mentor
+                  </label>
+                  <br></br>
+
+                  <select
+                    id="mentorName"
+                    name="mentorName"
+                    value={formData.mentorName}
+                    onChange={handleChange}
+                    required
+                  ><option value="" disabled>
+                  Select Mentor
+                </option>
+                {mentor?.map((c) => (
                   <option key={c._id} value={c.mname}>
                     {c.mname}
                   </option>
                 ))}
-          </select>
-          <div className="error">{formErrors.mentorName}</div>
-        </div>
-      </div>
-      </div>
-
-
+                  </select>
+                  <div className="error">{formErrors.mentorName}</div>
+                </div>
+              </div>
+            </div>
 
             <div className="c3">
               <div>
@@ -492,7 +486,6 @@ useEffect(() => {
                   onChange={handleChange}
                   required
                 />
-
               </div>
 
               <div>
@@ -515,7 +508,7 @@ useEffect(() => {
 
             <div className="c4">
               <div>
-                <label className="lbl" htmlFor="state" id="req" >
+                <label className="lbl" htmlFor="state" id="req">
                   State
                 </label>
                 <br></br>
