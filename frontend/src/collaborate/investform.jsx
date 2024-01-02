@@ -224,10 +224,9 @@ function InvestForm() {
                     <br></br>
                     <br></br>
                   </div>
-                    <button className='invformbut' type='submit'><b>Submit</b></button>
                     <br></br>
                     <br></br>
-                </div>
+                </div><button className='invformbut' type='submit'><b>Submit</b></button>
             </form>
         </div>
     );

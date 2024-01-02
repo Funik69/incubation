@@ -11,7 +11,12 @@
     color: #0d0254;
 }
 .mentforminfo {
-    margin-left: 300px;
+    margin-left: 10%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+    padding: 20px;
+
 }
 .mentformlbl {
     font-size: 17px;
@@ -24,8 +29,6 @@
     border-color: #0d0254;
     border-radius: 5px 5px 5px 5px;
     margin-top: 10px;
-    height: 30px;
-    width: 500px;
     background-color: rgb(244, 238, 254);
 }
 .mentformbut {
@@ -36,8 +39,8 @@
   cursor: pointer;
   color: #0d0254;
   padding-bottom: 10px;
-  margin-bottom: 20px;
-  margin-left: 300px;
+  margin-bottom: 40px;
+  margin-left: 35%;
   font-size:17px;
 }
 .mentformbut:hover {
@@ -50,3 +53,10 @@
     content: "*";
     color: red;
 }
+
+@media screen and (max-width: 768px) {
+    .mentforminfo {
+      grid-template-columns: 1fr;
+      margin-left: 0;
+    }
+  }
