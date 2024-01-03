@@ -161,62 +161,62 @@ function MentorForm() {
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="mname" id="req">Mentor Name : </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="Enter your name" id='mname' name="mname" value={mentorData.mname} onChange={handleChange} required/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="Enter your name" id='mname' name="mname" value={mentorData.mname} onChange={handleChange} required/>
                         <div className="error">{mentorErrors.mname}</div>
                         <br></br>
                     </div>
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="mcity">City : </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="Enter city" id='mcity' name="mcity" value={mentorData.mcity} onChange={handleChange}/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="Enter city" id='mcity' name="mcity" value={mentorData.mcity} onChange={handleChange}/>
                         <div className="error">{mentorErrors.mcity}</div>
                         <br></br>
                     </div>
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="mstate">State :  </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="Enter state" id='mstate' name="mstate" value={mentorData.mstate} onChange={handleChange}/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="Enter state" id='mstate' name="mstate" value={mentorData.mstate} onChange={handleChange}/>
                         <div className="error">{mentorErrors.mstate}</div>
                         <br></br>
                     </div>
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="memail" id="req">Email :  </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="Enter email" id='memail' name="memail" value={mentorData.memail} disabled={true} onChange={handleChange} required/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="Enter email" id='memail' name="memail" value={mentorData.memail} disabled={true} onChange={handleChange} required/>
                         <br></br>
                     </div>
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="mmobile" id="req">Mobile :  </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="Enter mobile" id='mmobile' name="mmobile" value={mentorData.mmobile} onChange={handleChange} required/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="Enter mobile" id='mmobile' name="mmobile" value={mentorData.mmobile} onChange={handleChange} required/>
                         <div className="error">{mentorErrors.mmobile}</div>
                         <br></br>
                     </div>
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="mconame" id="req">Previous Mentorship Company Name :  </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="Enter company name" id='mconame' name="mconame" value={mentorData.mconame} onChange={handleChange} required/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="Enter company name" id='mconame' name="mconame" value={mentorData.mconame} onChange={handleChange} required/>
                         <div className="error">{mentorErrors.mconame}</div>
                         <br></br>
                     </div>
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="myear" id="req">Years of Experience :  </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="Enter years" id='myear' name="myear" value={mentorData.myear} onChange={handleChange} required/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="Enter years" id='myear' name="myear" value={mentorData.myear} onChange={handleChange} required/>
                         <div className="error">{mentorErrors.myear}</div>
                         <br></br>
                     </div>
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="msector" id="req">Sector of Mentorship :  </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="Enter sector" id='msector' name="msector" value={mentorData.msector} onChange={handleChange} required/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="Enter sector" id='msector' name="msector" value={mentorData.msector} onChange={handleChange} required/>
                         <div className="error">{mentorErrors.msector}</div>
                         <br></br>
                     </div>
                     <div>
                         <Form.Label className='mentformlbl' htmlFor="mlink" id="req">Linkedin :  </Form.Label>
                         <br></br>
-                        <Form.Control type="text" placeholder="https://www.linkedin.com/in/" id='mlink' name="mlink" value={mentorData.mlink} onChange={handleChange} required/>
+                        <Form.Control type="text" style={{width:'80%'}} placeholder="https://www.linkedin.com/in/" id='mlink' name="mlink" value={mentorData.mlink} onChange={handleChange} required/>
                         <div className="error">{mentorErrors.mlink}</div>
                         <br></br>
                     </div>

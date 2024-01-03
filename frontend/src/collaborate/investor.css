@@ -1,60 +1,92 @@
 .investhereimg {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 200px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
-}
-.maininvest {
+  }
+  
+  .maininvest {
     display: flex;
-    margin-top: 50px;
-    margin-bottom: 0px;
-    height: 350px;
-}
-.iterms {
-    width: 900px;
-    font-size: 16px;
-}
-.icheck {
-    font-size: 20px;
-}
-.animationhere {
+    flex-direction: column; 
     align-items: center;
-    text-align: center;
-}
-.dohereneed {
-    align-items: center;
-    padding-left: 550px;
-    padding-bottom: 50px;
-}
-.topichere {
-    font-size: 40px;
+    height: auto; 
+  }
+  
+  .iterms {
+    width: 90%; 
+    max-width: 1200px;
+    font-size: 18px;
+    margin: 0 auto; 
+  }
+  
+  .icheck {
+    font-size: 18px; 
+    max-width: 1200px;
+    width: 100%;
+    margin-left: 5%;
+  }
+  
+  .animationhere,
+  .dohereneed {
+    text-align: center; 
+  }
+  
+  .topichere {
+    font-size: 32px; 
     color: #0d0254;
     font-weight: 300;
-}
-.herehere2 {
-    padding-left: 50px;
-}
-.paraherein {
-    width: 800px;
-    font-size: 20px;
+  }
+  
+  .herehere2 {
+    padding: 0 20px; 
+  }
+  
+  .paraherein {
+    width: 100%; 
+    max-width: 1200px;
+    font-size: 18px; 
     color: #665ab0;
-    height: 200px;
-}
-.becomebut {
+    margin: 20px auto; 
+  }
+  
+  .becomebut {
     border: 0;
-  border-radius: 20px;
-  padding: 12px 30px;
-  margin-top: 30px;
-  cursor: pointer;
-  color: #FFF;
-  background-color: #0d0254;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  font-size: 17px;
-}
-.becomebut:hover {
+    border-radius: 20px;
+    padding: 12px 30px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #0d0254;
+    font-size: 17px;
+    margin-left: 10%;
+    margin-top: 3%;
+    margin-bottom: 6%;
+  }
+  
+
+  .becomebut:hover {
     background-color: rgb(194, 156, 255);
     color: #0d0254;
-}
+  }
+  
+  @media screen and (max-width: 768px) {
+    .investhereimg {
+      width: 250px; 
+      height: 250px;
+      margin-bottom: 50px;
+    }
+  
+    .topichere {
+      font-size: 28px;
+    }
+  
+    .paraherein {
+      font-size: 16px; 
+    }
+    .iterms {
+        font-size: 13px;
+      }
+      .becomebut{
+        font-size: 15px;
+      }
+  }
+  

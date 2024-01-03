@@ -27,7 +27,7 @@ function Investor() {
                     sequence={["Investor",1000," Investors",1000,]}
                     speed={50}
                     repeat={4}
-                    style={{ fontSize: '70px', fontWeight: '800', color: '#0d0254'}}
+                    style={{ fontSize: '60px', fontWeight: '800', color: '#0d0254'}}
                     className='animationhere'
                 />
                 </div>
@@ -42,7 +42,7 @@ function Investor() {
                 </div>
                 <div>
                 <div className='iterms'>
-                    <h2>** Terms and conditions</h2>
+                    <h2>Terms and conditions</h2>
                     <ol>
                     <li>At Institute of Engineering and Technology, DAVV, we assure you that the data provided by you will be kept secure and safe. But the information which you will be providing can be shared with our administration in order to examine and move forward with your candidature.</li>
                     <li>You should agree to the rules and regulations of Incubation Centre, IET-DAVV and must adhere to them. </li>

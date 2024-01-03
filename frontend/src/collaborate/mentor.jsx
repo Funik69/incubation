@@ -27,7 +27,7 @@ function Mentor() {
                     sequence={["Mentor",1000," Mentors",1000,]}
                     speed={50}
                     repeat={4}
-                    style={{ fontSize: '70px', fontWeight: '800', color: '#0d0254'}}
+                    style={{ fontSize: '60px', fontWeight: '800', color: '#0d0254'}}
                     className='mentanimation'
                 />
                 </div>

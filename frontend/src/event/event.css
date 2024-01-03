@@ -37,3 +37,16 @@
     font-size: 40px;
     color: gray;
 }
+
+@media screen and (max-width: 768px){
+    .eventmhead{
+        font-size: 12px;
+    }
+    .multicolortext{
+        font-size: 15px;
+    }
+    .calenimg{
+        height: 30px;
+        width: 30px;
+    }
+}

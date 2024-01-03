@@ -11,7 +11,7 @@
 }
 .h12{
     margin-top: 20px;
-    padding-top: 200px;
+    padding-top: 160px;
     text-align:center;
     font-size: 45px;
 }
@@ -107,5 +107,18 @@
     #startupName,#founderName,#mobileNumber,#email,#location,#state,#pinCode,#alternateNumber,#linkedinProfile,#businessModelFile,#businessIdea,#whyJoinUs,#registered,#development,#successful,#instituteName ,#mentorName {
         width: 250px;
         margin-left: 0px;
+    }
+    .h12{
+        margin-top: 3%;
+        padding-top: 2%;
+        font-size: 25px;
+    }
+    .h13{
+        font-size: 20px;
+        margin-top: 2%;
+        padding-top: 2%;
+    }
+    .RegForm{
+        padding: 2%;
     }
 }
