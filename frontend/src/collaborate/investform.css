@@ -59,4 +59,10 @@
       grid-template-columns: 1fr;
       margin-left: 0;
     }
+    .invformh2{
+        font-size: 25px;
+    }
+    .invformh3{
+        font-size: 20px;
+    }
   }

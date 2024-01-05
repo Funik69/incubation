@@ -14,7 +14,6 @@ const Admindash = () => {
   const valt = JSON.parse(tokenDatad)
   //const mail=val.user.email;
   const mails = valt && valt.user ? valt.user.email : '';
-  console.log(mails);
     const fetchData = async () => {
       try {
         const response = await axios.get(`${MYURL}api/v1/auth/user/${mails}`);
@@ -51,7 +50,7 @@ const response = axios.get(`${MYURL}api/v1/auth/user/${mail}`);
         <div key={i._id}>
           <ul>
         <li>
-            <img src={Profile_pic} id='admin_pic'></img>
+            <img src={Profile_pic} id='admin_pic' alt='Admin_Profile_Pic'></img>
         </li>
         <li>
              <h2>{i.fname} {i.lname}</h2><br></br>

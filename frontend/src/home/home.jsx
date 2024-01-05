@@ -49,7 +49,7 @@ function Home() {
               <button onClick={() => navigate("/Collaborate")} className='secondbutton'><b>Collaborate here</b></button>
             </div>
             <div className="image">
-                <img src={startimg} height={300} width={450} />
+                <img src={startimg} height={300} width={450}  alt='Startup Logo'/>
             </div>
           </div>
         </div>

@@ -15,19 +15,19 @@ function Contact() {
       </div>
       <div className="contact-form">
         <div className="card">
-          <img className="imgg" src={location}></img>
+          <img className="imgg" src={location} alt="Location"></img>
           <h3 className="h3f">Location</h3>
           <p className="p1">
             Incubation Center - IET DAVV, Khandwa road, Indore 452020
           </p>
         </div>
         <div className="card">
-          <img className="imgg" src={mob}></img>
+          <img className="imgg" src={mob} alt="Mobile"></img>
           <h3 className="h3f">Mobile Number</h3>
           <p className="p1">(123) 456-7890</p>
         </div>
         <div className="card">
-          <img className="imgg" src={mail}></img>
+          <img className="imgg" src={mail} alt="Email"></img>
           <h3 className="h3f">Email Address</h3>
           <p className="p1">Write to us at example@example.com</p>
         </div>

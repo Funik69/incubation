@@ -148,14 +148,14 @@ function InvestForm() {
                   <div>
                     <Form.Label className='invformlbl' htmlFor='investorName' id='req'>Investor Name : </Form.Label>
                     <br></br>
-                    <Form.Control type="text" placeholder="Enter your name" id='investorName' name='investorName' value={investData.investorName} onChange={handleChange} required/>
+                    <Form.Control type="text" style={{width:'80%'}} placeholder="Enter your name" id='investorName' name='investorName' value={investData.investorName} onChange={handleChange} required/>
                     <div className="error">{investErrors.investorName}</div>
                     <br></br>
                   </div>
                   <div>
                     <Form.Label className='invformlbl' htmlFor='companyName' id='req'>Company Name :  </Form.Label>
                     <br></br>
-                    <Form.Control type="text" placeholder="Enter company name" id='companyName' name='companyName' value={investData.companyName} onChange={handleChange} required/>
+                    <Form.Control type="text" style={{width:'80%'}} placeholder="Enter company name" id='companyName' name='companyName' value={investData.companyName} onChange={handleChange} required/>
                     <div className="error">{investErrors.companyName}</div>
                     <br></br>
                     <br></br>
@@ -163,7 +163,7 @@ function InvestForm() {
                   <div>
                     <Form.Label className='invformlbl' htmlFor='icity'>City : </Form.Label>
                     <br></br>
-                    <Form.Control type="text" placeholder="Enter city" id='icity' name='icity' value={investData.icity} onChange={handleChange} />
+                    <Form.Control type="text" style={{width:'80%'}} placeholder="Enter city" id='icity' name='icity' value={investData.icity} onChange={handleChange} />
                     <div className="error">{investErrors.icity}</div>
                     <br></br>
                     <br></br>
@@ -171,7 +171,7 @@ function InvestForm() {
                   <div>
                     <Form.Label className='invformlbl' htmlFor='istate'>State :  </Form.Label>
                     <br></br>
-                    <Form.Control type="text" placeholder="Enter state" id='istate' name='istate' value={investData.istate} onChange={handleChange} />
+                    <Form.Control type="text" style={{width:'80%'}} placeholder="Enter state" id='istate' name='istate' value={investData.istate} onChange={handleChange} />
                     <div className="error">{investErrors.istate}</div>
                     <br></br>
                     <br></br>
@@ -179,14 +179,14 @@ function InvestForm() {
                   <div>
                     <Form.Label className='invformlbl' htmlFor='iemail' id='req' >Email :  </Form.Label>{" "}
                     <br></br>
-                    <Form.Control type="email" placeholder="Enter email" id='iemail' name='iemail' value={investData.iemail} disabled={true} onChange={handleChange} required/>
+                    <Form.Control type="email" style={{width:'80%'}} placeholder="Enter email" id='iemail' name='iemail' value={investData.iemail} disabled={true} onChange={handleChange} required/>
                     <br></br>
                     <br></br>
                   </div>
                   <div>
                     <Form.Label className='invformlbl' htmlFor='imobile' id='req' >Mobile :  </Form.Label>
                     <br></br>
-                    <Form.Control type="text" placeholder="Enter mobile" id='imobile' name='imobile' value={investData.imobile} onChange={handleChange} required/>
+                    <Form.Control type="text" style={{width:'80%'}} placeholder="Enter mobile" id='imobile' name='imobile' value={investData.imobile} onChange={handleChange} required/>
                     <div className="error">{investErrors.imobile}</div>
                     <br></br>
                     <br></br>
@@ -194,7 +194,7 @@ function InvestForm() {
                   <div>
                     <Form.Label className='invformlbl' htmlFor='investInto' id='req'> Which company you want to invest into :  </Form.Label>
                     <br></br>
-                    <Form.Control type="text" placeholder="Enter Startup Name" id='investInto' name='investInto' value={investData.investInto} onChange={handleChange} required/>
+                    <Form.Control type="text" style={{width:'80%'}} placeholder="Enter Startup Name" id='investInto' name='investInto' value={investData.investInto} onChange={handleChange} required/>
                     <div className="error">{investErrors.investInto}</div>
                     <br></br>
                     <br></br>
@@ -215,7 +215,7 @@ function InvestForm() {
                   <div>
                     <Form.Label className='invformlbl' htmlFor='linkedin' id='req'>Linkedin :  </Form.Label>
                     <br></br>
-                    <Form.Control type="text" placeholder="https://www.linkedin.com/in/" id='linkedin' name='linkedin' value={investData.linkedin} onChange={handleChange} required/>
+                    <Form.Control type="text" style={{width:'80%'}} placeholder="https://www.linkedin.com/in/" id='linkedin' name='linkedin' value={investData.linkedin} onChange={handleChange} required/>
                     <div className="error">{investErrors.linkedin}</div>
                     <br></br>
                     <br></br>

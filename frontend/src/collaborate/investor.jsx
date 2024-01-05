@@ -27,7 +27,7 @@ function Investor() {
                     sequence={["Investor",1000," Investors",1000,]}
                     speed={50}
                     repeat={4}
-                    style={{ fontSize: '70px', fontWeight: '800', color: '#0d0254'}}
+                    style={{ fontSize: '60px', fontWeight: '800', color: '#0d0254'}}
                     className='animationhere'
                 />
                 </div>
@@ -37,12 +37,12 @@ function Investor() {
                         <h2 className='topichere'>"An investment in knowledge pays the best interest." </h2>
                         <p className='paraherein'>Incubation Center, IET DAVV, established in 2017, is one of the supportive business and technology incubators promoting startups and social enterprises of every possible domain. We onboard startups and support innovators instrumental in contributing towards our vision to make India a global hub.</p>
                     </div>
-                    <img src={meetingimg} height='300px' width='500px' className='investhereimg'></img>
+                    <img src={meetingimg} height='300px' width='500px' className='investhereimg' alt='Investor_Image'></img>
                     
                 </div>
                 <div>
                 <div className='iterms'>
-                    <h2>** Terms and conditions</h2>
+                    <h2>Terms and conditions</h2>
                     <ol>
                     <li>At Institute of Engineering and Technology, DAVV, we assure you that the data provided by you will be kept secure and safe. But the information which you will be providing can be shared with our administration in order to examine and move forward with your candidature.</li>
                     <li>You should agree to the rules and regulations of Incubation Centre, IET-DAVV and must adhere to them. </li>
