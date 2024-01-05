@@ -19,7 +19,7 @@ return (
             filteredData.map((i) => (
             <div className='card1' key={i._id}>
             <img src={image} alt='Image' className='startuplogo'></img>
-            <h2>{i.startupName}</h2>
+            <h2 className="portfolio_heading_">{i.startupName}</h2>
             <p>{i.businessIdea}</p>
             <p>founded by {i.founderName}</p>
         </div>

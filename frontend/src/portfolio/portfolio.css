@@ -2,8 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 60px;
-    margin: 10px;
-    padding: 10%;
+    
   }
   .portCover{
     text-align:center;
@@ -29,6 +28,9 @@
   color: #0d0254;
 }
   
+.portfolio_heading_{
+  color: #0d0254;
+}
   @media (max-width: 768px) {
     .con1 {
       grid-template-columns: 1fr;

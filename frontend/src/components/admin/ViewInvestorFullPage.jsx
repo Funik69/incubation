@@ -42,9 +42,10 @@ const ViewInvestorFullPage = () => {
   };
   const confirmReject = async () => {
     try {
-      await axios.put(`${MYURL}api/v1/invest/deletedata/${id}`);
+      await axios.delete(`${MYURL}api/v1/invest/deletedata/${id}`);
       const updatedData = data.filter((item) => item._id !== id);
       setData(updatedData);
+      console.log(updatedData);
     } catch (error) {
       console.log(error);
     }
@@ -77,8 +78,8 @@ const ViewInvestorFullPage = () => {
           {showConfirmation && (
             <div className="confirmation-dialog">
               <p><b>Are you sure you want to proceed?</b></p>{
-                agree && <button className="Abtn" onClick={confirmAccept}><Link to='/mentor_application'>Accept</Link></button> }
-              { disagree &&  <button className="Rbtn" onClick={confirmReject}><Link to='/mentor_application'>Reject</Link></button>
+                agree && <button className="Abtn" onClick={confirmAccept}><Link to='/investor_application'>Accept</Link></button> }
+              { disagree &&  <button className="Rbtn" onClick={confirmReject}><Link to='/investor_application'>Reject</Link></button>
               }
             </div>
           )}

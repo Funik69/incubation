@@ -41,7 +41,7 @@ const ViewMentorFullPage = () => {
   };
   const confirmReject = async () => {
     try {
-      await axios.put(`${MYURL}api/v1/mentor/deletedata/${id}`);
+      await axios.delete(`${MYURL}api/v1/mentor/deletedata/${id}`);
       const updatedData = data.filter((item) => item._id !== id);
       setData(updatedData);
     } catch (error) {
