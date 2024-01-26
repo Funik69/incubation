@@ -393,7 +393,7 @@ function StartupForm() {
               </div>
 
               <div>
-                <label className="lbl" htmlFor="alternateNumber" id="req">
+                <label className="lbl" htmlFor="alternateNumber">
                   Alternate Number
                 </label>
                 <br></br>
