@@ -26,7 +26,7 @@ const Userprofile = () => {
           <div key={i._id}>
             <ul>
           <li>
-              <img src={Profile_pic} id='admin_pic'></img>
+              <img src={Profile_pic} id='admin_pic' alt='User_Profile_Pic'></img>
           </li>
           <li>
                <h2>{i.fname} {i.lname}</h2><br></br>

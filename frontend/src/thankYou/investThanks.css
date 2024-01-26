@@ -1,54 +1,76 @@
+/* General Styles */
 .imain {
-    height: 500px;
-    margin-bottom: 0;
-    padding-left: 20px;
-    padding-bottom: 100px;
-    height: 600px;
-    color: #0b0254;
-    margin-top: 0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Styles */
+  .itop {
+    display: flex;
     align-items: center;
-}
-.ihandshake{
-    height: 100px;
-    width: 100px;
-
-}
-.itickimg {
-    height: 30px;
-    width: 30px;
-}
-.ihead {
-    padding-top: 70px;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .imain {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
     text-align: center;
-    color: #0b0254;
-    font-weight: 700;
-}
-.imainhead {
-    font-size: 40px;
-}
-.ipara1 {
-    margin-left: 50px;
-    margin-right: 50px;
-    font-weight: 300;
-    padding-left: 40px;
-    color: #0b0254;
-    text-align: center;
-    font-size:larger;
-}
-.ipara {
-    text-align: center;
-    margin-left: 100px;
-    margin-right: 100px;
-    font-weight: 400;
-    margin-top: 40px;
-    padding-left: 50px;
-    padding-right: 50px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Add margin for better spacing */
+  }
+  
+  /* Header Styles */
+  .ihead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ihandshake {
+    width: 100px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
     margin-bottom: 10px;
-    color: #0b0254;
-    font-size: x-large;
+  }
+  
+  .imainhead {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  /* Paragraph Styles */
+  .ipara1,
+  .ipara {
+    margin: 10px 0;
+  }
+  
+  /* Footer Styles */
+  .ipara:last-child {
+    margin-bottom: 0;
+  }
+
+  .itickimg{
+        width: 50px; /* Adjust the width as needed */
+        height: auto; /* Maintain aspect ratio */
 }
-@media (max-width: 480px) {
+  
+  /* Media Queries for Responsiveness */
+  @media only screen and (max-width: 600px) {
     .imain {
-        background-color: #fff;
+      max-width: 100%;
+      
     }
-}
+    .itop{
+    padding-bottom: 20%;
+    padding-top: 20%;
+    padding-left:5%;
+    padding-right: 5%;
+    }
+  }
+  

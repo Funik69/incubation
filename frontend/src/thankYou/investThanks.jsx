@@ -13,7 +13,8 @@ return (
         <h1 className='imainhead'> Kudos !!</h1>
         <img className='ihandshake' src={Handshake} alt='Submitted Image'/>
     </div>
-        <p className='ipara1'><img className='itickimg' src={Tickimg} alt='submit'/> You have successfully submitted the Investor Registration Form.</p>
+        <p ><img className='itickimg' src={Tickimg} alt='submit'/> </p>
+        <p className='ipara1'>You have successfully submitted the Investor Registration Form.</p>
         <p className='ipara'>Thank You for showing your interest in collaborating with our Incubation Center.Your support and guidance will help the rising startups to reach great heights. We are excited to connect and collaborate with you soon.You will be further notified about the status of your registration after discussing with the administration. All such communication will be done via e-mail id which you have provided.<br></br><br></br>
         <b>Have a Nice Day...</b></p>
         <br />

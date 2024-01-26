@@ -90,7 +90,10 @@ try {
 
   const deleteData = async (req, res) => {
     try {
-      
+      const data = await MentorModel.findByIdAndDelete(req.params._id);
+      console.log(data);
+      console.log(data.memail)
+      return res.status(200).send('delete data');
 
     }
   catch (error) {

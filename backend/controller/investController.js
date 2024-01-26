@@ -92,8 +92,10 @@ try {
   };
   const deleteData = async (req, res) => {
     try {
-      //logic resides here
-      const id=req.params;
+      const data = await InvestModel.findByIdAndDelete(req.params._id);
+      res.status(200).send('delete data');
+      console.log(data);
+      console.log(data.email);
 
 
     }

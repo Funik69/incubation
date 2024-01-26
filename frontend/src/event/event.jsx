@@ -28,11 +28,11 @@ function Event() {
     return (
         <div>
             <div className='eventCover'>
-                <h1>Events</h1>
+                <h1 >Events</h1>
             </div>
             <div className='eventmhead'>
                 <img src={calendar} className='calenimg'></img>
-                <h1> Mark your Calendar for these events :- </h1>
+                <h1 className="event_heading_"> Mark your Calendar for these events :- </h1>
             </div>
             <div className='elist'>
             <marquee behavior="" onMouseOver={handleMouseOver}

@@ -1,46 +1,68 @@
+/* General Styles */
 .tmain {
-    height: 500px;
-    margin-bottom: 0;
-    padding-left: 20px;
-    padding-bottom: 100px;
-    height: 600px;
-    color: #0b0254;
-    margin-top: 0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Styles */
+  .ttop {
+    display: flex;
     align-items: center;
-}
-.tickimg{
-    height: 80px;
-    width: 80px;
+    justify-content: center;
+    height: 100vh;
+  }
 
-}
-.tmain .thead {
-    padding-top: 70px;
+  
+  .tmain {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
     text-align: center;
-    color: #0b0254;
-    font-weight: 700;
-}
-.tmain .tpara1 {
-    margin-left: 50px;
-    margin-right: 50px;
-    font-weight: 300;
-    padding-left: 40px;
-    color: #0b0254;
-    text-align: center;
-    font-size:larger;
-}
-.tmain .tpara {
-    text-align: center;
-    margin-left: 100px;
-    margin-right: 50px;
-    font-weight: 400;
-    margin-top: 40px;
-    padding-left: 150px;
-    padding-right: 150px;
-    color: #0b0254;
-    font-size: x-large;
-}
-@media (max-width: 480px) {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Styles */
+  .thead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tickimg {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .heading_message {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  /* Paragraph Styles */
+  .tpara1,
+  .tpara {
+    margin: 10px 0;
+  }
+  
+  /* Footer Styles */
+  .tpara:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media only screen and (max-width: 600px) {
     .tmain {
-        background-color: #fff;
+      max-width: 100%;
     }
-}
+
+    .ttop{
+    padding-left:5%;
+    padding-right: 5%;
+    }
+  }
+  

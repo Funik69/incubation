@@ -37,7 +37,7 @@ function Investor() {
                         <h2 className='topichere'>"An investment in knowledge pays the best interest." </h2>
                         <p className='paraherein'>Incubation Center, IET DAVV, established in 2017, is one of the supportive business and technology incubators promoting startups and social enterprises of every possible domain. We onboard startups and support innovators instrumental in contributing towards our vision to make India a global hub.</p>
                     </div>
-                    <img src={meetingimg} height='300px' width='500px' className='investhereimg'></img>
+                    <img src={meetingimg} height='300px' width='500px' className='investhereimg' alt='Investor_Image'></img>
                     
                 </div>
                 <div>
