@@ -24,8 +24,8 @@ import { useDataContext } from '../context/DataContext';
         <p className='userdashp'><b>Email :</b> {i.email} </p>
         <p className='userdashp'><b>Mobile Number : </b>{i.mobileNumber} </p>
         <p className='userdashp'><b>Alternate Number :</b> {i.alternateNumber} </p>
-        <div className='card-item'><strong>Institute:</strong> {item.instituteName}</div>
-        <div className='card-item'><strong>Mentor Name:</strong> {item.mname}</div>
+        <p className='userdashp'><b>Institute:</b> {i.instituteName}</p>
+        <p className='userdashp'><b>Mentor Name:</b> {i.mentorName}</p>
         <p className='userdashp'><b>Location :</b> {i.location} </p>
         <p className='userdashp'><b>State :</b> {i.state} </p>
         <p className='userdashp'><b>Pin Code :</b> {i.pinCode} </p>

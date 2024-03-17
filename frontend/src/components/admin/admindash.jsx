@@ -7,7 +7,7 @@ import { useAuthContext } from '../../context/AuthContext'
 import { MYURL } from '../../../env'
 
 const Admindash = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState({});
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   const tokenDatad = localStorage.getItem("auth");
@@ -17,10 +17,9 @@ const Admindash = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${MYURL}api/v1/auth/user/${mails}`);
-        const adminStatus = response.data.user.userType === 'Admin';
-        setIsAdmin(adminStatus);
+        const objj = response.data.user.perm;
+        setIsAdmin(objj);
 
-        // ... (existing code)
       } catch (error) {
         console.error('Error fetching user data:', error);
         // Handle error accordingly, e.g., redirect to login page or display an error message
@@ -70,45 +69,40 @@ const response = axios.get(`${MYURL}api/v1/auth/user/${mail}`);
     </div>
     
     <div className='admin_details'>
-        <div className='card_block'>
+        {isAdmin && isAdmin.one == '0'?(<p></p>):(<div className='card_block'>
         <Link to={`/fetch`}>StartUps Data List</Link>
-        </div>
-        <div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.two == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/acceptedIdea'>Accepted Startups List</Link>
-        </div>
-        <div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.three == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/inactive'>Inactive Startups</Link>
-        </div>
-        <div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.four == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/userlist'>Applicant Profile</Link>
-        </div>
-        {isAdmin &&
-        (<div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.five == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/eventform'>Create Event</Link>
-        </div>)
-        }   
-        {isAdmin &&
-         (<div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.six == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/notices'>Announcements</Link>
-        </div>)
-        }
-        <div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.seven == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/mentorlist'>Mentor List</Link>
-        </div>
-        <div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.eight == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/investorlist'>Investor List</Link>
-        </div>
-        <div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.nine == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/mentor_application'>Mentor Proposals</Link>
-        </div>
-        <div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.ten == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/investor_application'>Investor Proposals</Link>
-        </div>
-        {isAdmin &&
-        (<div className='card_block'>
+        </div>)}
+        {isAdmin && isAdmin.eleven == '0'?(<p></p>):(<div className='card_block'>
         <Link to='/coadmin'>Make Co-Admin</Link>
-        </div>)
-        }
+        </div>)}
+
     </div>
     </div>
   )
