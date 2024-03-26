@@ -1,10 +1,10 @@
 import React , {useEffect} from 'react'
-import './Userprofile.css'
 import { Link } from 'react-router-dom'
-import Profile_pic from '../img/incubation.logo.png'
+import Investors from '../img/investordp.jpg'
 import { useAuthContext } from '../context/AuthContext'
+import { useInvestorContext } from '../context/InvestorContext'
 
-const Userprofile = () => {
+const Investorprofile = () => {
   useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, []);
@@ -14,6 +14,7 @@ const Userprofile = () => {
     //const mail=val.user.email;
     const mail = val && val.user ? val.user.email : '';
     const filteredData = data.filter((i) => i.email == mail);
+
     const logout = () => {
       localStorage.removeItem("auth");
   };
@@ -26,10 +27,12 @@ const Userprofile = () => {
           <div key={i._id}>
             <ul>
           <li>
-              <img src={Profile_pic} id='admin_pic' alt='User_Profile_Pic'></img>
+              <br></br>
+              <br></br>
+              <img src={Investors} id='admin_pic' alt='User_Profile_Pic'></img>
           </li>
           <li>
-               <h2 className='gotohere'>{i.fname} {i.lname}</h2><br></br>
+               <h1 className='gotohere'>{i.fname} {i.lname}</h1>
           </li>
           <li>
                <h3 className='gotohere'>{i.email}</h3>
@@ -47,11 +50,11 @@ const Userprofile = () => {
       
       <div className='admin_details'>
           <div className='card_block'>
-          <Link to={`/useridea`}>My Application</Link>
+          <Link to={`/investorprofile`}>My Application</Link>
           </div>
       </div>
       </div>
     )
 }
 
-export default Userprofile
+export default Investorprofile

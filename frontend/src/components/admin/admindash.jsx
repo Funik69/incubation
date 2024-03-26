@@ -53,10 +53,10 @@ const response = axios.get(`${MYURL}api/v1/auth/user/${mail}`);
             <img src={Profile_pic} id='admin_pic' alt='Admin_Profile_Pic'></img>
         </li>
         <li>
-             <h2>{i.fname} {i.lname}</h2><br></br>
+             <h2 className='gotohere'>{i.fname} {i.lname}</h2><br></br>
         </li>
         <li>
-             <h3>{i.email}</h3>
+             <h3 className='gotohere'>{i.email}</h3>
         </li>
     </ul> 
         </div>

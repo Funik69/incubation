@@ -1,10 +1,13 @@
 import React, { useState , useEffect} from 'react';
 import {FaUser} from 'react-icons/fa';
+import {FaCaretDown } from 'react-icons/fa';
 import {LuLogIn} from 'react-icons/lu';
 import { useAuthContext } from '../context/AuthContext';
 import { NavLink } from 'react-router-dom';
 import clglogo from '../img/ietdavv.logo.jpg';
 import incubationlogo from '../img/inculogo.png';
+import dropdown from '../img/dropdown.png';
+import Dropdown from 'react-bootstrap/Dropdown';
 import './header.css';
 
 function Header() {
@@ -58,9 +61,16 @@ function Header() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='./portfolio' className='headerlist'>
-                  <b>Portfolio</b>
-                </NavLink>
+                <div class="dropdown">
+                  <div className='dropdiv'>
+                    <b>Portfolio</b>
+                    <img src={dropdown} alt='Image' className='dropdownimg'></img>
+                  </div>
+                  <div class="dropdown-content">
+                    <a href="./portfolio"><b>Startup Portfolio</b></a>
+                    <a href="./mentorpfolio"><b>Mentor Portfolio</b></a>
+                  </div>
+                 </div>
               </li>
               <li>
                 <NavLink to='./contact' className='headerlist'>
@@ -75,7 +85,16 @@ function Header() {
                         <NavLink to="/admindash" style={{ color: 'black' }}>
                           <b><h3><FaUser size={18} /> {i.fname}</h3></b>
                         </NavLink>
-                      ) : (
+                      ) : (i.userType === 'mentor') ? (
+                        <NavLink to="/mentordash" style={{color: 'black'}}>
+                          <b><h3><FaUser size={18} /> {i.fname}</h3></b>
+                        </NavLink> 
+                      ) : (i.userType === 'investor') ? (
+                        <NavLink to="/investordash" style={{color: 'black'}}>
+                          <b><h3><FaUser size={18} /> {i.fname}</h3></b>
+                        </NavLink> 
+                      ) : 
+                      (
                         <NavLink to="/userdash" style={{ color: 'black' }}>
                           <b><h3><FaUser size={18} /> {i.fname}</h3></b>
                         </NavLink>
