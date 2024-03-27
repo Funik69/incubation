@@ -20,7 +20,7 @@ const UserStartupview = () => {
         {filteredData && len >0 ?  (
           filteredData.map((i) => (
             <div className='cardData' key={i._id}>
-        <p className='userdashp'><b>Registartion no :</b> {i.sid} </p>
+        <p className='userdashp'><b>Registration no :</b> {i.sid} </p>
         <p className='userdashp'><b>Startup Name :</b> {i.startupName} </p>
         <p className='userdashp'><b>Founder Name :</b> {i.founderName} </p>
         <p className='userdashp'><b>Email :</b> {i.email} </p>
