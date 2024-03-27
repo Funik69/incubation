@@ -53,10 +53,10 @@ const handleSubmit = async (e) => {
               type="password"
               autoComplete='off'
               className="form-control"
-              value={password}
+              value={password2}
               id="exampleInputPassword1"
               placeholder="Retype Password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword2(e.target.value)}
               required
             />
           </div>

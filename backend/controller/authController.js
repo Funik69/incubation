@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 require("../models/formDataModel.js");
 const DataModel=mongoose.model("DataModel");
 const VerificationToken=require('../models/verificationToken.js')
+const VerificationModel=mongoose.model("VerificationToken")
 require("../models/userModel.js");
 const userModel=mongoose.model("User");
 const JWT=require("jsonwebtoken");
@@ -235,8 +236,8 @@ const verifyEmail= async(req,res)=>{
     success: false,
     message: "Invalid OTP",
   });
+  const match = await bcrypt.compare(otp.toString(), token.token.toString());
 
-  const match = await bcrypt.compare(otp, token.token);
   if(!match){
     return res.status(203).send({
       success: false,
@@ -244,6 +245,17 @@ const verifyEmail= async(req,res)=>{
     });
   }
   newuser.verified=true;
+  const search_user=await VerificationModel.findOne(process.env.userId);
+  let counter=search_user.ucounter;
+  counter++;
+  await VerificationModel.findByIdAndUpdate(
+    search_user._id,  
+    { $set: { ucounter: counter } },
+    { new: true }  
+  );
+  const currentTime = new Date();
+const lastTwoDigitsOfYear = currentTime.getFullYear().toString().slice(-2);
+ newuser.user_id = "DAVV" + lastTwoDigitsOfYear + counter.toString();
   await VerificationToken.findByIdAndDelete(token._id);
   await newuser.save();
 
@@ -267,7 +279,7 @@ const verifyEmail= async(req,res)=>{
       from: process.env.SMTP_MAIL,
       to: newuser.email,
       subject:"Email Verified Successfully",
-      html:"Email Verified",
+      html:`Email Verified.<br> Here is your Unique Id ${newuser.user_id}`,
     };
   
     // Send email
@@ -329,7 +341,7 @@ const forgotPassword = async (req, res) => {
       from: process.env.SMTP_MAIL,
       to: user.email,
       subject:"Reset Your Password",
-      text:`https://incubation.vercel.app/reset-password/${user._id}/${token}`,
+      text:`http://localhost:5173/reset-password/${user._id}/${token}`,
     };
   
     // Send email
