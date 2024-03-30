@@ -11,7 +11,6 @@ const UserStartupview = () => {
  const { id } = useParams();
  const filteredData = data.filter((i)=> i.email == id)
  const len = filteredData.length;
-  // console.log(filteredData);
   return (
     <div className='outeruser'>
       <div className='portCover'>
@@ -21,9 +20,12 @@ const UserStartupview = () => {
         {filteredData && len >0 ?  (
           filteredData.map((i) => (
             <div className='cardData' key={i._id}>
-            <p className='userdashp'><b>Startup Name :</b> {i.startupName} </p>
+        <p className='userdashp'><b>Registration no :</b> {i.sid} </p>
+        <p className='userdashp'><b>Startup Name :</b> {i.startupName} </p>
         <p className='userdashp'><b>Founder Name :</b> {i.founderName} </p>
         <p className='userdashp'><b>Email :</b> {i.email} </p>
+        <p className='userdashp'><b>Institute:</b> {i.instituteName}</p>
+        <p className='userdashp'><b>Mentor Name:</b> {i.mentorName}</p>
         <p className='userdashp'><b>Mobile Number : </b>{i.mobileNumber} </p>
         <p className='userdashp'><b>Alternate Number :</b> {i.alternateNumber} </p>
         <p className='userdashp'><b>Location :</b> {i.location} </p>

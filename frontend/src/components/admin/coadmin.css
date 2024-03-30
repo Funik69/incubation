@@ -7,7 +7,7 @@
     place-items: center;
     grid-template-columns: norepeat(auto-fill, minmax(250px, 1fr));
     gap: 10px;
-    height: 50vh;
+    height: auto;
   
 }
 .emailinp {

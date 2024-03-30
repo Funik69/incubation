@@ -19,7 +19,7 @@ const InvestorList = () => {
       const filteredInvestor = data.filter(
         (m) =>
           (m.fname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          m.email.toLowerCase().includes(searchQuery.toLowerCase()) )&& m.userType === 'Investor'
+          m.email.toLowerCase().includes(searchQuery.toLowerCase()) )&& m.userType === 'investor'
       );
       return (
             <div>
