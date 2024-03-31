@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const DataSchema = new mongoose.Schema(
   {
+    sid:{
+        type: String,
+        trim:true,
+    },
     startupName:{
         type: String,
         required:true,

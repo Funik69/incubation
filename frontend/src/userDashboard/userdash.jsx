@@ -19,13 +19,14 @@ import { useDataContext } from '../context/DataContext';
     <div className='showdata'>{
       filteredData.map(i=>(
         <div className='cardData' key={i._id}>
+        <p className='userdashp'><b>Registration no :</b> {i.sid} </p>
         <p className='userdashp'><b>Startup Name :</b> {i.startupName} </p>
         <p className='userdashp'><b>Founder Name :</b> {i.founderName} </p>
         <p className='userdashp'><b>Email :</b> {i.email} </p>
         <p className='userdashp'><b>Mobile Number : </b>{i.mobileNumber} </p>
         <p className='userdashp'><b>Alternate Number :</b> {i.alternateNumber} </p>
-        <p className='userdashp'><strong>Institute:</strong> {i.instituteName}</p>
-        <p className='userdashp'><strong>Mentor Name:</strong> {i.mname}</p>
+        <p className='userdashp'><b>Institute:</b> {i.instituteName}</p>
+        <p className='userdashp'><b>Mentor Name:</b> {i.mentorName}</p>
         <p className='userdashp'><b>Location :</b> {i.location} </p>
         <p className='userdashp'><b>State :</b> {i.state} </p>
         <p className='userdashp'><b>Pin Code :</b> {i.pinCode} </p>

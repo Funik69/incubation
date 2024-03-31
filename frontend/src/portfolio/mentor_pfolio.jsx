@@ -19,7 +19,7 @@ return (
         {
             filteredData.map((i) => (
             <div className='card1' key={i._id}>
-            <img src={mentorport} alt='Image' className='startuplogo'></img>
+            <img src={mentorport} alt='Image' style={{aspectRatio: '4/2', objectFit: 'contain', maxWidth: '100%', height: 'auto' }}></img>
             <h2 className="portfolio_heading_">{i.mname}</h2>
             <p className='port_para'><b>Sector of Expertise : </b>{i.msector}</p>
             <p className='port_para'><b>Yrs of Experience : </b>{i.myear}</p>

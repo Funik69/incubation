@@ -4,10 +4,11 @@ require("../models/formDataModel.js");
 const DataModel=mongoose.model("DataModel");
 const app = express();
 const nodemailer = require('nodemailer');
+const verificationToken = require("../models/verificationToken.js");
 
  const DataSaveController = async (req, res) => {
     try {
-      const {  startupName,
+      const { startupName,
       founderName,
       mobileNumber,
       alternateNumber,
@@ -27,8 +28,19 @@ const nodemailer = require('nodemailer');
       ietDavvRights,
       sharewithmentor,
       status,} = req.body;
+    
+      const search_user = await verificationToken.findOne(process.env.UserId);
+      let counter = search_user.scounter;
+      counter++;
+      await verificationToken.findByIdAndUpdate(
+        search_user._id,
+        {$set:{scounter:counter}},
+        {new:true}
+      );
+      const sid = instituteName + founderName.substring(0,2).toUpperCase() + counter.toString();
       
       const formDetail =  new DataModel({
+      sid,
       startupName,
       founderName,
       mobileNumber,

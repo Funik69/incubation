@@ -61,12 +61,12 @@ function Header() {
                 </NavLink>
               </li>
               <li>
-                <div class="dropdown">
+                <div className="dropdown">
                   <div className='dropdiv'>
                     <b>Portfolio</b>
                     <img src={dropdown} alt='Image' className='dropdownimg'></img>
                   </div>
-                  <div class="dropdown-content">
+                  <div className="dropdown-content">
                     <a href="./portfolio"><b>Startup Portfolio</b></a>
                     <a href="./mentorpfolio"><b>Mentor Portfolio</b></a>
                   </div>

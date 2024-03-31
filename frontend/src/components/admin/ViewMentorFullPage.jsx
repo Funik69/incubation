@@ -3,9 +3,30 @@ import { useParams, Link} from 'react-router-dom';
 import { useMentorContext } from '../../context/MentorContext';
 import { MYURL } from '../../../env';
 import axios from 'axios';
+
 const ViewMentorFullPage = () => {
+  const [isAdmin, setIsAdmin] = useState({});
   useEffect(() => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    const tokenData = localStorage.getItem("auth");
+  const val = JSON.parse(tokenData)
+  //const mail=val.user.email;
+  const mail = val && val.user ? val.user.email : '';
+  
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${MYURL}api/v1/auth/user/${mail}`);
+        const adminStatus = response.data.user.perm;
+        setIsAdmin(adminStatus);
+
+        // ... (existing code)
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        // Handle error accordingly, e.g., redirect to login page or display an error message
+      }
+    };
+
+    fetchData();
   }, []);
   const { id } = useParams();
   const { data, setData } = useMentorContext();
@@ -68,7 +89,7 @@ const ViewMentorFullPage = () => {
           <div className='card-item'><strong>Link:</strong> {item.mlink}</div>
           <hr></hr>
             
-            {
+            {isAdmin && isAdmin.nine == '2' &&
               !showConfirmation?(<div className="decisionButton">
             <button className="Abtn" onClick={handleAccept}>
               Accept
@@ -79,7 +100,7 @@ const ViewMentorFullPage = () => {
           </div>):(<p></p>)
             }
 
-          {showConfirmation && (
+          {isAdmin && isAdmin.nine == '2' && showConfirmation && (
             <div className="confirmation-dialog">
               <p><b>Are you sure you want to proceed?</b></p>{
                 agree && <button className="Abtn" onClick={confirmAccept}><Link to='/mentor_application'>Accept</Link></button> }

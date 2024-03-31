@@ -7,18 +7,17 @@ import { MYURL } from '../../../env';
 import { MdDelete } from "react-icons/md";
 
 const UserList = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState({});
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   const tokenDatad = localStorage.getItem("auth");
   const valt = JSON.parse(tokenDatad)
   //const mail=val.user.email;
   const mails = valt && valt.user ? valt.user.email : '';
-  console.log(mails);
     const fetchData = async () => {
       try {
         const response = await axios.get(`${MYURL}api/v1/auth/user/${mails}`);
-        const adminStatus = response.data.user.userType === 'Admin';
+        const adminStatus = response.data.user.perm;
         setIsAdmin(adminStatus);
 
         // ... (existing code)
@@ -99,7 +98,7 @@ const UserList = () => {
               <th>Email</th>
               <th>Verified</th>
               <th>View Startup</th>
-              {isAdmin && <th>Delete Startup</th>}
+              {isAdmin && isAdmin.four == '2' && <th>Delete Startup</th>}
             </tr>
           </thead>
           <tbody>
@@ -109,9 +108,9 @@ const UserList = () => {
                 <td>{i.email}</td>
                 <td>{i.verified==1?'Yes':'No'}</td>
                 <td><Link to={`/viewUserStartup/${i.email}`}><u>View</u></Link></td>
-                {isAdmin && <td>
-  <button class="delete-button" onClick={() => handleSubmit(i._id)}>
-    <MdDelete class="delete-icon" />
+                {isAdmin && isAdmin.four == '2' && <td>
+  <button className="delete-button" onClick={() => handleSubmit(i._id)}>
+    <MdDelete className="delete-icon" />
   </button>
 </td>
 }

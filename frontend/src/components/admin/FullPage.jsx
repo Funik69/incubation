@@ -5,7 +5,7 @@ import axios from 'axios';
 import { MYURL } from '../../../env';
 
 const FullPage = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState({});
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   const tokenDatad = localStorage.getItem("auth");
@@ -15,7 +15,7 @@ const FullPage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${MYURL}api/v1/auth/user/${mails}`);
-        const adminStatus = response.data.user.userType === 'Admin';
+        const adminStatus = response.data.user.perm;
         setIsAdmin(adminStatus);
 
         // ... (existing code)
@@ -87,6 +87,7 @@ const FullPage = () => {
       {filteredData.map((item) => (
         <div className="cardData" key={item._id}>
         <div className='portCover'><h1>{item.startupName}</h1></div>
+        <div className='card-item'><strong>Registration no:</strong> {item.sid}</div>
           <div className='card-item'><strong>Founder Name:</strong> {item.founderName}</div>
           <div className='card-item'><strong>Mobile Number:</strong> {item.mobileNumber}</div>
           <div className='card-item'><strong>Alternate Number:</strong> {item.alternateNumber}</div>
@@ -111,7 +112,7 @@ const FullPage = () => {
             </a>
             <hr></hr>
             
-            {isAdmin &&
+            {isAdmin && isAdmin.one == '2' && 
               !showConfirmation?(<div className="decisionButton">
             <button className="Abtn" onClick={handleAccept}>
               Accept
@@ -122,7 +123,7 @@ const FullPage = () => {
           </div>):(<p></p>)
             }
 
-          {showConfirmation && (
+          {isAdmin && isAdmin.one=='2' && showConfirmation && (
             <div className="confirmation-dialog">
               <p><b>Are you sure you want to proceed?</b></p>{
                 agree && <button className="Abtn" onClick={confirmAccept}><Link to='/fetch'>Accept</Link></button> }
