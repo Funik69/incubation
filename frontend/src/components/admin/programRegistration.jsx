@@ -32,8 +32,8 @@ const ProgramRegistration = () => {
     
 
   return (
-    <>
-        <div className="form-container">
+    <div >
+        <div className="border-box" >
         <form  ref={formRef} onSubmit={handleSubmit} name="google-sheet">
         <div className="input-style">
             <label htmlFor='name'>Name</label><br></br>
@@ -64,7 +64,7 @@ const ProgramRegistration = () => {
         </div> 
         </form>
         </div>
-    </>  
+    </div>  
   )
 }
 

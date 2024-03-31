@@ -78,7 +78,7 @@ try {
       try {
         const checkData = await InvestModel.findById(req.params._id);
         const data = await InvestModel.findByIdAndUpdate(req.params._id, { status: 'accepted' }, { new: true });
-        const value = await userModel.findOneAndUpdate({ email: checkData.iemail }, { userType: 'mentor' }, { new: true });
+        const value = await userModel.findOneAndUpdate({ email: checkData.iemail }, { userType: 'Investor' }, { new: true });
 
         console.log(data);
         console.log(value);

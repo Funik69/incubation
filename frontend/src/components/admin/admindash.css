@@ -18,8 +18,8 @@
 }
 
 #admin_pic {
-  width: 100px; /* Adjust the size as needed */
-  height: 100px; /* Adjust the size as needed */
+  width: 200px; /* Adjust the size as needed */
+  height: 200px; /* Adjust the size as needed */
   border-radius: 50%;
 }
 
@@ -69,4 +69,7 @@
   .card_block {
     width: 100%; /* Display cards in a single column on smaller screens */
   }
+}
+.gotohere {
+  color:rgb(37, 37, 42);
 }

@@ -5,7 +5,7 @@ import axios from 'axios'
 import { MYURL } from '../../../env'
 
 const Singlepage = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState({});
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   const tokenData = localStorage.getItem("auth");
@@ -16,7 +16,7 @@ const Singlepage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${MYURL}api/v1/auth/user/${mail}`);
-        const adminStatus = response.data.user.userType === 'Admin';
+        const adminStatus = response.data.user.perm;
         setIsAdmin(adminStatus);
 
         // ... (existing code)
@@ -65,6 +65,7 @@ const Singlepage = () => {
     {filteredData.map(item => (
     <div className='cardData' key={item._id}>
     <div className='portCover'><h1>{item.startupName}</h1></div>
+      <div className='card-item'><strong>Registartion no: </strong> {item.sid}</div>
       <div className='card-item'><strong>Founder Name:</strong> {item.founderName}</div>
       <div className='card-item'><strong>Mobile Number:</strong> {item.mobileNumber}</div>
       <div className='card-item'><strong>Alternate Number:</strong> {item.alternateNumber}</div>
@@ -88,12 +89,12 @@ const Singlepage = () => {
           LinkedIn
         </a>
         <br></br><br></br>
-        {isAdmin &&
+        {isAdmin && isAdmin.two =='2' &&
           item.status=="accepted"?(<div className='decisionButton'>
             <button className='Abtn' onClick={handleUnRegister}>UnRegister</button>
           </div>):(<p></p>)
         }
-        {isAdmin &&
+        {isAdmin && isAdmin.three == '2' &&
           item.status=="Inactive"?(<div className='decisionButton'>
             <button className='Abtn' onClick={handleReRegister}>Re-Register</button>
           </div>):(<p></p>)

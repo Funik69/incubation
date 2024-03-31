@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 60px;
+    padding:2%;
     
   }
   .portCover{
@@ -36,4 +37,6 @@
       grid-template-columns: 1fr;
     }
   }
-  
+.port_para {
+  color: #0d0254;
+}

@@ -51,7 +51,7 @@ function Mentor() {
                     </div>
                     <div>
                     <label className="mcheck">
-                        <input type="checkbox" name="mrights"  checked onClick={() => alert("Please agree to our terms and conditions inorder to continue")} required/>
+                        <input type="checkbox" name="mrights"  defaultChecked onClick={() => alert("Please agree to our terms and conditions inorder to continue")} required/>
                             I agree to the terms and conditions.
                     </label>
                     </div>

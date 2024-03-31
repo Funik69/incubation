@@ -8,19 +8,19 @@ function About() {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   return (
-    <div class="about-container">
-  <div class="aboutcover">
+    <div className="about-container">
+  <div className="aboutcover">
     <h1>About</h1>
   </div>
-  <div class="title-outer">
-    <div class="title-image">
-      <img class="image-top" src={backi} alt="Incubation Center" />
+  <div className="title-outer">
+    <div className="title-image">
+      <img className="image-top" src={backi} alt="Incubation Center" />
     </div>
     {/* <div class="title-text">
       <h2 class="headincub">Incubation Center</h2>
     </div> */}
   </div>
-  <div class="about-info">
+  <div className="about-info">
     <h1 className="about_heading_us">About Us</h1>
     <p className="about_content">
       The Incubation Centre (IC) at DAVV is a result of collaboration between
@@ -37,12 +37,12 @@ function About() {
       It is registered as IC-DAVV society under the Society Act.
     </p>
 
-    <div class="about-img">
-      <img class="image-incubation" src={sides} alt="Incubation Center" />
+    <div className="about-img">
+      <img className="image-incubation" src={sides} alt="Incubation Center" />
     </div>
   </div>
-  <div class="about-sec">
-    <div class="about-info">
+  <div className="about-sec">
+    <div className="about-info">
       <h1 className="about_heading_us">VISION</h1>
       <p className="about_content">
         Be the leading technology business incubator in the country for the
@@ -50,7 +50,7 @@ function About() {
         reach great heights.
       </p>
     </div>
-    <div class="about-info">
+    <div className="about-info">
       <h1 className="about_heading_us">OBJECTIVE</h1>
       <p className="about_content">
         Identify, nurture, and translate technology ideas and innovation in the

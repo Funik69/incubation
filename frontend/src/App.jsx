@@ -50,6 +50,11 @@ import InvestorRequests from './components/admin/InvestorRequests'
 import ViewMentorFullPage from './components/admin/ViewMentorFullPage'
 import { InvestorProvider } from './context/InvestorContext'
 import ViewInvestorFullPage from './components/admin/ViewInvestorFullPage'
+import Mentordash from './mentorDashboard/mentordash'
+import Mentorprofile from './mentorDashboard/mentorprofile'
+import Investorprofile from './Investor Dashboard/investorprofile'
+import Investordash from './Investor Dashboard/investordash'
+import Mentorpfolio from './portfolio/mentor_pfolio'
 
 function App() {
     return (
@@ -105,7 +110,11 @@ function App() {
           <Route path='/investor_application' element = {<InvestorRequests />} />
           <Route path='/view_mentor_application/:id' element = {<ViewMentorFullPage />} />
           <Route path='/view_investor_application/:id' element = {<ViewInvestorFullPage />} />
-
+          <Route path='/mentorprofile' element = {<Mentordash /> } />
+          <Route path='/mentordash' element = {<Mentorprofile />} />
+          <Route path='/investordash' element = {<Investorprofile />} />
+          <Route path='/investorprofile' element = {<Investordash /> } />
+          <Route path='/mentorpfolio' element = {<Mentorpfolio />} />
           </Routes>
           </AlertProvider>
           </AuthProvider>

@@ -20,8 +20,8 @@ return (
             <div className='card1' key={i._id}>
             <img src={image} alt='Image' className='startuplogo'></img>
             <h2 className="portfolio_heading_">{i.startupName}</h2>
-            <p>{i.businessIdea}</p>
-            <p>founded by {i.founderName}</p>
+            <p className='port_para'><b>Idea : </b>{i.businessIdea}</p>
+            <p className='port_para'><b>Founded by : </b>{i.founderName}</p>
         </div>
             ))
         }

@@ -393,7 +393,7 @@ function StartupForm() {
               </div>
 
               <div>
-                <label className="lbl" htmlFor="alternateNumber" id="req">
+                <label className="lbl" htmlFor="alternateNumber">
                   Alternate Number
                 </label>
                 <br></br>
@@ -430,7 +430,7 @@ function StartupForm() {
                   <option value="" disabled>
                     Select Institute
                   </option>
-                  <option value="IET DAVV">IET DAVV</option>
+                  <option value="IET">IET DAVV</option>
                   <option value="SCSIT">SCSIT</option>
                   <option value="IIPS">IIPS</option>
                 </select>
@@ -481,7 +481,7 @@ function StartupForm() {
                   placeholder="Enter mail address "
                   id="email"
                   name="email"
-                  disabled="true"
+                  disabled={true}
                   value={formData.email}
                   onChange={handleChange}
                   required

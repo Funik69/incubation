@@ -570,10 +570,10 @@ const forgotPassword = async (req, res) => {
 // Update user type
 const updateUserType = async (req, res) => {
   try {
-    const { email, userType } = req.body;
+    const { email, perm } = req.body;
 
     // Check if email and userType are provided
-    if (!email || !userType) {
+    if (!email) {
       return res.status(400).send({
         success: false,
         message: "Email and userType are required",
@@ -583,7 +583,7 @@ const updateUserType = async (req, res) => {
     // Find the user by email
     const user = await userModel.findOne({ email });
 
-    // Check if the user exists
+    // Check if the user not exists
     if (!user) {
       return res.status(404).send({
         success: false,
@@ -592,7 +592,8 @@ const updateUserType = async (req, res) => {
     }
 
     // Update the userType
-    user.userType = userType;
+    user.perm = perm;
+    user.userType = 'coadmin';
 
     // Save the updated user
     await user.save();
