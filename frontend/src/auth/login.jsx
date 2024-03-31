@@ -38,7 +38,7 @@ const login = () => {
       }
     } catch (error) {
       console.log(error);
-      alert("Invalid User mailId");
+      alert(error);
       toast.error("Something went wrong");
     }
   };

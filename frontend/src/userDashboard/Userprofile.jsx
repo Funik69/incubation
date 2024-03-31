@@ -29,6 +29,9 @@ const Userprofile = () => {
               <img src={Profile_pic} id='admin_pic' alt='User_Profile_Pic'></img>
           </li>
           <li>
+              <h3>{i.user_id}</h3>
+          </li>
+          <li>
                <h2>{i.fname} {i.lname}</h2><br></br>
           </li>
           <li>
