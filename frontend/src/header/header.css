@@ -177,4 +177,5 @@ ul {
 }
 .dropdiv {
   display: flex;
+  padding-left: 25%;
 }
