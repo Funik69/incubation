@@ -101,6 +101,9 @@ ul {
 .links ul li {
     margin-left: auto;
   }
+.dropdiv {
+  padding-left: 25%;
+}
 }
 .logo1{
   mix-blend-mode: multiply;
@@ -177,5 +180,4 @@ ul {
 }
 .dropdiv {
   display: flex;
-  padding-left: 25%;
 }
